@@ -1,0 +1,4300 @@
+{
+    "id": "2182",
+    "identity": {
+        "ancestor_ids": [
+            "1600",
+            "1528"
+        ],
+        "error": null,
+        "experiment_version": "jenkinsfull.dl.weekend.fresh.chestxray.21",
+        "id": "2182",
+        "unique_id": "2182"
+    },
+    "interpretation": {
+        "description": {
+            "toolkit": "Keras"
+        },
+        "global_hyperparameters": {
+            "id": "2182",
+            "learning_rate": 0.00015683484927109815
+        },
+        "model": {
+            "backend": "tensorflow",
+            "class_name": "Functional",
+            "config": {
+                "input_layers": [
+                    [
+                        "input_task_00_term_00",
+                        0,
+                        0
+                    ],
+                    [
+                        "input_task_01_term_00",
+                        0,
+                        0
+                    ],
+                    [
+                        "input_task_02_term_00",
+                        0,
+                        0
+                    ],
+                    [
+                        "input_task_03_term_00",
+                        0,
+                        0
+                    ],
+                    [
+                        "input_task_04_term_00",
+                        0,
+                        0
+                    ],
+                    [
+                        "input_task_05_term_00",
+                        0,
+                        0
+                    ],
+                    [
+                        "input_task_06_term_00",
+                        0,
+                        0
+                    ],
+                    [
+                        "input_task_07_term_00",
+                        0,
+                        0
+                    ],
+                    [
+                        "input_task_08_term_00",
+                        0,
+                        0
+                    ],
+                    [
+                        "input_task_09_term_00",
+                        0,
+                        0
+                    ],
+                    [
+                        "input_task_10_term_00",
+                        0,
+                        0
+                    ],
+                    [
+                        "input_task_11_term_00",
+                        0,
+                        0
+                    ],
+                    [
+                        "input_task_12_term_00",
+                        0,
+                        0
+                    ],
+                    [
+                        "input_task_13_term_00",
+                        0,
+                        0
+                    ]
+                ],
+                "layers": [
+                    {
+                        "class_name": "InputLayer",
+                        "config": {
+                            "batch_input_shape": [
+                                null,
+                                224,
+                                224,
+                                3
+                            ],
+                            "dtype": "float32",
+                            "name": "input_task_00_term_00",
+                            "ragged": false,
+                            "sparse": false
+                        },
+                        "inbound_nodes": [],
+                        "name": "input_task_00_term_00"
+                    },
+                    {
+                        "class_name": "InputLayer",
+                        "config": {
+                            "batch_input_shape": [
+                                null,
+                                224,
+                                224,
+                                3
+                            ],
+                            "dtype": "float32",
+                            "name": "input_task_01_term_00",
+                            "ragged": false,
+                            "sparse": false
+                        },
+                        "inbound_nodes": [],
+                        "name": "input_task_01_term_00"
+                    },
+                    {
+                        "class_name": "InputLayer",
+                        "config": {
+                            "batch_input_shape": [
+                                null,
+                                224,
+                                224,
+                                3
+                            ],
+                            "dtype": "float32",
+                            "name": "input_task_02_term_00",
+                            "ragged": false,
+                            "sparse": false
+                        },
+                        "inbound_nodes": [],
+                        "name": "input_task_02_term_00"
+                    },
+                    {
+                        "class_name": "InputLayer",
+                        "config": {
+                            "batch_input_shape": [
+                                null,
+                                224,
+                                224,
+                                3
+                            ],
+                            "dtype": "float32",
+                            "name": "input_task_03_term_00",
+                            "ragged": false,
+                            "sparse": false
+                        },
+                        "inbound_nodes": [],
+                        "name": "input_task_03_term_00"
+                    },
+                    {
+                        "class_name": "InputLayer",
+                        "config": {
+                            "batch_input_shape": [
+                                null,
+                                224,
+                                224,
+                                3
+                            ],
+                            "dtype": "float32",
+                            "name": "input_task_04_term_00",
+                            "ragged": false,
+                            "sparse": false
+                        },
+                        "inbound_nodes": [],
+                        "name": "input_task_04_term_00"
+                    },
+                    {
+                        "class_name": "InputLayer",
+                        "config": {
+                            "batch_input_shape": [
+                                null,
+                                224,
+                                224,
+                                3
+                            ],
+                            "dtype": "float32",
+                            "name": "input_task_05_term_00",
+                            "ragged": false,
+                            "sparse": false
+                        },
+                        "inbound_nodes": [],
+                        "name": "input_task_05_term_00"
+                    },
+                    {
+                        "class_name": "InputLayer",
+                        "config": {
+                            "batch_input_shape": [
+                                null,
+                                224,
+                                224,
+                                3
+                            ],
+                            "dtype": "float32",
+                            "name": "input_task_06_term_00",
+                            "ragged": false,
+                            "sparse": false
+                        },
+                        "inbound_nodes": [],
+                        "name": "input_task_06_term_00"
+                    },
+                    {
+                        "class_name": "InputLayer",
+                        "config": {
+                            "batch_input_shape": [
+                                null,
+                                224,
+                                224,
+                                3
+                            ],
+                            "dtype": "float32",
+                            "name": "input_task_07_term_00",
+                            "ragged": false,
+                            "sparse": false
+                        },
+                        "inbound_nodes": [],
+                        "name": "input_task_07_term_00"
+                    },
+                    {
+                        "class_name": "InputLayer",
+                        "config": {
+                            "batch_input_shape": [
+                                null,
+                                224,
+                                224,
+                                3
+                            ],
+                            "dtype": "float32",
+                            "name": "input_task_08_term_00",
+                            "ragged": false,
+                            "sparse": false
+                        },
+                        "inbound_nodes": [],
+                        "name": "input_task_08_term_00"
+                    },
+                    {
+                        "class_name": "InputLayer",
+                        "config": {
+                            "batch_input_shape": [
+                                null,
+                                224,
+                                224,
+                                3
+                            ],
+                            "dtype": "float32",
+                            "name": "input_task_09_term_00",
+                            "ragged": false,
+                            "sparse": false
+                        },
+                        "inbound_nodes": [],
+                        "name": "input_task_09_term_00"
+                    },
+                    {
+                        "class_name": "InputLayer",
+                        "config": {
+                            "batch_input_shape": [
+                                null,
+                                224,
+                                224,
+                                3
+                            ],
+                            "dtype": "float32",
+                            "name": "input_task_10_term_00",
+                            "ragged": false,
+                            "sparse": false
+                        },
+                        "inbound_nodes": [],
+                        "name": "input_task_10_term_00"
+                    },
+                    {
+                        "class_name": "InputLayer",
+                        "config": {
+                            "batch_input_shape": [
+                                null,
+                                224,
+                                224,
+                                3
+                            ],
+                            "dtype": "float32",
+                            "name": "input_task_11_term_00",
+                            "ragged": false,
+                            "sparse": false
+                        },
+                        "inbound_nodes": [],
+                        "name": "input_task_11_term_00"
+                    },
+                    {
+                        "class_name": "InputLayer",
+                        "config": {
+                            "batch_input_shape": [
+                                null,
+                                224,
+                                224,
+                                3
+                            ],
+                            "dtype": "float32",
+                            "name": "input_task_12_term_00",
+                            "ragged": false,
+                            "sparse": false
+                        },
+                        "inbound_nodes": [],
+                        "name": "input_task_12_term_00"
+                    },
+                    {
+                        "class_name": "InputLayer",
+                        "config": {
+                            "batch_input_shape": [
+                                null,
+                                224,
+                                224,
+                                3
+                            ],
+                            "dtype": "float32",
+                            "name": "input_task_13_term_00",
+                            "ragged": false,
+                            "sparse": false
+                        },
+                        "inbound_nodes": [],
+                        "name": "input_task_13_term_00"
+                    },
+                    {
+                        "class_name": "Reshape",
+                        "config": {
+                            "dtype": "float32",
+                            "name": "reshape1_enc_task_00_term_00",
+                            "target_shape": [
+                                224,
+                                224,
+                                3,
+                                1
+                            ],
+                            "trainable": true
+                        },
+                        "inbound_nodes": [
+                            [
+                                [
+                                    "input_task_00_term_00",
+                                    0,
+                                    0,
+                                    {}
+                                ]
+                            ]
+                        ],
+                        "name": "reshape1_enc_task_00_term_00"
+                    },
+                    {
+                        "class_name": "Reshape",
+                        "config": {
+                            "dtype": "float32",
+                            "name": "reshape1_enc_task_01_term_00",
+                            "target_shape": [
+                                224,
+                                224,
+                                3,
+                                1
+                            ],
+                            "trainable": true
+                        },
+                        "inbound_nodes": [
+                            [
+                                [
+                                    "input_task_01_term_00",
+                                    0,
+                                    0,
+                                    {}
+                                ]
+                            ]
+                        ],
+                        "name": "reshape1_enc_task_01_term_00"
+                    },
+                    {
+                        "class_name": "Reshape",
+                        "config": {
+                            "dtype": "float32",
+                            "name": "reshape1_enc_task_02_term_00",
+                            "target_shape": [
+                                224,
+                                224,
+                                3,
+                                1
+                            ],
+                            "trainable": true
+                        },
+                        "inbound_nodes": [
+                            [
+                                [
+                                    "input_task_02_term_00",
+                                    0,
+                                    0,
+                                    {}
+                                ]
+                            ]
+                        ],
+                        "name": "reshape1_enc_task_02_term_00"
+                    },
+                    {
+                        "class_name": "Reshape",
+                        "config": {
+                            "dtype": "float32",
+                            "name": "reshape1_enc_task_03_term_00",
+                            "target_shape": [
+                                224,
+                                224,
+                                3,
+                                1
+                            ],
+                            "trainable": true
+                        },
+                        "inbound_nodes": [
+                            [
+                                [
+                                    "input_task_03_term_00",
+                                    0,
+                                    0,
+                                    {}
+                                ]
+                            ]
+                        ],
+                        "name": "reshape1_enc_task_03_term_00"
+                    },
+                    {
+                        "class_name": "Reshape",
+                        "config": {
+                            "dtype": "float32",
+                            "name": "reshape1_enc_task_04_term_00",
+                            "target_shape": [
+                                224,
+                                224,
+                                3,
+                                1
+                            ],
+                            "trainable": true
+                        },
+                        "inbound_nodes": [
+                            [
+                                [
+                                    "input_task_04_term_00",
+                                    0,
+                                    0,
+                                    {}
+                                ]
+                            ]
+                        ],
+                        "name": "reshape1_enc_task_04_term_00"
+                    },
+                    {
+                        "class_name": "Reshape",
+                        "config": {
+                            "dtype": "float32",
+                            "name": "reshape1_enc_task_05_term_00",
+                            "target_shape": [
+                                224,
+                                224,
+                                3,
+                                1
+                            ],
+                            "trainable": true
+                        },
+                        "inbound_nodes": [
+                            [
+                                [
+                                    "input_task_05_term_00",
+                                    0,
+                                    0,
+                                    {}
+                                ]
+                            ]
+                        ],
+                        "name": "reshape1_enc_task_05_term_00"
+                    },
+                    {
+                        "class_name": "Reshape",
+                        "config": {
+                            "dtype": "float32",
+                            "name": "reshape1_enc_task_06_term_00",
+                            "target_shape": [
+                                224,
+                                224,
+                                3,
+                                1
+                            ],
+                            "trainable": true
+                        },
+                        "inbound_nodes": [
+                            [
+                                [
+                                    "input_task_06_term_00",
+                                    0,
+                                    0,
+                                    {}
+                                ]
+                            ]
+                        ],
+                        "name": "reshape1_enc_task_06_term_00"
+                    },
+                    {
+                        "class_name": "Reshape",
+                        "config": {
+                            "dtype": "float32",
+                            "name": "reshape1_enc_task_07_term_00",
+                            "target_shape": [
+                                224,
+                                224,
+                                3,
+                                1
+                            ],
+                            "trainable": true
+                        },
+                        "inbound_nodes": [
+                            [
+                                [
+                                    "input_task_07_term_00",
+                                    0,
+                                    0,
+                                    {}
+                                ]
+                            ]
+                        ],
+                        "name": "reshape1_enc_task_07_term_00"
+                    },
+                    {
+                        "class_name": "Reshape",
+                        "config": {
+                            "dtype": "float32",
+                            "name": "reshape1_enc_task_08_term_00",
+                            "target_shape": [
+                                224,
+                                224,
+                                3,
+                                1
+                            ],
+                            "trainable": true
+                        },
+                        "inbound_nodes": [
+                            [
+                                [
+                                    "input_task_08_term_00",
+                                    0,
+                                    0,
+                                    {}
+                                ]
+                            ]
+                        ],
+                        "name": "reshape1_enc_task_08_term_00"
+                    },
+                    {
+                        "class_name": "Reshape",
+                        "config": {
+                            "dtype": "float32",
+                            "name": "reshape1_enc_task_09_term_00",
+                            "target_shape": [
+                                224,
+                                224,
+                                3,
+                                1
+                            ],
+                            "trainable": true
+                        },
+                        "inbound_nodes": [
+                            [
+                                [
+                                    "input_task_09_term_00",
+                                    0,
+                                    0,
+                                    {}
+                                ]
+                            ]
+                        ],
+                        "name": "reshape1_enc_task_09_term_00"
+                    },
+                    {
+                        "class_name": "Reshape",
+                        "config": {
+                            "dtype": "float32",
+                            "name": "reshape1_enc_task_10_term_00",
+                            "target_shape": [
+                                224,
+                                224,
+                                3,
+                                1
+                            ],
+                            "trainable": true
+                        },
+                        "inbound_nodes": [
+                            [
+                                [
+                                    "input_task_10_term_00",
+                                    0,
+                                    0,
+                                    {}
+                                ]
+                            ]
+                        ],
+                        "name": "reshape1_enc_task_10_term_00"
+                    },
+                    {
+                        "class_name": "Reshape",
+                        "config": {
+                            "dtype": "float32",
+                            "name": "reshape1_enc_task_11_term_00",
+                            "target_shape": [
+                                224,
+                                224,
+                                3,
+                                1
+                            ],
+                            "trainable": true
+                        },
+                        "inbound_nodes": [
+                            [
+                                [
+                                    "input_task_11_term_00",
+                                    0,
+                                    0,
+                                    {}
+                                ]
+                            ]
+                        ],
+                        "name": "reshape1_enc_task_11_term_00"
+                    },
+                    {
+                        "class_name": "Reshape",
+                        "config": {
+                            "dtype": "float32",
+                            "name": "reshape1_enc_task_12_term_00",
+                            "target_shape": [
+                                224,
+                                224,
+                                3,
+                                1
+                            ],
+                            "trainable": true
+                        },
+                        "inbound_nodes": [
+                            [
+                                [
+                                    "input_task_12_term_00",
+                                    0,
+                                    0,
+                                    {}
+                                ]
+                            ]
+                        ],
+                        "name": "reshape1_enc_task_12_term_00"
+                    },
+                    {
+                        "class_name": "Reshape",
+                        "config": {
+                            "dtype": "float32",
+                            "name": "reshape1_enc_task_13_term_00",
+                            "target_shape": [
+                                224,
+                                224,
+                                3,
+                                1
+                            ],
+                            "trainable": true
+                        },
+                        "inbound_nodes": [
+                            [
+                                [
+                                    "input_task_13_term_00",
+                                    0,
+                                    0,
+                                    {}
+                                ]
+                            ]
+                        ],
+                        "name": "reshape1_enc_task_13_term_00"
+                    },
+                    {
+                        "class_name": "ZeroPadding3D",
+                        "config": {
+                            "data_format": "channels_last",
+                            "dtype": "float32",
+                            "name": "zero_padding3d_1120",
+                            "padding": [
+                                [
+                                    0,
+                                    0
+                                ],
+                                [
+                                    0,
+                                    0
+                                ],
+                                [
+                                    0,
+                                    54
+                                ]
+                            ],
+                            "trainable": true
+                        },
+                        "inbound_nodes": [
+                            [
+                                [
+                                    "reshape1_enc_task_00_term_00",
+                                    0,
+                                    0,
+                                    {}
+                                ]
+                            ]
+                        ],
+                        "name": "zero_padding3d_1120"
+                    },
+                    {
+                        "class_name": "ZeroPadding3D",
+                        "config": {
+                            "data_format": "channels_last",
+                            "dtype": "float32",
+                            "name": "zero_padding3d_1121",
+                            "padding": [
+                                [
+                                    0,
+                                    0
+                                ],
+                                [
+                                    0,
+                                    0
+                                ],
+                                [
+                                    0,
+                                    54
+                                ]
+                            ],
+                            "trainable": true
+                        },
+                        "inbound_nodes": [
+                            [
+                                [
+                                    "reshape1_enc_task_01_term_00",
+                                    0,
+                                    0,
+                                    {}
+                                ]
+                            ]
+                        ],
+                        "name": "zero_padding3d_1121"
+                    },
+                    {
+                        "class_name": "ZeroPadding3D",
+                        "config": {
+                            "data_format": "channels_last",
+                            "dtype": "float32",
+                            "name": "zero_padding3d_1122",
+                            "padding": [
+                                [
+                                    0,
+                                    0
+                                ],
+                                [
+                                    0,
+                                    0
+                                ],
+                                [
+                                    0,
+                                    54
+                                ]
+                            ],
+                            "trainable": true
+                        },
+                        "inbound_nodes": [
+                            [
+                                [
+                                    "reshape1_enc_task_02_term_00",
+                                    0,
+                                    0,
+                                    {}
+                                ]
+                            ]
+                        ],
+                        "name": "zero_padding3d_1122"
+                    },
+                    {
+                        "class_name": "ZeroPadding3D",
+                        "config": {
+                            "data_format": "channels_last",
+                            "dtype": "float32",
+                            "name": "zero_padding3d_1123",
+                            "padding": [
+                                [
+                                    0,
+                                    0
+                                ],
+                                [
+                                    0,
+                                    0
+                                ],
+                                [
+                                    0,
+                                    54
+                                ]
+                            ],
+                            "trainable": true
+                        },
+                        "inbound_nodes": [
+                            [
+                                [
+                                    "reshape1_enc_task_03_term_00",
+                                    0,
+                                    0,
+                                    {}
+                                ]
+                            ]
+                        ],
+                        "name": "zero_padding3d_1123"
+                    },
+                    {
+                        "class_name": "ZeroPadding3D",
+                        "config": {
+                            "data_format": "channels_last",
+                            "dtype": "float32",
+                            "name": "zero_padding3d_1124",
+                            "padding": [
+                                [
+                                    0,
+                                    0
+                                ],
+                                [
+                                    0,
+                                    0
+                                ],
+                                [
+                                    0,
+                                    54
+                                ]
+                            ],
+                            "trainable": true
+                        },
+                        "inbound_nodes": [
+                            [
+                                [
+                                    "reshape1_enc_task_04_term_00",
+                                    0,
+                                    0,
+                                    {}
+                                ]
+                            ]
+                        ],
+                        "name": "zero_padding3d_1124"
+                    },
+                    {
+                        "class_name": "ZeroPadding3D",
+                        "config": {
+                            "data_format": "channels_last",
+                            "dtype": "float32",
+                            "name": "zero_padding3d_1125",
+                            "padding": [
+                                [
+                                    0,
+                                    0
+                                ],
+                                [
+                                    0,
+                                    0
+                                ],
+                                [
+                                    0,
+                                    54
+                                ]
+                            ],
+                            "trainable": true
+                        },
+                        "inbound_nodes": [
+                            [
+                                [
+                                    "reshape1_enc_task_05_term_00",
+                                    0,
+                                    0,
+                                    {}
+                                ]
+                            ]
+                        ],
+                        "name": "zero_padding3d_1125"
+                    },
+                    {
+                        "class_name": "ZeroPadding3D",
+                        "config": {
+                            "data_format": "channels_last",
+                            "dtype": "float32",
+                            "name": "zero_padding3d_1126",
+                            "padding": [
+                                [
+                                    0,
+                                    0
+                                ],
+                                [
+                                    0,
+                                    0
+                                ],
+                                [
+                                    0,
+                                    54
+                                ]
+                            ],
+                            "trainable": true
+                        },
+                        "inbound_nodes": [
+                            [
+                                [
+                                    "reshape1_enc_task_06_term_00",
+                                    0,
+                                    0,
+                                    {}
+                                ]
+                            ]
+                        ],
+                        "name": "zero_padding3d_1126"
+                    },
+                    {
+                        "class_name": "ZeroPadding3D",
+                        "config": {
+                            "data_format": "channels_last",
+                            "dtype": "float32",
+                            "name": "zero_padding3d_1127",
+                            "padding": [
+                                [
+                                    0,
+                                    0
+                                ],
+                                [
+                                    0,
+                                    0
+                                ],
+                                [
+                                    0,
+                                    54
+                                ]
+                            ],
+                            "trainable": true
+                        },
+                        "inbound_nodes": [
+                            [
+                                [
+                                    "reshape1_enc_task_07_term_00",
+                                    0,
+                                    0,
+                                    {}
+                                ]
+                            ]
+                        ],
+                        "name": "zero_padding3d_1127"
+                    },
+                    {
+                        "class_name": "ZeroPadding3D",
+                        "config": {
+                            "data_format": "channels_last",
+                            "dtype": "float32",
+                            "name": "zero_padding3d_1128",
+                            "padding": [
+                                [
+                                    0,
+                                    0
+                                ],
+                                [
+                                    0,
+                                    0
+                                ],
+                                [
+                                    0,
+                                    54
+                                ]
+                            ],
+                            "trainable": true
+                        },
+                        "inbound_nodes": [
+                            [
+                                [
+                                    "reshape1_enc_task_08_term_00",
+                                    0,
+                                    0,
+                                    {}
+                                ]
+                            ]
+                        ],
+                        "name": "zero_padding3d_1128"
+                    },
+                    {
+                        "class_name": "ZeroPadding3D",
+                        "config": {
+                            "data_format": "channels_last",
+                            "dtype": "float32",
+                            "name": "zero_padding3d_1129",
+                            "padding": [
+                                [
+                                    0,
+                                    0
+                                ],
+                                [
+                                    0,
+                                    0
+                                ],
+                                [
+                                    0,
+                                    54
+                                ]
+                            ],
+                            "trainable": true
+                        },
+                        "inbound_nodes": [
+                            [
+                                [
+                                    "reshape1_enc_task_09_term_00",
+                                    0,
+                                    0,
+                                    {}
+                                ]
+                            ]
+                        ],
+                        "name": "zero_padding3d_1129"
+                    },
+                    {
+                        "class_name": "ZeroPadding3D",
+                        "config": {
+                            "data_format": "channels_last",
+                            "dtype": "float32",
+                            "name": "zero_padding3d_1130",
+                            "padding": [
+                                [
+                                    0,
+                                    0
+                                ],
+                                [
+                                    0,
+                                    0
+                                ],
+                                [
+                                    0,
+                                    54
+                                ]
+                            ],
+                            "trainable": true
+                        },
+                        "inbound_nodes": [
+                            [
+                                [
+                                    "reshape1_enc_task_10_term_00",
+                                    0,
+                                    0,
+                                    {}
+                                ]
+                            ]
+                        ],
+                        "name": "zero_padding3d_1130"
+                    },
+                    {
+                        "class_name": "ZeroPadding3D",
+                        "config": {
+                            "data_format": "channels_last",
+                            "dtype": "float32",
+                            "name": "zero_padding3d_1131",
+                            "padding": [
+                                [
+                                    0,
+                                    0
+                                ],
+                                [
+                                    0,
+                                    0
+                                ],
+                                [
+                                    0,
+                                    54
+                                ]
+                            ],
+                            "trainable": true
+                        },
+                        "inbound_nodes": [
+                            [
+                                [
+                                    "reshape1_enc_task_11_term_00",
+                                    0,
+                                    0,
+                                    {}
+                                ]
+                            ]
+                        ],
+                        "name": "zero_padding3d_1131"
+                    },
+                    {
+                        "class_name": "ZeroPadding3D",
+                        "config": {
+                            "data_format": "channels_last",
+                            "dtype": "float32",
+                            "name": "zero_padding3d_1132",
+                            "padding": [
+                                [
+                                    0,
+                                    0
+                                ],
+                                [
+                                    0,
+                                    0
+                                ],
+                                [
+                                    0,
+                                    54
+                                ]
+                            ],
+                            "trainable": true
+                        },
+                        "inbound_nodes": [
+                            [
+                                [
+                                    "reshape1_enc_task_12_term_00",
+                                    0,
+                                    0,
+                                    {}
+                                ]
+                            ]
+                        ],
+                        "name": "zero_padding3d_1132"
+                    },
+                    {
+                        "class_name": "ZeroPadding3D",
+                        "config": {
+                            "data_format": "channels_last",
+                            "dtype": "float32",
+                            "name": "zero_padding3d_1133",
+                            "padding": [
+                                [
+                                    0,
+                                    0
+                                ],
+                                [
+                                    0,
+                                    0
+                                ],
+                                [
+                                    0,
+                                    54
+                                ]
+                            ],
+                            "trainable": true
+                        },
+                        "inbound_nodes": [
+                            [
+                                [
+                                    "reshape1_enc_task_13_term_00",
+                                    0,
+                                    0,
+                                    {}
+                                ]
+                            ]
+                        ],
+                        "name": "zero_padding3d_1133"
+                    },
+                    {
+                        "class_name": "Reshape",
+                        "config": {
+                            "dtype": "float32",
+                            "name": "reshape2_enc_task_00_term_00",
+                            "target_shape": [
+                                224,
+                                224,
+                                57
+                            ],
+                            "trainable": true
+                        },
+                        "inbound_nodes": [
+                            [
+                                [
+                                    "zero_padding3d_1120",
+                                    0,
+                                    0,
+                                    {}
+                                ]
+                            ]
+                        ],
+                        "name": "reshape2_enc_task_00_term_00"
+                    },
+                    {
+                        "class_name": "Reshape",
+                        "config": {
+                            "dtype": "float32",
+                            "name": "reshape2_enc_task_01_term_00",
+                            "target_shape": [
+                                224,
+                                224,
+                                57
+                            ],
+                            "trainable": true
+                        },
+                        "inbound_nodes": [
+                            [
+                                [
+                                    "zero_padding3d_1121",
+                                    0,
+                                    0,
+                                    {}
+                                ]
+                            ]
+                        ],
+                        "name": "reshape2_enc_task_01_term_00"
+                    },
+                    {
+                        "class_name": "Reshape",
+                        "config": {
+                            "dtype": "float32",
+                            "name": "reshape2_enc_task_02_term_00",
+                            "target_shape": [
+                                224,
+                                224,
+                                57
+                            ],
+                            "trainable": true
+                        },
+                        "inbound_nodes": [
+                            [
+                                [
+                                    "zero_padding3d_1122",
+                                    0,
+                                    0,
+                                    {}
+                                ]
+                            ]
+                        ],
+                        "name": "reshape2_enc_task_02_term_00"
+                    },
+                    {
+                        "class_name": "Reshape",
+                        "config": {
+                            "dtype": "float32",
+                            "name": "reshape2_enc_task_03_term_00",
+                            "target_shape": [
+                                224,
+                                224,
+                                57
+                            ],
+                            "trainable": true
+                        },
+                        "inbound_nodes": [
+                            [
+                                [
+                                    "zero_padding3d_1123",
+                                    0,
+                                    0,
+                                    {}
+                                ]
+                            ]
+                        ],
+                        "name": "reshape2_enc_task_03_term_00"
+                    },
+                    {
+                        "class_name": "Reshape",
+                        "config": {
+                            "dtype": "float32",
+                            "name": "reshape2_enc_task_04_term_00",
+                            "target_shape": [
+                                224,
+                                224,
+                                57
+                            ],
+                            "trainable": true
+                        },
+                        "inbound_nodes": [
+                            [
+                                [
+                                    "zero_padding3d_1124",
+                                    0,
+                                    0,
+                                    {}
+                                ]
+                            ]
+                        ],
+                        "name": "reshape2_enc_task_04_term_00"
+                    },
+                    {
+                        "class_name": "Reshape",
+                        "config": {
+                            "dtype": "float32",
+                            "name": "reshape2_enc_task_05_term_00",
+                            "target_shape": [
+                                224,
+                                224,
+                                57
+                            ],
+                            "trainable": true
+                        },
+                        "inbound_nodes": [
+                            [
+                                [
+                                    "zero_padding3d_1125",
+                                    0,
+                                    0,
+                                    {}
+                                ]
+                            ]
+                        ],
+                        "name": "reshape2_enc_task_05_term_00"
+                    },
+                    {
+                        "class_name": "Reshape",
+                        "config": {
+                            "dtype": "float32",
+                            "name": "reshape2_enc_task_06_term_00",
+                            "target_shape": [
+                                224,
+                                224,
+                                57
+                            ],
+                            "trainable": true
+                        },
+                        "inbound_nodes": [
+                            [
+                                [
+                                    "zero_padding3d_1126",
+                                    0,
+                                    0,
+                                    {}
+                                ]
+                            ]
+                        ],
+                        "name": "reshape2_enc_task_06_term_00"
+                    },
+                    {
+                        "class_name": "Reshape",
+                        "config": {
+                            "dtype": "float32",
+                            "name": "reshape2_enc_task_07_term_00",
+                            "target_shape": [
+                                224,
+                                224,
+                                57
+                            ],
+                            "trainable": true
+                        },
+                        "inbound_nodes": [
+                            [
+                                [
+                                    "zero_padding3d_1127",
+                                    0,
+                                    0,
+                                    {}
+                                ]
+                            ]
+                        ],
+                        "name": "reshape2_enc_task_07_term_00"
+                    },
+                    {
+                        "class_name": "Reshape",
+                        "config": {
+                            "dtype": "float32",
+                            "name": "reshape2_enc_task_08_term_00",
+                            "target_shape": [
+                                224,
+                                224,
+                                57
+                            ],
+                            "trainable": true
+                        },
+                        "inbound_nodes": [
+                            [
+                                [
+                                    "zero_padding3d_1128",
+                                    0,
+                                    0,
+                                    {}
+                                ]
+                            ]
+                        ],
+                        "name": "reshape2_enc_task_08_term_00"
+                    },
+                    {
+                        "class_name": "Reshape",
+                        "config": {
+                            "dtype": "float32",
+                            "name": "reshape2_enc_task_09_term_00",
+                            "target_shape": [
+                                224,
+                                224,
+                                57
+                            ],
+                            "trainable": true
+                        },
+                        "inbound_nodes": [
+                            [
+                                [
+                                    "zero_padding3d_1129",
+                                    0,
+                                    0,
+                                    {}
+                                ]
+                            ]
+                        ],
+                        "name": "reshape2_enc_task_09_term_00"
+                    },
+                    {
+                        "class_name": "Reshape",
+                        "config": {
+                            "dtype": "float32",
+                            "name": "reshape2_enc_task_10_term_00",
+                            "target_shape": [
+                                224,
+                                224,
+                                57
+                            ],
+                            "trainable": true
+                        },
+                        "inbound_nodes": [
+                            [
+                                [
+                                    "zero_padding3d_1130",
+                                    0,
+                                    0,
+                                    {}
+                                ]
+                            ]
+                        ],
+                        "name": "reshape2_enc_task_10_term_00"
+                    },
+                    {
+                        "class_name": "Reshape",
+                        "config": {
+                            "dtype": "float32",
+                            "name": "reshape2_enc_task_11_term_00",
+                            "target_shape": [
+                                224,
+                                224,
+                                57
+                            ],
+                            "trainable": true
+                        },
+                        "inbound_nodes": [
+                            [
+                                [
+                                    "zero_padding3d_1131",
+                                    0,
+                                    0,
+                                    {}
+                                ]
+                            ]
+                        ],
+                        "name": "reshape2_enc_task_11_term_00"
+                    },
+                    {
+                        "class_name": "Reshape",
+                        "config": {
+                            "dtype": "float32",
+                            "name": "reshape2_enc_task_12_term_00",
+                            "target_shape": [
+                                224,
+                                224,
+                                57
+                            ],
+                            "trainable": true
+                        },
+                        "inbound_nodes": [
+                            [
+                                [
+                                    "zero_padding3d_1132",
+                                    0,
+                                    0,
+                                    {}
+                                ]
+                            ]
+                        ],
+                        "name": "reshape2_enc_task_12_term_00"
+                    },
+                    {
+                        "class_name": "Reshape",
+                        "config": {
+                            "dtype": "float32",
+                            "name": "reshape2_enc_task_13_term_00",
+                            "target_shape": [
+                                224,
+                                224,
+                                57
+                            ],
+                            "trainable": true
+                        },
+                        "inbound_nodes": [
+                            [
+                                [
+                                    "zero_padding3d_1133",
+                                    0,
+                                    0,
+                                    {}
+                                ]
+                            ]
+                        ],
+                        "name": "reshape2_enc_task_13_term_00"
+                    },
+                    {
+                        "class_name": "Functional",
+                        "config": {
+                            "input_layers": [
+                                [
+                                    "input_4577",
+                                    0,
+                                    0
+                                ]
+                            ],
+                            "layers": [
+                                {
+                                    "class_name": "InputLayer",
+                                    "config": {
+                                        "batch_input_shape": [
+                                            null,
+                                            224,
+                                            224,
+                                            57
+                                        ],
+                                        "dtype": "float32",
+                                        "name": "input_4577",
+                                        "ragged": false,
+                                        "sparse": false
+                                    },
+                                    "inbound_nodes": [],
+                                    "name": "input_4577"
+                                },
+                                {
+                                    "class_name": "Conv2D",
+                                    "config": {
+                                        "activation": "linear",
+                                        "activity_regularizer": null,
+                                        "bias_constraint": null,
+                                        "bias_initializer": {
+                                            "class_name": "Zeros",
+                                            "config": {}
+                                        },
+                                        "bias_regularizer": null,
+                                        "data_format": "channels_last",
+                                        "dilation_rate": [
+                                            1,
+                                            1
+                                        ],
+                                        "dtype": "float32",
+                                        "filters": 57,
+                                        "groups": 1,
+                                        "kernel_constraint": null,
+                                        "kernel_initializer": {
+                                            "class_name": "HeUniform",
+                                            "config": {
+                                                "seed": null
+                                            }
+                                        },
+                                        "kernel_regularizer": {
+                                            "class_name": "L2",
+                                            "config": {
+                                                "l2": 2.778836574179877e-07
+                                            }
+                                        },
+                                        "kernel_size": [
+                                            1,
+                                            1
+                                        ],
+                                        "name": "Conv2D",
+                                        "padding": "same",
+                                        "strides": [
+                                            1,
+                                            1
+                                        ],
+                                        "trainable": true,
+                                        "use_bias": true
+                                    },
+                                    "inbound_nodes": [
+                                        [
+                                            [
+                                                "input_4577",
+                                                0,
+                                                0,
+                                                {}
+                                            ]
+                                        ]
+                                    ],
+                                    "name": "Conv2D"
+                                },
+                                {
+                                    "class_name": "MaxPooling2D",
+                                    "config": {
+                                        "data_format": "channels_last",
+                                        "dtype": "float32",
+                                        "name": "MaxPooling2D",
+                                        "padding": "valid",
+                                        "pool_size": [
+                                            2,
+                                            2
+                                        ],
+                                        "strides": [
+                                            2,
+                                            2
+                                        ],
+                                        "trainable": true
+                                    },
+                                    "inbound_nodes": [
+                                        [
+                                            [
+                                                "Conv2D",
+                                                0,
+                                                0,
+                                                {}
+                                            ]
+                                        ]
+                                    ],
+                                    "name": "MaxPooling2D"
+                                }
+                            ],
+                            "name": "model_1_module_2204_3_6",
+                            "output_layers": [
+                                [
+                                    "MaxPooling2D",
+                                    0,
+                                    0
+                                ]
+                            ]
+                        },
+                        "inbound_nodes": [
+                            [
+                                [
+                                    "reshape2_enc_task_00_term_00",
+                                    0,
+                                    0,
+                                    {}
+                                ]
+                            ],
+                            [
+                                [
+                                    "reshape2_enc_task_01_term_00",
+                                    0,
+                                    0,
+                                    {}
+                                ]
+                            ],
+                            [
+                                [
+                                    "reshape2_enc_task_02_term_00",
+                                    0,
+                                    0,
+                                    {}
+                                ]
+                            ],
+                            [
+                                [
+                                    "reshape2_enc_task_03_term_00",
+                                    0,
+                                    0,
+                                    {}
+                                ]
+                            ],
+                            [
+                                [
+                                    "reshape2_enc_task_04_term_00",
+                                    0,
+                                    0,
+                                    {}
+                                ]
+                            ],
+                            [
+                                [
+                                    "reshape2_enc_task_05_term_00",
+                                    0,
+                                    0,
+                                    {}
+                                ]
+                            ],
+                            [
+                                [
+                                    "reshape2_enc_task_06_term_00",
+                                    0,
+                                    0,
+                                    {}
+                                ]
+                            ],
+                            [
+                                [
+                                    "reshape2_enc_task_07_term_00",
+                                    0,
+                                    0,
+                                    {}
+                                ]
+                            ],
+                            [
+                                [
+                                    "reshape2_enc_task_08_term_00",
+                                    0,
+                                    0,
+                                    {}
+                                ]
+                            ],
+                            [
+                                [
+                                    "reshape2_enc_task_09_term_00",
+                                    0,
+                                    0,
+                                    {}
+                                ]
+                            ],
+                            [
+                                [
+                                    "reshape2_enc_task_10_term_00",
+                                    0,
+                                    0,
+                                    {}
+                                ]
+                            ],
+                            [
+                                [
+                                    "reshape2_enc_task_11_term_00",
+                                    0,
+                                    0,
+                                    {}
+                                ]
+                            ],
+                            [
+                                [
+                                    "reshape2_enc_task_12_term_00",
+                                    0,
+                                    0,
+                                    {}
+                                ]
+                            ],
+                            [
+                                [
+                                    "reshape2_enc_task_13_term_00",
+                                    0,
+                                    0,
+                                    {}
+                                ]
+                            ]
+                        ],
+                        "name": "model_1_module_2204_3_6"
+                    },
+                    {
+                        "class_name": "Functional",
+                        "config": {
+                            "input_layers": [
+                                [
+                                    "input_4579",
+                                    0,
+                                    0
+                                ]
+                            ],
+                            "layers": [
+                                {
+                                    "class_name": "InputLayer",
+                                    "config": {
+                                        "batch_input_shape": [
+                                            null,
+                                            112,
+                                            112,
+                                            57
+                                        ],
+                                        "dtype": "float32",
+                                        "name": "input_4579",
+                                        "ragged": false,
+                                        "sparse": false
+                                    },
+                                    "inbound_nodes": [],
+                                    "name": "input_4579"
+                                },
+                                {
+                                    "class_name": "Conv2D",
+                                    "config": {
+                                        "activation": "linear",
+                                        "activity_regularizer": null,
+                                        "bias_constraint": null,
+                                        "bias_initializer": {
+                                            "class_name": "Zeros",
+                                            "config": {}
+                                        },
+                                        "bias_regularizer": null,
+                                        "data_format": "channels_last",
+                                        "dilation_rate": [
+                                            1,
+                                            1
+                                        ],
+                                        "dtype": "float32",
+                                        "filters": 57,
+                                        "groups": 1,
+                                        "kernel_constraint": null,
+                                        "kernel_initializer": {
+                                            "class_name": "HeUniform",
+                                            "config": {
+                                                "seed": null
+                                            }
+                                        },
+                                        "kernel_regularizer": {
+                                            "class_name": "L2",
+                                            "config": {
+                                                "l2": 2.778836574179877e-07
+                                            }
+                                        },
+                                        "kernel_size": [
+                                            1,
+                                            1
+                                        ],
+                                        "name": "Conv2D",
+                                        "padding": "same",
+                                        "strides": [
+                                            1,
+                                            1
+                                        ],
+                                        "trainable": true,
+                                        "use_bias": true
+                                    },
+                                    "inbound_nodes": [
+                                        [
+                                            [
+                                                "input_4579",
+                                                0,
+                                                0,
+                                                {}
+                                            ]
+                                        ]
+                                    ],
+                                    "name": "Conv2D"
+                                },
+                                {
+                                    "class_name": "MaxPooling2D",
+                                    "config": {
+                                        "data_format": "channels_last",
+                                        "dtype": "float32",
+                                        "name": "MaxPooling2D",
+                                        "padding": "valid",
+                                        "pool_size": [
+                                            2,
+                                            2
+                                        ],
+                                        "strides": [
+                                            2,
+                                            2
+                                        ],
+                                        "trainable": true
+                                    },
+                                    "inbound_nodes": [
+                                        [
+                                            [
+                                                "Conv2D",
+                                                0,
+                                                0,
+                                                {}
+                                            ]
+                                        ]
+                                    ],
+                                    "name": "MaxPooling2D"
+                                }
+                            ],
+                            "name": "model_3_module_2204_3_5",
+                            "output_layers": [
+                                [
+                                    "MaxPooling2D",
+                                    0,
+                                    0
+                                ]
+                            ]
+                        },
+                        "inbound_nodes": [
+                            [
+                                [
+                                    "model_1_module_2204_3_6",
+                                    1,
+                                    0,
+                                    {}
+                                ]
+                            ],
+                            [
+                                [
+                                    "model_1_module_2204_3_6",
+                                    2,
+                                    0,
+                                    {}
+                                ]
+                            ],
+                            [
+                                [
+                                    "model_1_module_2204_3_6",
+                                    3,
+                                    0,
+                                    {}
+                                ]
+                            ],
+                            [
+                                [
+                                    "model_1_module_2204_3_6",
+                                    4,
+                                    0,
+                                    {}
+                                ]
+                            ],
+                            [
+                                [
+                                    "model_1_module_2204_3_6",
+                                    5,
+                                    0,
+                                    {}
+                                ]
+                            ],
+                            [
+                                [
+                                    "model_1_module_2204_3_6",
+                                    6,
+                                    0,
+                                    {}
+                                ]
+                            ],
+                            [
+                                [
+                                    "model_1_module_2204_3_6",
+                                    7,
+                                    0,
+                                    {}
+                                ]
+                            ],
+                            [
+                                [
+                                    "model_1_module_2204_3_6",
+                                    8,
+                                    0,
+                                    {}
+                                ]
+                            ],
+                            [
+                                [
+                                    "model_1_module_2204_3_6",
+                                    9,
+                                    0,
+                                    {}
+                                ]
+                            ],
+                            [
+                                [
+                                    "model_1_module_2204_3_6",
+                                    10,
+                                    0,
+                                    {}
+                                ]
+                            ],
+                            [
+                                [
+                                    "model_1_module_2204_3_6",
+                                    11,
+                                    0,
+                                    {}
+                                ]
+                            ],
+                            [
+                                [
+                                    "model_1_module_2204_3_6",
+                                    12,
+                                    0,
+                                    {}
+                                ]
+                            ],
+                            [
+                                [
+                                    "model_1_module_2204_3_6",
+                                    13,
+                                    0,
+                                    {}
+                                ]
+                            ],
+                            [
+                                [
+                                    "model_1_module_2204_3_6",
+                                    14,
+                                    0,
+                                    {}
+                                ]
+                            ]
+                        ],
+                        "name": "model_3_module_2204_3_5"
+                    },
+                    {
+                        "class_name": "Functional",
+                        "config": {
+                            "input_layers": [
+                                [
+                                    "input_4582",
+                                    0,
+                                    0
+                                ]
+                            ],
+                            "layers": [
+                                {
+                                    "class_name": "InputLayer",
+                                    "config": {
+                                        "batch_input_shape": [
+                                            null,
+                                            56,
+                                            56,
+                                            57
+                                        ],
+                                        "dtype": "float32",
+                                        "name": "input_4582",
+                                        "ragged": false,
+                                        "sparse": false
+                                    },
+                                    "inbound_nodes": [],
+                                    "name": "input_4582"
+                                },
+                                {
+                                    "class_name": "Conv2D",
+                                    "config": {
+                                        "activation": "elu",
+                                        "activity_regularizer": null,
+                                        "bias_constraint": null,
+                                        "bias_initializer": {
+                                            "class_name": "Zeros",
+                                            "config": {}
+                                        },
+                                        "bias_regularizer": null,
+                                        "data_format": "channels_last",
+                                        "dilation_rate": [
+                                            1,
+                                            1
+                                        ],
+                                        "dtype": "float32",
+                                        "filters": 36,
+                                        "groups": 1,
+                                        "kernel_constraint": null,
+                                        "kernel_initializer": {
+                                            "class_name": "HeUniform",
+                                            "config": {
+                                                "seed": null
+                                            }
+                                        },
+                                        "kernel_regularizer": {
+                                            "class_name": "L2",
+                                            "config": {
+                                                "l2": 2.055503927067548e-07
+                                            }
+                                        },
+                                        "kernel_size": [
+                                            3,
+                                            3
+                                        ],
+                                        "name": "layer_3_Conv2D_0",
+                                        "padding": "same",
+                                        "strides": [
+                                            1,
+                                            1
+                                        ],
+                                        "trainable": true,
+                                        "use_bias": true
+                                    },
+                                    "inbound_nodes": [
+                                        [
+                                            [
+                                                "input_4582",
+                                                0,
+                                                0,
+                                                {}
+                                            ]
+                                        ]
+                                    ],
+                                    "name": "layer_3_Conv2D_0"
+                                },
+                                {
+                                    "class_name": "Dropout",
+                                    "config": {
+                                        "dtype": "float32",
+                                        "name": "layer_3_Dropout_1",
+                                        "noise_shape": null,
+                                        "rate": 0.05460688684141934,
+                                        "seed": null,
+                                        "trainable": true
+                                    },
+                                    "inbound_nodes": [
+                                        [
+                                            [
+                                                "layer_3_Conv2D_0",
+                                                0,
+                                                0,
+                                                {}
+                                            ]
+                                        ]
+                                    ],
+                                    "name": "layer_3_Dropout_1"
+                                },
+                                {
+                                    "class_name": "Conv2D",
+                                    "config": {
+                                        "activation": "linear",
+                                        "activity_regularizer": null,
+                                        "bias_constraint": null,
+                                        "bias_initializer": {
+                                            "class_name": "Zeros",
+                                            "config": {}
+                                        },
+                                        "bias_regularizer": null,
+                                        "data_format": "channels_last",
+                                        "dilation_rate": [
+                                            1,
+                                            1
+                                        ],
+                                        "dtype": "float32",
+                                        "filters": 57,
+                                        "groups": 1,
+                                        "kernel_constraint": null,
+                                        "kernel_initializer": {
+                                            "class_name": "HeUniform",
+                                            "config": {
+                                                "seed": null
+                                            }
+                                        },
+                                        "kernel_regularizer": {
+                                            "class_name": "L2",
+                                            "config": {
+                                                "l2": 2.778836574179877e-07
+                                            }
+                                        },
+                                        "kernel_size": [
+                                            1,
+                                            1
+                                        ],
+                                        "name": "Conv2D",
+                                        "padding": "same",
+                                        "strides": [
+                                            1,
+                                            1
+                                        ],
+                                        "trainable": true,
+                                        "use_bias": true
+                                    },
+                                    "inbound_nodes": [
+                                        [
+                                            [
+                                                "layer_3_Dropout_1",
+                                                0,
+                                                0,
+                                                {}
+                                            ]
+                                        ]
+                                    ],
+                                    "name": "Conv2D"
+                                },
+                                {
+                                    "class_name": "MaxPooling2D",
+                                    "config": {
+                                        "data_format": "channels_last",
+                                        "dtype": "float32",
+                                        "name": "MaxPooling2D",
+                                        "padding": "valid",
+                                        "pool_size": [
+                                            2,
+                                            2
+                                        ],
+                                        "strides": [
+                                            2,
+                                            2
+                                        ],
+                                        "trainable": true
+                                    },
+                                    "inbound_nodes": [
+                                        [
+                                            [
+                                                "Conv2D",
+                                                0,
+                                                0,
+                                                {}
+                                            ]
+                                        ]
+                                    ],
+                                    "name": "MaxPooling2D"
+                                }
+                            ],
+                            "name": "model_6_module_2045_3_3",
+                            "output_layers": [
+                                [
+                                    "MaxPooling2D",
+                                    0,
+                                    0
+                                ]
+                            ]
+                        },
+                        "inbound_nodes": [
+                            [
+                                [
+                                    "model_3_module_2204_3_5",
+                                    1,
+                                    0,
+                                    {}
+                                ]
+                            ],
+                            [
+                                [
+                                    "model_3_module_2204_3_5",
+                                    2,
+                                    0,
+                                    {}
+                                ]
+                            ],
+                            [
+                                [
+                                    "model_3_module_2204_3_5",
+                                    3,
+                                    0,
+                                    {}
+                                ]
+                            ],
+                            [
+                                [
+                                    "model_3_module_2204_3_5",
+                                    4,
+                                    0,
+                                    {}
+                                ]
+                            ],
+                            [
+                                [
+                                    "model_3_module_2204_3_5",
+                                    5,
+                                    0,
+                                    {}
+                                ]
+                            ],
+                            [
+                                [
+                                    "model_3_module_2204_3_5",
+                                    6,
+                                    0,
+                                    {}
+                                ]
+                            ],
+                            [
+                                [
+                                    "model_3_module_2204_3_5",
+                                    7,
+                                    0,
+                                    {}
+                                ]
+                            ],
+                            [
+                                [
+                                    "model_3_module_2204_3_5",
+                                    8,
+                                    0,
+                                    {}
+                                ]
+                            ],
+                            [
+                                [
+                                    "model_3_module_2204_3_5",
+                                    9,
+                                    0,
+                                    {}
+                                ]
+                            ],
+                            [
+                                [
+                                    "model_3_module_2204_3_5",
+                                    10,
+                                    0,
+                                    {}
+                                ]
+                            ],
+                            [
+                                [
+                                    "model_3_module_2204_3_5",
+                                    11,
+                                    0,
+                                    {}
+                                ]
+                            ],
+                            [
+                                [
+                                    "model_3_module_2204_3_5",
+                                    12,
+                                    0,
+                                    {}
+                                ]
+                            ],
+                            [
+                                [
+                                    "model_3_module_2204_3_5",
+                                    13,
+                                    0,
+                                    {}
+                                ]
+                            ],
+                            [
+                                [
+                                    "model_3_module_2204_3_5",
+                                    14,
+                                    0,
+                                    {}
+                                ]
+                            ]
+                        ],
+                        "name": "model_6_module_2045_3_3"
+                    },
+                    {
+                        "class_name": "Functional",
+                        "config": {
+                            "input_layers": [
+                                [
+                                    "input_4584",
+                                    0,
+                                    0
+                                ]
+                            ],
+                            "layers": [
+                                {
+                                    "class_name": "InputLayer",
+                                    "config": {
+                                        "batch_input_shape": [
+                                            null,
+                                            28,
+                                            28,
+                                            57
+                                        ],
+                                        "dtype": "float32",
+                                        "name": "input_4584",
+                                        "ragged": false,
+                                        "sparse": false
+                                    },
+                                    "inbound_nodes": [],
+                                    "name": "input_4584"
+                                },
+                                {
+                                    "class_name": "Conv2D",
+                                    "config": {
+                                        "activation": "elu",
+                                        "activity_regularizer": null,
+                                        "bias_constraint": null,
+                                        "bias_initializer": {
+                                            "class_name": "Zeros",
+                                            "config": {}
+                                        },
+                                        "bias_regularizer": null,
+                                        "data_format": "channels_last",
+                                        "dilation_rate": [
+                                            1,
+                                            1
+                                        ],
+                                        "dtype": "float32",
+                                        "filters": 36,
+                                        "groups": 1,
+                                        "kernel_constraint": null,
+                                        "kernel_initializer": {
+                                            "class_name": "HeUniform",
+                                            "config": {
+                                                "seed": null
+                                            }
+                                        },
+                                        "kernel_regularizer": {
+                                            "class_name": "L2",
+                                            "config": {
+                                                "l2": 2.055503927067548e-07
+                                            }
+                                        },
+                                        "kernel_size": [
+                                            3,
+                                            3
+                                        ],
+                                        "name": "layer_3_Conv2D_0",
+                                        "padding": "same",
+                                        "strides": [
+                                            1,
+                                            1
+                                        ],
+                                        "trainable": true,
+                                        "use_bias": true
+                                    },
+                                    "inbound_nodes": [
+                                        [
+                                            [
+                                                "input_4584",
+                                                0,
+                                                0,
+                                                {}
+                                            ]
+                                        ]
+                                    ],
+                                    "name": "layer_3_Conv2D_0"
+                                },
+                                {
+                                    "class_name": "Dropout",
+                                    "config": {
+                                        "dtype": "float32",
+                                        "name": "layer_3_Dropout_1",
+                                        "noise_shape": null,
+                                        "rate": 0.05460688684141934,
+                                        "seed": null,
+                                        "trainable": true
+                                    },
+                                    "inbound_nodes": [
+                                        [
+                                            [
+                                                "layer_3_Conv2D_0",
+                                                0,
+                                                0,
+                                                {}
+                                            ]
+                                        ]
+                                    ],
+                                    "name": "layer_3_Dropout_1"
+                                },
+                                {
+                                    "class_name": "Conv2D",
+                                    "config": {
+                                        "activation": "linear",
+                                        "activity_regularizer": null,
+                                        "bias_constraint": null,
+                                        "bias_initializer": {
+                                            "class_name": "Zeros",
+                                            "config": {}
+                                        },
+                                        "bias_regularizer": null,
+                                        "data_format": "channels_last",
+                                        "dilation_rate": [
+                                            1,
+                                            1
+                                        ],
+                                        "dtype": "float32",
+                                        "filters": 57,
+                                        "groups": 1,
+                                        "kernel_constraint": null,
+                                        "kernel_initializer": {
+                                            "class_name": "HeUniform",
+                                            "config": {
+                                                "seed": null
+                                            }
+                                        },
+                                        "kernel_regularizer": {
+                                            "class_name": "L2",
+                                            "config": {
+                                                "l2": 2.778836574179877e-07
+                                            }
+                                        },
+                                        "kernel_size": [
+                                            1,
+                                            1
+                                        ],
+                                        "name": "Conv2D",
+                                        "padding": "same",
+                                        "strides": [
+                                            1,
+                                            1
+                                        ],
+                                        "trainable": true,
+                                        "use_bias": true
+                                    },
+                                    "inbound_nodes": [
+                                        [
+                                            [
+                                                "layer_3_Dropout_1",
+                                                0,
+                                                0,
+                                                {}
+                                            ]
+                                        ]
+                                    ],
+                                    "name": "Conv2D"
+                                },
+                                {
+                                    "class_name": "MaxPooling2D",
+                                    "config": {
+                                        "data_format": "channels_last",
+                                        "dtype": "float32",
+                                        "name": "MaxPooling2D",
+                                        "padding": "valid",
+                                        "pool_size": [
+                                            2,
+                                            2
+                                        ],
+                                        "strides": [
+                                            2,
+                                            2
+                                        ],
+                                        "trainable": true
+                                    },
+                                    "inbound_nodes": [
+                                        [
+                                            [
+                                                "Conv2D",
+                                                0,
+                                                0,
+                                                {}
+                                            ]
+                                        ]
+                                    ],
+                                    "name": "MaxPooling2D"
+                                }
+                            ],
+                            "name": "model_8_module_2045_3",
+                            "output_layers": [
+                                [
+                                    "MaxPooling2D",
+                                    0,
+                                    0
+                                ]
+                            ]
+                        },
+                        "inbound_nodes": [
+                            [
+                                [
+                                    "model_6_module_2045_3_3",
+                                    1,
+                                    0,
+                                    {}
+                                ]
+                            ],
+                            [
+                                [
+                                    "model_6_module_2045_3_3",
+                                    2,
+                                    0,
+                                    {}
+                                ]
+                            ],
+                            [
+                                [
+                                    "model_6_module_2045_3_3",
+                                    3,
+                                    0,
+                                    {}
+                                ]
+                            ],
+                            [
+                                [
+                                    "model_6_module_2045_3_3",
+                                    4,
+                                    0,
+                                    {}
+                                ]
+                            ],
+                            [
+                                [
+                                    "model_6_module_2045_3_3",
+                                    5,
+                                    0,
+                                    {}
+                                ]
+                            ],
+                            [
+                                [
+                                    "model_6_module_2045_3_3",
+                                    6,
+                                    0,
+                                    {}
+                                ]
+                            ],
+                            [
+                                [
+                                    "model_6_module_2045_3_3",
+                                    7,
+                                    0,
+                                    {}
+                                ]
+                            ],
+                            [
+                                [
+                                    "model_6_module_2045_3_3",
+                                    8,
+                                    0,
+                                    {}
+                                ]
+                            ],
+                            [
+                                [
+                                    "model_6_module_2045_3_3",
+                                    9,
+                                    0,
+                                    {}
+                                ]
+                            ],
+                            [
+                                [
+                                    "model_6_module_2045_3_3",
+                                    10,
+                                    0,
+                                    {}
+                                ]
+                            ],
+                            [
+                                [
+                                    "model_6_module_2045_3_3",
+                                    11,
+                                    0,
+                                    {}
+                                ]
+                            ],
+                            [
+                                [
+                                    "model_6_module_2045_3_3",
+                                    12,
+                                    0,
+                                    {}
+                                ]
+                            ],
+                            [
+                                [
+                                    "model_6_module_2045_3_3",
+                                    13,
+                                    0,
+                                    {}
+                                ]
+                            ],
+                            [
+                                [
+                                    "model_6_module_2045_3_3",
+                                    14,
+                                    0,
+                                    {}
+                                ]
+                            ]
+                        ],
+                        "name": "model_8_module_2045_3"
+                    },
+                    {
+                        "class_name": "MaxPooling2D",
+                        "config": {
+                            "data_format": "channels_last",
+                            "dtype": "float32",
+                            "name": "final_maxpool_task_00_node_02",
+                            "padding": "valid",
+                            "pool_size": [
+                                2,
+                                2
+                            ],
+                            "strides": [
+                                2,
+                                2
+                            ],
+                            "trainable": true
+                        },
+                        "inbound_nodes": [
+                            [
+                                [
+                                    "model_8_module_2045_3",
+                                    1,
+                                    0,
+                                    {}
+                                ]
+                            ]
+                        ],
+                        "name": "final_maxpool_task_00_node_02"
+                    },
+                    {
+                        "class_name": "MaxPooling2D",
+                        "config": {
+                            "data_format": "channels_last",
+                            "dtype": "float32",
+                            "name": "final_maxpool_task_01_node_02",
+                            "padding": "valid",
+                            "pool_size": [
+                                2,
+                                2
+                            ],
+                            "strides": [
+                                2,
+                                2
+                            ],
+                            "trainable": true
+                        },
+                        "inbound_nodes": [
+                            [
+                                [
+                                    "model_8_module_2045_3",
+                                    2,
+                                    0,
+                                    {}
+                                ]
+                            ]
+                        ],
+                        "name": "final_maxpool_task_01_node_02"
+                    },
+                    {
+                        "class_name": "MaxPooling2D",
+                        "config": {
+                            "data_format": "channels_last",
+                            "dtype": "float32",
+                            "name": "final_maxpool_task_02_node_02",
+                            "padding": "valid",
+                            "pool_size": [
+                                2,
+                                2
+                            ],
+                            "strides": [
+                                2,
+                                2
+                            ],
+                            "trainable": true
+                        },
+                        "inbound_nodes": [
+                            [
+                                [
+                                    "model_8_module_2045_3",
+                                    3,
+                                    0,
+                                    {}
+                                ]
+                            ]
+                        ],
+                        "name": "final_maxpool_task_02_node_02"
+                    },
+                    {
+                        "class_name": "MaxPooling2D",
+                        "config": {
+                            "data_format": "channels_last",
+                            "dtype": "float32",
+                            "name": "final_maxpool_task_03_node_02",
+                            "padding": "valid",
+                            "pool_size": [
+                                2,
+                                2
+                            ],
+                            "strides": [
+                                2,
+                                2
+                            ],
+                            "trainable": true
+                        },
+                        "inbound_nodes": [
+                            [
+                                [
+                                    "model_8_module_2045_3",
+                                    4,
+                                    0,
+                                    {}
+                                ]
+                            ]
+                        ],
+                        "name": "final_maxpool_task_03_node_02"
+                    },
+                    {
+                        "class_name": "MaxPooling2D",
+                        "config": {
+                            "data_format": "channels_last",
+                            "dtype": "float32",
+                            "name": "final_maxpool_task_04_node_02",
+                            "padding": "valid",
+                            "pool_size": [
+                                2,
+                                2
+                            ],
+                            "strides": [
+                                2,
+                                2
+                            ],
+                            "trainable": true
+                        },
+                        "inbound_nodes": [
+                            [
+                                [
+                                    "model_8_module_2045_3",
+                                    5,
+                                    0,
+                                    {}
+                                ]
+                            ]
+                        ],
+                        "name": "final_maxpool_task_04_node_02"
+                    },
+                    {
+                        "class_name": "MaxPooling2D",
+                        "config": {
+                            "data_format": "channels_last",
+                            "dtype": "float32",
+                            "name": "final_maxpool_task_05_node_02",
+                            "padding": "valid",
+                            "pool_size": [
+                                2,
+                                2
+                            ],
+                            "strides": [
+                                2,
+                                2
+                            ],
+                            "trainable": true
+                        },
+                        "inbound_nodes": [
+                            [
+                                [
+                                    "model_8_module_2045_3",
+                                    6,
+                                    0,
+                                    {}
+                                ]
+                            ]
+                        ],
+                        "name": "final_maxpool_task_05_node_02"
+                    },
+                    {
+                        "class_name": "MaxPooling2D",
+                        "config": {
+                            "data_format": "channels_last",
+                            "dtype": "float32",
+                            "name": "final_maxpool_task_06_node_02",
+                            "padding": "valid",
+                            "pool_size": [
+                                2,
+                                2
+                            ],
+                            "strides": [
+                                2,
+                                2
+                            ],
+                            "trainable": true
+                        },
+                        "inbound_nodes": [
+                            [
+                                [
+                                    "model_8_module_2045_3",
+                                    7,
+                                    0,
+                                    {}
+                                ]
+                            ]
+                        ],
+                        "name": "final_maxpool_task_06_node_02"
+                    },
+                    {
+                        "class_name": "MaxPooling2D",
+                        "config": {
+                            "data_format": "channels_last",
+                            "dtype": "float32",
+                            "name": "final_maxpool_task_07_node_02",
+                            "padding": "valid",
+                            "pool_size": [
+                                2,
+                                2
+                            ],
+                            "strides": [
+                                2,
+                                2
+                            ],
+                            "trainable": true
+                        },
+                        "inbound_nodes": [
+                            [
+                                [
+                                    "model_8_module_2045_3",
+                                    8,
+                                    0,
+                                    {}
+                                ]
+                            ]
+                        ],
+                        "name": "final_maxpool_task_07_node_02"
+                    },
+                    {
+                        "class_name": "MaxPooling2D",
+                        "config": {
+                            "data_format": "channels_last",
+                            "dtype": "float32",
+                            "name": "final_maxpool_task_08_node_02",
+                            "padding": "valid",
+                            "pool_size": [
+                                2,
+                                2
+                            ],
+                            "strides": [
+                                2,
+                                2
+                            ],
+                            "trainable": true
+                        },
+                        "inbound_nodes": [
+                            [
+                                [
+                                    "model_8_module_2045_3",
+                                    9,
+                                    0,
+                                    {}
+                                ]
+                            ]
+                        ],
+                        "name": "final_maxpool_task_08_node_02"
+                    },
+                    {
+                        "class_name": "MaxPooling2D",
+                        "config": {
+                            "data_format": "channels_last",
+                            "dtype": "float32",
+                            "name": "final_maxpool_task_09_node_02",
+                            "padding": "valid",
+                            "pool_size": [
+                                2,
+                                2
+                            ],
+                            "strides": [
+                                2,
+                                2
+                            ],
+                            "trainable": true
+                        },
+                        "inbound_nodes": [
+                            [
+                                [
+                                    "model_8_module_2045_3",
+                                    10,
+                                    0,
+                                    {}
+                                ]
+                            ]
+                        ],
+                        "name": "final_maxpool_task_09_node_02"
+                    },
+                    {
+                        "class_name": "MaxPooling2D",
+                        "config": {
+                            "data_format": "channels_last",
+                            "dtype": "float32",
+                            "name": "final_maxpool_task_10_node_02",
+                            "padding": "valid",
+                            "pool_size": [
+                                2,
+                                2
+                            ],
+                            "strides": [
+                                2,
+                                2
+                            ],
+                            "trainable": true
+                        },
+                        "inbound_nodes": [
+                            [
+                                [
+                                    "model_8_module_2045_3",
+                                    11,
+                                    0,
+                                    {}
+                                ]
+                            ]
+                        ],
+                        "name": "final_maxpool_task_10_node_02"
+                    },
+                    {
+                        "class_name": "MaxPooling2D",
+                        "config": {
+                            "data_format": "channels_last",
+                            "dtype": "float32",
+                            "name": "final_maxpool_task_11_node_02",
+                            "padding": "valid",
+                            "pool_size": [
+                                2,
+                                2
+                            ],
+                            "strides": [
+                                2,
+                                2
+                            ],
+                            "trainable": true
+                        },
+                        "inbound_nodes": [
+                            [
+                                [
+                                    "model_8_module_2045_3",
+                                    12,
+                                    0,
+                                    {}
+                                ]
+                            ]
+                        ],
+                        "name": "final_maxpool_task_11_node_02"
+                    },
+                    {
+                        "class_name": "MaxPooling2D",
+                        "config": {
+                            "data_format": "channels_last",
+                            "dtype": "float32",
+                            "name": "final_maxpool_task_12_node_02",
+                            "padding": "valid",
+                            "pool_size": [
+                                2,
+                                2
+                            ],
+                            "strides": [
+                                2,
+                                2
+                            ],
+                            "trainable": true
+                        },
+                        "inbound_nodes": [
+                            [
+                                [
+                                    "model_8_module_2045_3",
+                                    13,
+                                    0,
+                                    {}
+                                ]
+                            ]
+                        ],
+                        "name": "final_maxpool_task_12_node_02"
+                    },
+                    {
+                        "class_name": "MaxPooling2D",
+                        "config": {
+                            "data_format": "channels_last",
+                            "dtype": "float32",
+                            "name": "final_maxpool_task_13_node_02",
+                            "padding": "valid",
+                            "pool_size": [
+                                2,
+                                2
+                            ],
+                            "strides": [
+                                2,
+                                2
+                            ],
+                            "trainable": true
+                        },
+                        "inbound_nodes": [
+                            [
+                                [
+                                    "model_8_module_2045_3",
+                                    14,
+                                    0,
+                                    {}
+                                ]
+                            ]
+                        ],
+                        "name": "final_maxpool_task_13_node_02"
+                    },
+                    {
+                        "class_name": "Flatten",
+                        "config": {
+                            "data_format": "channels_last",
+                            "dtype": "float32",
+                            "name": "flattendec_task_00_term_00",
+                            "trainable": true
+                        },
+                        "inbound_nodes": [
+                            [
+                                [
+                                    "final_maxpool_task_00_node_02",
+                                    0,
+                                    0,
+                                    {}
+                                ]
+                            ]
+                        ],
+                        "name": "flattendec_task_00_term_00"
+                    },
+                    {
+                        "class_name": "Flatten",
+                        "config": {
+                            "data_format": "channels_last",
+                            "dtype": "float32",
+                            "name": "flattendec_task_01_term_00",
+                            "trainable": true
+                        },
+                        "inbound_nodes": [
+                            [
+                                [
+                                    "final_maxpool_task_01_node_02",
+                                    0,
+                                    0,
+                                    {}
+                                ]
+                            ]
+                        ],
+                        "name": "flattendec_task_01_term_00"
+                    },
+                    {
+                        "class_name": "Flatten",
+                        "config": {
+                            "data_format": "channels_last",
+                            "dtype": "float32",
+                            "name": "flattendec_task_02_term_00",
+                            "trainable": true
+                        },
+                        "inbound_nodes": [
+                            [
+                                [
+                                    "final_maxpool_task_02_node_02",
+                                    0,
+                                    0,
+                                    {}
+                                ]
+                            ]
+                        ],
+                        "name": "flattendec_task_02_term_00"
+                    },
+                    {
+                        "class_name": "Flatten",
+                        "config": {
+                            "data_format": "channels_last",
+                            "dtype": "float32",
+                            "name": "flattendec_task_03_term_00",
+                            "trainable": true
+                        },
+                        "inbound_nodes": [
+                            [
+                                [
+                                    "final_maxpool_task_03_node_02",
+                                    0,
+                                    0,
+                                    {}
+                                ]
+                            ]
+                        ],
+                        "name": "flattendec_task_03_term_00"
+                    },
+                    {
+                        "class_name": "Flatten",
+                        "config": {
+                            "data_format": "channels_last",
+                            "dtype": "float32",
+                            "name": "flattendec_task_04_term_00",
+                            "trainable": true
+                        },
+                        "inbound_nodes": [
+                            [
+                                [
+                                    "final_maxpool_task_04_node_02",
+                                    0,
+                                    0,
+                                    {}
+                                ]
+                            ]
+                        ],
+                        "name": "flattendec_task_04_term_00"
+                    },
+                    {
+                        "class_name": "Flatten",
+                        "config": {
+                            "data_format": "channels_last",
+                            "dtype": "float32",
+                            "name": "flattendec_task_05_term_00",
+                            "trainable": true
+                        },
+                        "inbound_nodes": [
+                            [
+                                [
+                                    "final_maxpool_task_05_node_02",
+                                    0,
+                                    0,
+                                    {}
+                                ]
+                            ]
+                        ],
+                        "name": "flattendec_task_05_term_00"
+                    },
+                    {
+                        "class_name": "Flatten",
+                        "config": {
+                            "data_format": "channels_last",
+                            "dtype": "float32",
+                            "name": "flattendec_task_06_term_00",
+                            "trainable": true
+                        },
+                        "inbound_nodes": [
+                            [
+                                [
+                                    "final_maxpool_task_06_node_02",
+                                    0,
+                                    0,
+                                    {}
+                                ]
+                            ]
+                        ],
+                        "name": "flattendec_task_06_term_00"
+                    },
+                    {
+                        "class_name": "Flatten",
+                        "config": {
+                            "data_format": "channels_last",
+                            "dtype": "float32",
+                            "name": "flattendec_task_07_term_00",
+                            "trainable": true
+                        },
+                        "inbound_nodes": [
+                            [
+                                [
+                                    "final_maxpool_task_07_node_02",
+                                    0,
+                                    0,
+                                    {}
+                                ]
+                            ]
+                        ],
+                        "name": "flattendec_task_07_term_00"
+                    },
+                    {
+                        "class_name": "Flatten",
+                        "config": {
+                            "data_format": "channels_last",
+                            "dtype": "float32",
+                            "name": "flattendec_task_08_term_00",
+                            "trainable": true
+                        },
+                        "inbound_nodes": [
+                            [
+                                [
+                                    "final_maxpool_task_08_node_02",
+                                    0,
+                                    0,
+                                    {}
+                                ]
+                            ]
+                        ],
+                        "name": "flattendec_task_08_term_00"
+                    },
+                    {
+                        "class_name": "Flatten",
+                        "config": {
+                            "data_format": "channels_last",
+                            "dtype": "float32",
+                            "name": "flattendec_task_09_term_00",
+                            "trainable": true
+                        },
+                        "inbound_nodes": [
+                            [
+                                [
+                                    "final_maxpool_task_09_node_02",
+                                    0,
+                                    0,
+                                    {}
+                                ]
+                            ]
+                        ],
+                        "name": "flattendec_task_09_term_00"
+                    },
+                    {
+                        "class_name": "Flatten",
+                        "config": {
+                            "data_format": "channels_last",
+                            "dtype": "float32",
+                            "name": "flattendec_task_10_term_00",
+                            "trainable": true
+                        },
+                        "inbound_nodes": [
+                            [
+                                [
+                                    "final_maxpool_task_10_node_02",
+                                    0,
+                                    0,
+                                    {}
+                                ]
+                            ]
+                        ],
+                        "name": "flattendec_task_10_term_00"
+                    },
+                    {
+                        "class_name": "Flatten",
+                        "config": {
+                            "data_format": "channels_last",
+                            "dtype": "float32",
+                            "name": "flattendec_task_11_term_00",
+                            "trainable": true
+                        },
+                        "inbound_nodes": [
+                            [
+                                [
+                                    "final_maxpool_task_11_node_02",
+                                    0,
+                                    0,
+                                    {}
+                                ]
+                            ]
+                        ],
+                        "name": "flattendec_task_11_term_00"
+                    },
+                    {
+                        "class_name": "Flatten",
+                        "config": {
+                            "data_format": "channels_last",
+                            "dtype": "float32",
+                            "name": "flattendec_task_12_term_00",
+                            "trainable": true
+                        },
+                        "inbound_nodes": [
+                            [
+                                [
+                                    "final_maxpool_task_12_node_02",
+                                    0,
+                                    0,
+                                    {}
+                                ]
+                            ]
+                        ],
+                        "name": "flattendec_task_12_term_00"
+                    },
+                    {
+                        "class_name": "Flatten",
+                        "config": {
+                            "data_format": "channels_last",
+                            "dtype": "float32",
+                            "name": "flattendec_task_13_term_00",
+                            "trainable": true
+                        },
+                        "inbound_nodes": [
+                            [
+                                [
+                                    "final_maxpool_task_13_node_02",
+                                    0,
+                                    0,
+                                    {}
+                                ]
+                            ]
+                        ],
+                        "name": "flattendec_task_13_term_00"
+                    },
+                    {
+                        "class_name": "Dense",
+                        "config": {
+                            "activation": "softmax",
+                            "activity_regularizer": null,
+                            "bias_constraint": null,
+                            "bias_initializer": {
+                                "class_name": "Zeros",
+                                "config": {}
+                            },
+                            "bias_regularizer": null,
+                            "dtype": "float32",
+                            "kernel_constraint": null,
+                            "kernel_initializer": {
+                                "class_name": "GlorotUniform",
+                                "config": {
+                                    "seed": null
+                                }
+                            },
+                            "kernel_regularizer": null,
+                            "name": "densedec_task_00_term_00",
+                            "trainable": true,
+                            "units": 2,
+                            "use_bias": true
+                        },
+                        "inbound_nodes": [
+                            [
+                                [
+                                    "flattendec_task_00_term_00",
+                                    0,
+                                    0,
+                                    {}
+                                ]
+                            ]
+                        ],
+                        "name": "densedec_task_00_term_00"
+                    },
+                    {
+                        "class_name": "Dense",
+                        "config": {
+                            "activation": "softmax",
+                            "activity_regularizer": null,
+                            "bias_constraint": null,
+                            "bias_initializer": {
+                                "class_name": "Zeros",
+                                "config": {}
+                            },
+                            "bias_regularizer": null,
+                            "dtype": "float32",
+                            "kernel_constraint": null,
+                            "kernel_initializer": {
+                                "class_name": "GlorotUniform",
+                                "config": {
+                                    "seed": null
+                                }
+                            },
+                            "kernel_regularizer": null,
+                            "name": "densedec_task_01_term_00",
+                            "trainable": true,
+                            "units": 2,
+                            "use_bias": true
+                        },
+                        "inbound_nodes": [
+                            [
+                                [
+                                    "flattendec_task_01_term_00",
+                                    0,
+                                    0,
+                                    {}
+                                ]
+                            ]
+                        ],
+                        "name": "densedec_task_01_term_00"
+                    },
+                    {
+                        "class_name": "Dense",
+                        "config": {
+                            "activation": "softmax",
+                            "activity_regularizer": null,
+                            "bias_constraint": null,
+                            "bias_initializer": {
+                                "class_name": "Zeros",
+                                "config": {}
+                            },
+                            "bias_regularizer": null,
+                            "dtype": "float32",
+                            "kernel_constraint": null,
+                            "kernel_initializer": {
+                                "class_name": "GlorotUniform",
+                                "config": {
+                                    "seed": null
+                                }
+                            },
+                            "kernel_regularizer": null,
+                            "name": "densedec_task_02_term_00",
+                            "trainable": true,
+                            "units": 2,
+                            "use_bias": true
+                        },
+                        "inbound_nodes": [
+                            [
+                                [
+                                    "flattendec_task_02_term_00",
+                                    0,
+                                    0,
+                                    {}
+                                ]
+                            ]
+                        ],
+                        "name": "densedec_task_02_term_00"
+                    },
+                    {
+                        "class_name": "Dense",
+                        "config": {
+                            "activation": "softmax",
+                            "activity_regularizer": null,
+                            "bias_constraint": null,
+                            "bias_initializer": {
+                                "class_name": "Zeros",
+                                "config": {}
+                            },
+                            "bias_regularizer": null,
+                            "dtype": "float32",
+                            "kernel_constraint": null,
+                            "kernel_initializer": {
+                                "class_name": "GlorotUniform",
+                                "config": {
+                                    "seed": null
+                                }
+                            },
+                            "kernel_regularizer": null,
+                            "name": "densedec_task_03_term_00",
+                            "trainable": true,
+                            "units": 2,
+                            "use_bias": true
+                        },
+                        "inbound_nodes": [
+                            [
+                                [
+                                    "flattendec_task_03_term_00",
+                                    0,
+                                    0,
+                                    {}
+                                ]
+                            ]
+                        ],
+                        "name": "densedec_task_03_term_00"
+                    },
+                    {
+                        "class_name": "Dense",
+                        "config": {
+                            "activation": "softmax",
+                            "activity_regularizer": null,
+                            "bias_constraint": null,
+                            "bias_initializer": {
+                                "class_name": "Zeros",
+                                "config": {}
+                            },
+                            "bias_regularizer": null,
+                            "dtype": "float32",
+                            "kernel_constraint": null,
+                            "kernel_initializer": {
+                                "class_name": "GlorotUniform",
+                                "config": {
+                                    "seed": null
+                                }
+                            },
+                            "kernel_regularizer": null,
+                            "name": "densedec_task_04_term_00",
+                            "trainable": true,
+                            "units": 2,
+                            "use_bias": true
+                        },
+                        "inbound_nodes": [
+                            [
+                                [
+                                    "flattendec_task_04_term_00",
+                                    0,
+                                    0,
+                                    {}
+                                ]
+                            ]
+                        ],
+                        "name": "densedec_task_04_term_00"
+                    },
+                    {
+                        "class_name": "Dense",
+                        "config": {
+                            "activation": "softmax",
+                            "activity_regularizer": null,
+                            "bias_constraint": null,
+                            "bias_initializer": {
+                                "class_name": "Zeros",
+                                "config": {}
+                            },
+                            "bias_regularizer": null,
+                            "dtype": "float32",
+                            "kernel_constraint": null,
+                            "kernel_initializer": {
+                                "class_name": "GlorotUniform",
+                                "config": {
+                                    "seed": null
+                                }
+                            },
+                            "kernel_regularizer": null,
+                            "name": "densedec_task_05_term_00",
+                            "trainable": true,
+                            "units": 2,
+                            "use_bias": true
+                        },
+                        "inbound_nodes": [
+                            [
+                                [
+                                    "flattendec_task_05_term_00",
+                                    0,
+                                    0,
+                                    {}
+                                ]
+                            ]
+                        ],
+                        "name": "densedec_task_05_term_00"
+                    },
+                    {
+                        "class_name": "Dense",
+                        "config": {
+                            "activation": "softmax",
+                            "activity_regularizer": null,
+                            "bias_constraint": null,
+                            "bias_initializer": {
+                                "class_name": "Zeros",
+                                "config": {}
+                            },
+                            "bias_regularizer": null,
+                            "dtype": "float32",
+                            "kernel_constraint": null,
+                            "kernel_initializer": {
+                                "class_name": "GlorotUniform",
+                                "config": {
+                                    "seed": null
+                                }
+                            },
+                            "kernel_regularizer": null,
+                            "name": "densedec_task_06_term_00",
+                            "trainable": true,
+                            "units": 2,
+                            "use_bias": true
+                        },
+                        "inbound_nodes": [
+                            [
+                                [
+                                    "flattendec_task_06_term_00",
+                                    0,
+                                    0,
+                                    {}
+                                ]
+                            ]
+                        ],
+                        "name": "densedec_task_06_term_00"
+                    },
+                    {
+                        "class_name": "Dense",
+                        "config": {
+                            "activation": "softmax",
+                            "activity_regularizer": null,
+                            "bias_constraint": null,
+                            "bias_initializer": {
+                                "class_name": "Zeros",
+                                "config": {}
+                            },
+                            "bias_regularizer": null,
+                            "dtype": "float32",
+                            "kernel_constraint": null,
+                            "kernel_initializer": {
+                                "class_name": "GlorotUniform",
+                                "config": {
+                                    "seed": null
+                                }
+                            },
+                            "kernel_regularizer": null,
+                            "name": "densedec_task_07_term_00",
+                            "trainable": true,
+                            "units": 2,
+                            "use_bias": true
+                        },
+                        "inbound_nodes": [
+                            [
+                                [
+                                    "flattendec_task_07_term_00",
+                                    0,
+                                    0,
+                                    {}
+                                ]
+                            ]
+                        ],
+                        "name": "densedec_task_07_term_00"
+                    },
+                    {
+                        "class_name": "Dense",
+                        "config": {
+                            "activation": "softmax",
+                            "activity_regularizer": null,
+                            "bias_constraint": null,
+                            "bias_initializer": {
+                                "class_name": "Zeros",
+                                "config": {}
+                            },
+                            "bias_regularizer": null,
+                            "dtype": "float32",
+                            "kernel_constraint": null,
+                            "kernel_initializer": {
+                                "class_name": "GlorotUniform",
+                                "config": {
+                                    "seed": null
+                                }
+                            },
+                            "kernel_regularizer": null,
+                            "name": "densedec_task_08_term_00",
+                            "trainable": true,
+                            "units": 2,
+                            "use_bias": true
+                        },
+                        "inbound_nodes": [
+                            [
+                                [
+                                    "flattendec_task_08_term_00",
+                                    0,
+                                    0,
+                                    {}
+                                ]
+                            ]
+                        ],
+                        "name": "densedec_task_08_term_00"
+                    },
+                    {
+                        "class_name": "Dense",
+                        "config": {
+                            "activation": "softmax",
+                            "activity_regularizer": null,
+                            "bias_constraint": null,
+                            "bias_initializer": {
+                                "class_name": "Zeros",
+                                "config": {}
+                            },
+                            "bias_regularizer": null,
+                            "dtype": "float32",
+                            "kernel_constraint": null,
+                            "kernel_initializer": {
+                                "class_name": "GlorotUniform",
+                                "config": {
+                                    "seed": null
+                                }
+                            },
+                            "kernel_regularizer": null,
+                            "name": "densedec_task_09_term_00",
+                            "trainable": true,
+                            "units": 2,
+                            "use_bias": true
+                        },
+                        "inbound_nodes": [
+                            [
+                                [
+                                    "flattendec_task_09_term_00",
+                                    0,
+                                    0,
+                                    {}
+                                ]
+                            ]
+                        ],
+                        "name": "densedec_task_09_term_00"
+                    },
+                    {
+                        "class_name": "Dense",
+                        "config": {
+                            "activation": "softmax",
+                            "activity_regularizer": null,
+                            "bias_constraint": null,
+                            "bias_initializer": {
+                                "class_name": "Zeros",
+                                "config": {}
+                            },
+                            "bias_regularizer": null,
+                            "dtype": "float32",
+                            "kernel_constraint": null,
+                            "kernel_initializer": {
+                                "class_name": "GlorotUniform",
+                                "config": {
+                                    "seed": null
+                                }
+                            },
+                            "kernel_regularizer": null,
+                            "name": "densedec_task_10_term_00",
+                            "trainable": true,
+                            "units": 2,
+                            "use_bias": true
+                        },
+                        "inbound_nodes": [
+                            [
+                                [
+                                    "flattendec_task_10_term_00",
+                                    0,
+                                    0,
+                                    {}
+                                ]
+                            ]
+                        ],
+                        "name": "densedec_task_10_term_00"
+                    },
+                    {
+                        "class_name": "Dense",
+                        "config": {
+                            "activation": "softmax",
+                            "activity_regularizer": null,
+                            "bias_constraint": null,
+                            "bias_initializer": {
+                                "class_name": "Zeros",
+                                "config": {}
+                            },
+                            "bias_regularizer": null,
+                            "dtype": "float32",
+                            "kernel_constraint": null,
+                            "kernel_initializer": {
+                                "class_name": "GlorotUniform",
+                                "config": {
+                                    "seed": null
+                                }
+                            },
+                            "kernel_regularizer": null,
+                            "name": "densedec_task_11_term_00",
+                            "trainable": true,
+                            "units": 2,
+                            "use_bias": true
+                        },
+                        "inbound_nodes": [
+                            [
+                                [
+                                    "flattendec_task_11_term_00",
+                                    0,
+                                    0,
+                                    {}
+                                ]
+                            ]
+                        ],
+                        "name": "densedec_task_11_term_00"
+                    },
+                    {
+                        "class_name": "Dense",
+                        "config": {
+                            "activation": "softmax",
+                            "activity_regularizer": null,
+                            "bias_constraint": null,
+                            "bias_initializer": {
+                                "class_name": "Zeros",
+                                "config": {}
+                            },
+                            "bias_regularizer": null,
+                            "dtype": "float32",
+                            "kernel_constraint": null,
+                            "kernel_initializer": {
+                                "class_name": "GlorotUniform",
+                                "config": {
+                                    "seed": null
+                                }
+                            },
+                            "kernel_regularizer": null,
+                            "name": "densedec_task_12_term_00",
+                            "trainable": true,
+                            "units": 2,
+                            "use_bias": true
+                        },
+                        "inbound_nodes": [
+                            [
+                                [
+                                    "flattendec_task_12_term_00",
+                                    0,
+                                    0,
+                                    {}
+                                ]
+                            ]
+                        ],
+                        "name": "densedec_task_12_term_00"
+                    },
+                    {
+                        "class_name": "Dense",
+                        "config": {
+                            "activation": "softmax",
+                            "activity_regularizer": null,
+                            "bias_constraint": null,
+                            "bias_initializer": {
+                                "class_name": "Zeros",
+                                "config": {}
+                            },
+                            "bias_regularizer": null,
+                            "dtype": "float32",
+                            "kernel_constraint": null,
+                            "kernel_initializer": {
+                                "class_name": "GlorotUniform",
+                                "config": {
+                                    "seed": null
+                                }
+                            },
+                            "kernel_regularizer": null,
+                            "name": "densedec_task_13_term_00",
+                            "trainable": true,
+                            "units": 2,
+                            "use_bias": true
+                        },
+                        "inbound_nodes": [
+                            [
+                                [
+                                    "flattendec_task_13_term_00",
+                                    0,
+                                    0,
+                                    {}
+                                ]
+                            ]
+                        ],
+                        "name": "densedec_task_13_term_00"
+                    }
+                ],
+                "name": "functional_165",
+                "output_layers": [
+                    [
+                        "densedec_task_00_term_00",
+                        0,
+                        0
+                    ],
+                    [
+                        "densedec_task_01_term_00",
+                        0,
+                        0
+                    ],
+                    [
+                        "densedec_task_02_term_00",
+                        0,
+                        0
+                    ],
+                    [
+                        "densedec_task_03_term_00",
+                        0,
+                        0
+                    ],
+                    [
+                        "densedec_task_04_term_00",
+                        0,
+                        0
+                    ],
+                    [
+                        "densedec_task_05_term_00",
+                        0,
+                        0
+                    ],
+                    [
+                        "densedec_task_06_term_00",
+                        0,
+                        0
+                    ],
+                    [
+                        "densedec_task_07_term_00",
+                        0,
+                        0
+                    ],
+                    [
+                        "densedec_task_08_term_00",
+                        0,
+                        0
+                    ],
+                    [
+                        "densedec_task_09_term_00",
+                        0,
+                        0
+                    ],
+                    [
+                        "densedec_task_10_term_00",
+                        0,
+                        0
+                    ],
+                    [
+                        "densedec_task_11_term_00",
+                        0,
+                        0
+                    ],
+                    [
+                        "densedec_task_12_term_00",
+                        0,
+                        0
+                    ],
+                    [
+                        "densedec_task_13_term_00",
+                        0,
+                        0
+                    ]
+                ]
+            },
+            "keras_version": "2.4.0"
+        }
+    },
+    "metrics": {
+        "alt_objective": null,
+        "avg_gpu_batch_time": [],
+        "execution": {
+            "client_elapsed_time": 6509.2976105213165,
+            "eval_error": null,
+            "queue_wait_time": 277.2475142478943,
+            "return_timestamp": 1607463662.341914
+        },
+        "fitness": 0.7121815139862608,
+        "fitnesses": [
+            0.6607254456927711,
+            0.6889953153837942,
+            0.7070943396182126,
+            0.7121815139862608
+        ],
+        "loss_history": {
+            "densedec_task_00_term_00_accuracy": [
+                0.8605499863624573,
+                0.8608999848365784,
+                0.86080002784729,
+                0.8600000143051147
+            ],
+            "densedec_task_00_term_00_loss": [
+                0.39782896637916565,
+                0.3866390585899353,
+                0.3812463581562042,
+                0.37865710258483887
+            ],
+            "densedec_task_01_term_00_accuracy": [
+                0.9363499879837036,
+                0.9364500045776367,
+                0.9365000128746033,
+                0.9375500082969666
+            ],
+            "densedec_task_01_term_00_loss": [
+                0.2327214628458023,
+                0.21516984701156616,
+                0.20479288697242737,
+                0.19772490859031677
+            ],
+            "densedec_task_02_term_00_accuracy": [
+                0.829200029373169,
+                0.82955002784729,
+                0.8305000066757202,
+                0.8322499990463257
+            ],
+            "densedec_task_02_term_00_loss": [
+                0.43635594844818115,
+                0.4215703010559082,
+                0.41109195351600647,
+                0.4032018184661865
+            ],
+            "densedec_task_03_term_00_accuracy": [
+                0.7791000008583069,
+                0.7784000039100647,
+                0.7783499956130981,
+                0.7789999842643738
+            ],
+            "densedec_task_03_term_00_loss": [
+                0.5191971659660339,
+                0.5105398893356323,
+                0.505564272403717,
+                0.5038565397262573
+            ],
+            "densedec_task_04_term_00_accuracy": [
+                0.9132000207901001,
+                0.9132000207901001,
+                0.9129999876022339,
+                0.9129499793052673
+            ],
+            "densedec_task_04_term_00_loss": [
+                0.30237093567848206,
+                0.29143136739730835,
+                0.2844214141368866,
+                0.2793335020542145
+            ],
+            "densedec_task_05_term_00_accuracy": [
+                0.9110000133514404,
+                0.911050021648407,
+                0.911050021648407,
+                0.911050021648407
+            ],
+            "densedec_task_05_term_00_loss": [
+                0.3081773817539215,
+                0.30053067207336426,
+                0.2974745035171509,
+                0.2957351505756378
+            ],
+            "densedec_task_06_term_00_accuracy": [
+                0.9495999813079834,
+                0.9497500061988831,
+                0.9497500061988831,
+                0.9498000144958496
+            ],
+            "densedec_task_06_term_00_loss": [
+                0.20206771790981293,
+                0.19661836326122284,
+                0.19490303099155426,
+                0.19253289699554443
+            ],
+            "densedec_task_07_term_00_accuracy": [
+                0.9153000116348267,
+                0.9151999950408936,
+                0.9150000214576721,
+                0.9143999814987183
+            ],
+            "densedec_task_07_term_00_loss": [
+                0.28974300622940063,
+                0.2791846692562103,
+                0.27139970660209656,
+                0.2642640471458435
+            ],
+            "densedec_task_08_term_00_accuracy": [
+                0.9219499826431274,
+                0.9218999743461609,
+                0.9218500256538391,
+                0.9218999743461609
+            ],
+            "densedec_task_08_term_00_loss": [
+                0.2676178514957428,
+                0.2587800920009613,
+                0.25611913204193115,
+                0.25420981645584106
+            ],
+            "densedec_task_09_term_00_accuracy": [
+                0.9361000061035156,
+                0.9356499910354614,
+                0.9357500076293945,
+                0.9365000128746033
+            ],
+            "densedec_task_09_term_00_loss": [
+                0.21001186966896057,
+                0.19859135150909424,
+                0.19406306743621826,
+                0.1894732415676117
+            ],
+            "densedec_task_10_term_00_accuracy": [
+                0.9380499720573425,
+                0.9380499720573425,
+                0.9380000233650208,
+                0.9379000067710876
+            ],
+            "densedec_task_10_term_00_loss": [
+                0.2344885915517807,
+                0.22470608353614807,
+                0.22015368938446045,
+                0.21474172174930573
+            ],
+            "densedec_task_11_term_00_accuracy": [
+                0.942300021648407,
+                0.942300021648407,
+                0.942300021648407,
+                0.942300021648407
+            ],
+            "densedec_task_11_term_00_loss": [
+                0.2246827334165573,
+                0.21401873230934143,
+                0.2086121290922165,
+                0.20607583224773407
+            ],
+            "densedec_task_12_term_00_accuracy": [
+                0.9310500025749207,
+                0.9312000274658203,
+                0.9312000274658203,
+                0.9312000274658203
+            ],
+            "densedec_task_12_term_00_loss": [
+                0.2557131052017212,
+                0.24712969362735748,
+                0.24385292828083038,
+                0.2399223893880844
+            ],
+            "densedec_task_13_term_00_accuracy": [
+                0.9916999936103821,
+                0.9918500185012817,
+                0.9918500185012817,
+                0.9918500185012817
+            ],
+            "densedec_task_13_term_00_loss": [
+                0.050090085715055466,
+                0.04538145288825035,
+                0.042993366718292236,
+                0.041629496961832047
+            ],
+            "loss": [
+                3.931204319000244,
+                3.7904105186462402,
+                3.7168121337890625,
+                3.661484718322754
+            ],
+            "lr": [
+                0.00015683485253248364,
+                0.00015683485253248364,
+                0.00015683485253248364,
+                0.00015683485253248364
+            ],
+            "val_densedec_task_00_term_00_accuracy": [
+                0.8879358172416687,
+                0.899465024471283,
+                0.8972514271736145,
+                0.8993728160858154
+            ],
+            "val_densedec_task_00_term_00_loss": [
+                0.3610914945602417,
+                0.31780683994293213,
+                0.33740800619125366,
+                0.3267199695110321
+            ],
+            "val_densedec_task_01_term_00_accuracy": [
+                0.9739900231361389,
+                0.9756502509117126,
+                0.9741744995117188,
+                0.9749124050140381
+            ],
+            "val_densedec_task_01_term_00_loss": [
+                0.19297932088375092,
+                0.1072041466832161,
+                0.12106122076511383,
+                0.12176401168107986
+            ],
+            "val_densedec_task_02_term_00_accuracy": [
+                0.8362848162651062,
+                0.8692123293876648,
+                0.8684744238853455,
+                0.8717948794364929
+            ],
+            "val_densedec_task_02_term_00_loss": [
+                0.4074708819389343,
+                0.3441143333911896,
+                0.3468048572540283,
+                0.3394623398780823
+            ],
+            "val_densedec_task_03_term_00_accuracy": [
+                0.8234643340110779,
+                0.8242021799087524,
+                0.821988582611084,
+                0.8241099715232849
+            ],
+            "val_densedec_task_03_term_00_loss": [
+                0.44724607467651367,
+                0.4465450942516327,
+                0.45365387201309204,
+                0.45770588517189026
+            ],
+            "val_densedec_task_04_term_00_accuracy": [
+                0.9429072141647339,
+                0.9429072141647339,
+                0.942077100276947,
+                0.9413392543792725
+            ],
+            "val_densedec_task_04_term_00_loss": [
+                0.2286038100719452,
+                0.21257956326007843,
+                0.2317342907190323,
+                0.24872392416000366
+            ],
+            "val_densedec_task_05_term_00_accuracy": [
+                0.9422615766525269,
+                0.9422615766525269,
+                0.9422615766525269,
+                0.9422615766525269
+            ],
+            "val_densedec_task_05_term_00_loss": [
+                0.23560737073421478,
+                0.2293214052915573,
+                0.24315012991428375,
+                0.27360692620277405
+            ],
+            "val_densedec_task_06_term_00_accuracy": [
+                0.9860726594924927,
+                0.9860726594924927,
+                0.9860726594924927,
+                0.9860726594924927
+            ],
+            "val_densedec_task_06_term_00_loss": [
+                0.09023861587047577,
+                0.10742586851119995,
+                0.11720001697540283,
+                0.1314343810081482
+            ],
+            "val_densedec_task_07_term_00_accuracy": [
+                0.9543442130088806,
+                0.9542520046234131,
+                0.9538830518722534,
+                0.9527762532234192
+            ],
+            "val_densedec_task_07_term_00_loss": [
+                0.1880360096693039,
+                0.196658194065094,
+                0.19184713065624237,
+                0.1991252601146698
+            ],
+            "val_densedec_task_08_term_00_accuracy": [
+                0.9570189714431763,
+                0.9571112394332886,
+                0.9567422866821289,
+                0.9571112394332886
+            ],
+            "val_densedec_task_08_term_00_loss": [
+                0.19198304414749146,
+                0.18782640993595123,
+                0.19793909788131714,
+                0.185853973031044
+            ],
+            "val_densedec_task_09_term_00_accuracy": [
+                0.9503781795501709,
+                0.9697473049163818,
+                0.9720531105995178,
+                0.9777716398239136
+            ],
+            "val_densedec_task_09_term_00_loss": [
+                0.16390585899353027,
+                0.1503857970237732,
+                0.11881337314844131,
+                0.11238134652376175
+            ],
+            "val_densedec_task_10_term_00_accuracy": [
+                0.9798007607460022,
+                0.9798007607460022,
+                0.9797085523605347,
+                0.9795240759849548
+            ],
+            "val_densedec_task_10_term_00_loss": [
+                0.13164067268371582,
+                0.10653883218765259,
+                0.12451696395874023,
+                0.1468648910522461
+            ],
+            "val_densedec_task_11_term_00_accuracy": [
+                0.9849658608436584,
+                0.9849658608436584,
+                0.9845969080924988,
+                0.9848736524581909
+            ],
+            "val_densedec_task_11_term_00_loss": [
+                0.11117951571941376,
+                0.09849255532026291,
+                0.1616257131099701,
+                0.13166029751300812
+            ],
+            "val_densedec_task_12_term_00_accuracy": [
+                0.964858889579773,
+                0.964858889579773,
+                0.9647666215896606,
+                0.964858889579773
+            ],
+            "val_densedec_task_12_term_00_loss": [
+                0.17964719235897064,
+                0.1537606120109558,
+                0.1883891522884369,
+                0.16221806406974792
+            ],
+            "val_densedec_task_13_term_00_accuracy": [
+                0.9971407651901245,
+                0.9971407651901245,
+                0.9971407651901245,
+                0.9971407651901245
+            ],
+            "val_densedec_task_13_term_00_loss": [
+                0.02951282262802124,
+                0.02132105641067028,
+                0.024826694279909134,
+                0.024317216128110886
+            ],
+            "val_loss": [
+                2.9592628479003906,
+                2.6800994873046875,
+                2.859095335006714,
+                2.8619565963745117
+            ]
+        },
+        "novelty": {
+            "behavior": null
+        },
+        "num_epochs_trained": 4,
+        "num_params": 126070,
+        "regression": {
+            "features": null
+        },
+        "task_fitness": [
+            0.7121618438508156,
+            0.8199022792438995,
+            0.7783697290987792,
+            0.6501727552820777,
+            0.6657065188237781,
+            0.5799719675425483,
+            0.635898862299327,
+            0.7338763261596786,
+            0.7138573740563682,
+            0.8411568065074166,
+            0.724567619145422,
+            0.6748011255278767,
+            0.6412732958267833,
+            0.7988246924428822
+        ],
+        "total_num_epochs_trained": 4,
+        "train_seed": 259611,
+        "training_time": 6231.173924207687,
+        "weights_l2norm": null,
+        "y_pred_isfinite": true
+    }
+}
