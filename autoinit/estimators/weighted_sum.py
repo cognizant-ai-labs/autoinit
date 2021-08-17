@@ -13,7 +13,7 @@ import math
 from typing import List
 import numpy as np
 
-from framework.enn.autoinit.estimators.estimate_layer_output_distribution \
+from autoinit.estimators.estimate_layer_output_distribution \
     import LayerOutputDistributionEstimator
 
 

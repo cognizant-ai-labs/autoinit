@@ -25,9 +25,9 @@ import numpy as np
 # See https://stackoverflow.com/questions/65271399/vs-code-pylance-pylint-cannot-resolve-import
 import tensorflow.keras as tfkeras
 
-from framework.enn.autoinit.components.constraints \
+from autoinit.components.constraints \
     import CenteredUnitNorm
-from framework.enn.autoinit.initializer.output_distribution_factory \
+from autoinit.initializer.output_distribution_factory \
     import OutputDistributionEstimatorFactory
 
 

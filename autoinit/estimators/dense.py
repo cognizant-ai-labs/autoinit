@@ -20,9 +20,9 @@ from numpy import prod
 # See https://stackoverflow.com/questions/65271399/vs-code-pylance-pylint-cannot-resolve-import
 import tensorflow.keras as tfkeras
 
-from framework.enn.autoinit.estimators.estimate_layer_output_distribution \
+from autoinit.estimators.estimate_layer_output_distribution \
     import LayerOutputDistributionEstimator
-from framework.enn.autoinit.components.constraints \
+from autoinit.components.constraints \
     import CenteredUnitNorm
 
 ACTIVATION_FNS = {
