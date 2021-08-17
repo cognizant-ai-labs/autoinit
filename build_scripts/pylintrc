@@ -455,24 +455,10 @@ known-third-party=enchant
 [DESIGN]
 
 # Maximum number of arguments for function / method.
-# Public Enemy list as of 4/8/2020:
-#    1. GrpcClientRetry.__init__()                              @ 14
-#    2. AbstractEasyPersistence.__init__()                      @ 10
-#    2. LoggingSetup.__init__()                                 @ 10
-#    2. SubmissionServicePopulationSession.__init__()           @ 10
 #max-args=5         # Original pylint recommendation
 max-args=9          # Too many to shame beyond this level
 
 # Maximum number of attributes for a class (see R0902).
-# Public Enemy list as of 4/8/2020:
-#    1. SessionServer                                           @ 27
-#    2. GrpcClientRetry                                         @ 17
-#    3. SubmissionServicePopulationSession                      @ 15
-#    4. CompletionServiceWrapper                                @ 11
-#    5. TrainModelDataGenSequence                               @ 10
-#    5. SeeNN                                                   @ 10
-#    5. SeeNNBlueprint                                          @ 10
-#    5. SeeNNModuleCatalog                                      @ 10
 #max-attributes=7   # Original pylint recommendation
 max-attributes=10   # Too many to shame beyond this level
 
@@ -483,12 +469,6 @@ max-bool-expr=5
 max-branches=12     # Original pylint recommendation
 
 # Maximum number of locals for function / method body.
-# Public Enemy list as of 4/8/2020:
-#   1. chestxray preprocess_labels.preprocess_labels()          @ 27
-#   2. toxicity preprocess_data.run()                           @ 26
-#   3. chestxray data_gen_seauence.__getitem__()                @ 25
-#   3. chestxray_evaluator.train()                              @ 25
-#   3. transfer_image_classifier_evaluator.train()              @ 25
 #max-locals=15      # Original pylint recommendation
 max-locals=24       # Too many to shame beyond this point
 
