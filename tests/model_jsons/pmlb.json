@@ -1,0 +1,2417 @@
+{
+    "id": "2627",
+    "identity": {
+        "ancestor_ids": [
+            "2550",
+            "2490"
+        ],
+        "error": null,
+        "experiment_version": "garrett_pmlb_high_performance_config_202106241441",
+        "id": "2627",
+        "unique_id": "2627"
+    },
+    "interpretation": {
+        "description": {
+            "toolkit": "Keras"
+        },
+        "global_hyperparameters": {
+            "id": "2627",
+            "learning_rate": 0.00033557959604957674
+        },
+        "model": {
+            "backend": "tensorflow",
+            "class_name": "Functional",
+            "config": {
+                "input_layers": [
+                    [
+                        "input_task_00_term_00",
+                        0,
+                        0
+                    ]
+                ],
+                "layers": [
+                    {
+                        "class_name": "InputLayer",
+                        "config": {
+                            "batch_input_shape": [
+                                null,
+                                14
+                            ],
+                            "dtype": "float32",
+                            "name": "input_task_00_term_00",
+                            "ragged": false,
+                            "sparse": false
+                        },
+                        "inbound_nodes": [],
+                        "name": "input_task_00_term_00"
+                    },
+                    {
+                        "class_name": "Dense",
+                        "config": {
+                            "activation": "linear",
+                            "activity_regularizer": null,
+                            "bias_constraint": null,
+                            "bias_initializer": {
+                                "class_name": "Zeros",
+                                "config": {}
+                            },
+                            "bias_regularizer": null,
+                            "dtype": "float32",
+                            "kernel_constraint": null,
+                            "kernel_initializer": {
+                                "class_name": "GlorotUniform",
+                                "config": {
+                                    "seed": null
+                                }
+                            },
+                            "kernel_regularizer": null,
+                            "name": "dense_778",
+                            "trainable": true,
+                            "units": 84,
+                            "use_bias": true
+                        },
+                        "inbound_nodes": [
+                            [
+                                [
+                                    "input_task_00_term_00",
+                                    0,
+                                    0,
+                                    {}
+                                ]
+                            ]
+                        ],
+                        "name": "dense_778"
+                    },
+                    {
+                        "class_name": "Functional",
+                        "config": {
+                            "input_layers": [
+                                [
+                                    "input_7345",
+                                    0,
+                                    0
+                                ]
+                            ],
+                            "layers": [
+                                {
+                                    "class_name": "InputLayer",
+                                    "config": {
+                                        "batch_input_shape": [
+                                            null,
+                                            84
+                                        ],
+                                        "dtype": "float32",
+                                        "name": "input_7345",
+                                        "ragged": false,
+                                        "sparse": false
+                                    },
+                                    "inbound_nodes": [],
+                                    "name": "input_7345"
+                                },
+                                {
+                                    "class_name": "Dense",
+                                    "config": {
+                                        "activation": "elu",
+                                        "activity_regularizer": null,
+                                        "bias_constraint": null,
+                                        "bias_initializer": {
+                                            "class_name": "Zeros",
+                                            "config": {}
+                                        },
+                                        "bias_regularizer": null,
+                                        "dtype": "float32",
+                                        "kernel_constraint": null,
+                                        "kernel_initializer": {
+                                            "class_name": "GlorotUniform",
+                                            "config": {
+                                                "seed": null
+                                            }
+                                        },
+                                        "kernel_regularizer": {
+                                            "class_name": "L1",
+                                            "config": {
+                                                "l1": 8.330232958542183e-05
+                                            }
+                                        },
+                                        "name": "layer_4_Dense_0",
+                                        "trainable": true,
+                                        "units": 168,
+                                        "use_bias": true
+                                    },
+                                    "inbound_nodes": [
+                                        [
+                                            [
+                                                "input_7345",
+                                                0,
+                                                0,
+                                                {}
+                                            ]
+                                        ]
+                                    ],
+                                    "name": "layer_4_Dense_0"
+                                },
+                                {
+                                    "class_name": "Dense",
+                                    "config": {
+                                        "activation": "relu",
+                                        "activity_regularizer": null,
+                                        "bias_constraint": null,
+                                        "bias_initializer": {
+                                            "class_name": "Zeros",
+                                            "config": {}
+                                        },
+                                        "bias_regularizer": null,
+                                        "dtype": "float32",
+                                        "kernel_constraint": null,
+                                        "kernel_initializer": {
+                                            "class_name": "GlorotNormal",
+                                            "config": {
+                                                "seed": null
+                                            }
+                                        },
+                                        "kernel_regularizer": {
+                                            "class_name": "L1",
+                                            "config": {
+                                                "l1": 9.678429705672897e-06
+                                            }
+                                        },
+                                        "name": "layer_3_Dense_0",
+                                        "trainable": true,
+                                        "units": 166,
+                                        "use_bias": true
+                                    },
+                                    "inbound_nodes": [
+                                        [
+                                            [
+                                                "layer_4_Dense_0",
+                                                0,
+                                                0,
+                                                {}
+                                            ]
+                                        ]
+                                    ],
+                                    "name": "layer_3_Dense_0"
+                                },
+                                {
+                                    "class_name": "Dense",
+                                    "config": {
+                                        "activation": "linear",
+                                        "activity_regularizer": null,
+                                        "bias_constraint": null,
+                                        "bias_initializer": {
+                                            "class_name": "Zeros",
+                                            "config": {}
+                                        },
+                                        "bias_regularizer": null,
+                                        "dtype": "float32",
+                                        "kernel_constraint": null,
+                                        "kernel_initializer": {
+                                            "class_name": "HeUniform",
+                                            "config": {
+                                                "seed": null
+                                            }
+                                        },
+                                        "kernel_regularizer": {
+                                            "class_name": "L2",
+                                            "config": {
+                                                "l2": 9.456789484829642e-08
+                                            }
+                                        },
+                                        "name": "Dense",
+                                        "trainable": true,
+                                        "units": 84,
+                                        "use_bias": true
+                                    },
+                                    "inbound_nodes": [
+                                        [
+                                            [
+                                                "layer_3_Dense_0",
+                                                0,
+                                                0,
+                                                {}
+                                            ]
+                                        ]
+                                    ],
+                                    "name": "Dense"
+                                }
+                            ],
+                            "name": "model_3_module_2407_31_6",
+                            "output_layers": [
+                                [
+                                    "Dense",
+                                    0,
+                                    0
+                                ]
+                            ]
+                        },
+                        "inbound_nodes": [
+                            [
+                                [
+                                    "dense_778",
+                                    0,
+                                    0,
+                                    {}
+                                ]
+                            ]
+                        ],
+                        "name": "model_3_module_2407_31_6"
+                    },
+                    {
+                        "class_name": "Functional",
+                        "config": {
+                            "input_layers": [
+                                [
+                                    "input_7344",
+                                    0,
+                                    0
+                                ]
+                            ],
+                            "layers": [
+                                {
+                                    "class_name": "InputLayer",
+                                    "config": {
+                                        "batch_input_shape": [
+                                            null,
+                                            84
+                                        ],
+                                        "dtype": "float32",
+                                        "name": "input_7344",
+                                        "ragged": false,
+                                        "sparse": false
+                                    },
+                                    "inbound_nodes": [],
+                                    "name": "input_7344"
+                                },
+                                {
+                                    "class_name": "Dropout",
+                                    "config": {
+                                        "dtype": "float32",
+                                        "name": "layer_3_Dropout_0",
+                                        "noise_shape": null,
+                                        "rate": 0.4168349576911518,
+                                        "seed": null,
+                                        "trainable": true
+                                    },
+                                    "inbound_nodes": [
+                                        [
+                                            [
+                                                "input_7344",
+                                                0,
+                                                0,
+                                                {}
+                                            ]
+                                        ]
+                                    ],
+                                    "name": "layer_3_Dropout_0"
+                                },
+                                {
+                                    "class_name": "Dense",
+                                    "config": {
+                                        "activation": "elu",
+                                        "activity_regularizer": null,
+                                        "bias_constraint": null,
+                                        "bias_initializer": {
+                                            "class_name": "Zeros",
+                                            "config": {}
+                                        },
+                                        "bias_regularizer": null,
+                                        "dtype": "float32",
+                                        "kernel_constraint": null,
+                                        "kernel_initializer": {
+                                            "class_name": "GlorotNormal",
+                                            "config": {
+                                                "seed": null
+                                            }
+                                        },
+                                        "kernel_regularizer": {
+                                            "class_name": "L1",
+                                            "config": {
+                                                "l1": 7.986169657669961e-05
+                                            }
+                                        },
+                                        "name": "layer_4_Dense_0",
+                                        "trainable": true,
+                                        "units": 88,
+                                        "use_bias": true
+                                    },
+                                    "inbound_nodes": [
+                                        [
+                                            [
+                                                "input_7344",
+                                                0,
+                                                0,
+                                                {}
+                                            ]
+                                        ]
+                                    ],
+                                    "name": "layer_4_Dense_0"
+                                },
+                                {
+                                    "class_name": "Concatenate",
+                                    "config": {
+                                        "axis": -1,
+                                        "dtype": "float32",
+                                        "name": "merge_layer_3_layer_4",
+                                        "trainable": true
+                                    },
+                                    "inbound_nodes": [
+                                        [
+                                            [
+                                                "layer_3_Dropout_0",
+                                                0,
+                                                0,
+                                                {}
+                                            ],
+                                            [
+                                                "layer_4_Dense_0",
+                                                0,
+                                                0,
+                                                {}
+                                            ]
+                                        ]
+                                    ],
+                                    "name": "merge_layer_3_layer_4"
+                                },
+                                {
+                                    "class_name": "Dense",
+                                    "config": {
+                                        "activation": "linear",
+                                        "activity_regularizer": null,
+                                        "bias_constraint": null,
+                                        "bias_initializer": {
+                                            "class_name": "Zeros",
+                                            "config": {}
+                                        },
+                                        "bias_regularizer": null,
+                                        "dtype": "float32",
+                                        "kernel_constraint": null,
+                                        "kernel_initializer": {
+                                            "class_name": "HeUniform",
+                                            "config": {
+                                                "seed": null
+                                            }
+                                        },
+                                        "kernel_regularizer": {
+                                            "class_name": "L2",
+                                            "config": {
+                                                "l2": 9.456789484829642e-08
+                                            }
+                                        },
+                                        "name": "Dense",
+                                        "trainable": true,
+                                        "units": 84,
+                                        "use_bias": true
+                                    },
+                                    "inbound_nodes": [
+                                        [
+                                            [
+                                                "merge_layer_3_layer_4",
+                                                0,
+                                                0,
+                                                {}
+                                            ]
+                                        ]
+                                    ],
+                                    "name": "Dense"
+                                }
+                            ],
+                            "name": "model_2_module_1699_170_8",
+                            "output_layers": [
+                                [
+                                    "Dense",
+                                    0,
+                                    0
+                                ]
+                            ]
+                        },
+                        "inbound_nodes": [
+                            [
+                                [
+                                    "dense_778",
+                                    0,
+                                    0,
+                                    {}
+                                ]
+                            ]
+                        ],
+                        "name": "model_2_module_1699_170_8"
+                    },
+                    {
+                        "class_name": "Add",
+                        "config": {
+                            "dtype": "float32",
+                            "name": "add_softmod_task_00_node_04",
+                            "trainable": true
+                        },
+                        "inbound_nodes": [
+                            [
+                                [
+                                    "model_3_module_2407_31_6",
+                                    1,
+                                    0,
+                                    {}
+                                ],
+                                [
+                                    "model_2_module_1699_170_8",
+                                    1,
+                                    0,
+                                    {}
+                                ]
+                            ]
+                        ],
+                        "name": "add_softmod_task_00_node_04"
+                    },
+                    {
+                        "class_name": "Functional",
+                        "config": {
+                            "input_layers": [
+                                [
+                                    "input_7345",
+                                    0,
+                                    0
+                                ]
+                            ],
+                            "layers": [
+                                {
+                                    "class_name": "InputLayer",
+                                    "config": {
+                                        "batch_input_shape": [
+                                            null,
+                                            84
+                                        ],
+                                        "dtype": "float32",
+                                        "name": "input_7345",
+                                        "ragged": false,
+                                        "sparse": false
+                                    },
+                                    "inbound_nodes": [],
+                                    "name": "input_7345"
+                                },
+                                {
+                                    "class_name": "Dense",
+                                    "config": {
+                                        "activation": "elu",
+                                        "activity_regularizer": null,
+                                        "bias_constraint": null,
+                                        "bias_initializer": {
+                                            "class_name": "Zeros",
+                                            "config": {}
+                                        },
+                                        "bias_regularizer": null,
+                                        "dtype": "float32",
+                                        "kernel_constraint": null,
+                                        "kernel_initializer": {
+                                            "class_name": "GlorotUniform",
+                                            "config": {
+                                                "seed": null
+                                            }
+                                        },
+                                        "kernel_regularizer": {
+                                            "class_name": "L1",
+                                            "config": {
+                                                "l1": 8.330232958542183e-05
+                                            }
+                                        },
+                                        "name": "layer_4_Dense_0",
+                                        "trainable": true,
+                                        "units": 168,
+                                        "use_bias": true
+                                    },
+                                    "inbound_nodes": [
+                                        [
+                                            [
+                                                "input_7345",
+                                                0,
+                                                0,
+                                                {}
+                                            ]
+                                        ]
+                                    ],
+                                    "name": "layer_4_Dense_0"
+                                },
+                                {
+                                    "class_name": "Dense",
+                                    "config": {
+                                        "activation": "relu",
+                                        "activity_regularizer": null,
+                                        "bias_constraint": null,
+                                        "bias_initializer": {
+                                            "class_name": "Zeros",
+                                            "config": {}
+                                        },
+                                        "bias_regularizer": null,
+                                        "dtype": "float32",
+                                        "kernel_constraint": null,
+                                        "kernel_initializer": {
+                                            "class_name": "GlorotNormal",
+                                            "config": {
+                                                "seed": null
+                                            }
+                                        },
+                                        "kernel_regularizer": {
+                                            "class_name": "L1",
+                                            "config": {
+                                                "l1": 9.678429705672897e-06
+                                            }
+                                        },
+                                        "name": "layer_3_Dense_0",
+                                        "trainable": true,
+                                        "units": 166,
+                                        "use_bias": true
+                                    },
+                                    "inbound_nodes": [
+                                        [
+                                            [
+                                                "layer_4_Dense_0",
+                                                0,
+                                                0,
+                                                {}
+                                            ]
+                                        ]
+                                    ],
+                                    "name": "layer_3_Dense_0"
+                                },
+                                {
+                                    "class_name": "Dense",
+                                    "config": {
+                                        "activation": "linear",
+                                        "activity_regularizer": null,
+                                        "bias_constraint": null,
+                                        "bias_initializer": {
+                                            "class_name": "Zeros",
+                                            "config": {}
+                                        },
+                                        "bias_regularizer": null,
+                                        "dtype": "float32",
+                                        "kernel_constraint": null,
+                                        "kernel_initializer": {
+                                            "class_name": "HeUniform",
+                                            "config": {
+                                                "seed": null
+                                            }
+                                        },
+                                        "kernel_regularizer": {
+                                            "class_name": "L2",
+                                            "config": {
+                                                "l2": 9.456789484829642e-08
+                                            }
+                                        },
+                                        "name": "Dense",
+                                        "trainable": true,
+                                        "units": 84,
+                                        "use_bias": true
+                                    },
+                                    "inbound_nodes": [
+                                        [
+                                            [
+                                                "layer_3_Dense_0",
+                                                0,
+                                                0,
+                                                {}
+                                            ]
+                                        ]
+                                    ],
+                                    "name": "Dense"
+                                }
+                            ],
+                            "name": "model_3_module_2407_31_4",
+                            "output_layers": [
+                                [
+                                    "Dense",
+                                    0,
+                                    0
+                                ]
+                            ]
+                        },
+                        "inbound_nodes": [
+                            [
+                                [
+                                    "add_softmod_task_00_node_04",
+                                    0,
+                                    0,
+                                    {}
+                                ]
+                            ]
+                        ],
+                        "name": "model_3_module_2407_31_4"
+                    },
+                    {
+                        "class_name": "Add",
+                        "config": {
+                            "dtype": "float32",
+                            "name": "add_softmod_task_00_node_03",
+                            "trainable": true
+                        },
+                        "inbound_nodes": [
+                            [
+                                [
+                                    "model_3_module_2407_31_4",
+                                    1,
+                                    0,
+                                    {}
+                                ],
+                                [
+                                    "model_3_module_2407_31_6",
+                                    1,
+                                    0,
+                                    {}
+                                ]
+                            ]
+                        ],
+                        "name": "add_softmod_task_00_node_03"
+                    },
+                    {
+                        "class_name": "Functional",
+                        "config": {
+                            "input_layers": [
+                                [
+                                    "input_7346",
+                                    0,
+                                    0
+                                ]
+                            ],
+                            "layers": [
+                                {
+                                    "class_name": "InputLayer",
+                                    "config": {
+                                        "batch_input_shape": [
+                                            null,
+                                            84
+                                        ],
+                                        "dtype": "float32",
+                                        "name": "input_7346",
+                                        "ragged": false,
+                                        "sparse": false
+                                    },
+                                    "inbound_nodes": [],
+                                    "name": "input_7346"
+                                },
+                                {
+                                    "class_name": "Dense",
+                                    "config": {
+                                        "activation": "relu",
+                                        "activity_regularizer": null,
+                                        "bias_constraint": null,
+                                        "bias_initializer": {
+                                            "class_name": "Zeros",
+                                            "config": {}
+                                        },
+                                        "bias_regularizer": null,
+                                        "dtype": "float32",
+                                        "kernel_constraint": null,
+                                        "kernel_initializer": {
+                                            "class_name": "HeNormal",
+                                            "config": {
+                                                "seed": null
+                                            }
+                                        },
+                                        "kernel_regularizer": {
+                                            "class_name": "L2",
+                                            "config": {
+                                                "l2": 3.1091676078176533e-07
+                                            }
+                                        },
+                                        "name": "layer_3_Dense_0",
+                                        "trainable": true,
+                                        "units": 106,
+                                        "use_bias": true
+                                    },
+                                    "inbound_nodes": [
+                                        [
+                                            [
+                                                "input_7346",
+                                                0,
+                                                0,
+                                                {}
+                                            ]
+                                        ]
+                                    ],
+                                    "name": "layer_3_Dense_0"
+                                },
+                                {
+                                    "class_name": "Dense",
+                                    "config": {
+                                        "activation": "linear",
+                                        "activity_regularizer": null,
+                                        "bias_constraint": null,
+                                        "bias_initializer": {
+                                            "class_name": "Zeros",
+                                            "config": {}
+                                        },
+                                        "bias_regularizer": null,
+                                        "dtype": "float32",
+                                        "kernel_constraint": null,
+                                        "kernel_initializer": {
+                                            "class_name": "HeUniform",
+                                            "config": {
+                                                "seed": null
+                                            }
+                                        },
+                                        "kernel_regularizer": {
+                                            "class_name": "L2",
+                                            "config": {
+                                                "l2": 9.456789484829642e-08
+                                            }
+                                        },
+                                        "name": "Dense",
+                                        "trainable": true,
+                                        "units": 84,
+                                        "use_bias": true
+                                    },
+                                    "inbound_nodes": [
+                                        [
+                                            [
+                                                "layer_3_Dense_0",
+                                                0,
+                                                0,
+                                                {}
+                                            ]
+                                        ]
+                                    ],
+                                    "name": "Dense"
+                                }
+                            ],
+                            "name": "model_4_module_2393_2_3",
+                            "output_layers": [
+                                [
+                                    "Dense",
+                                    0,
+                                    0
+                                ]
+                            ]
+                        },
+                        "inbound_nodes": [
+                            [
+                                [
+                                    "add_softmod_task_00_node_03",
+                                    0,
+                                    0,
+                                    {}
+                                ]
+                            ]
+                        ],
+                        "name": "model_4_module_2393_2_3"
+                    },
+                    {
+                        "class_name": "Functional",
+                        "config": {
+                            "input_layers": [
+                                [
+                                    "input_7346",
+                                    0,
+                                    0
+                                ]
+                            ],
+                            "layers": [
+                                {
+                                    "class_name": "InputLayer",
+                                    "config": {
+                                        "batch_input_shape": [
+                                            null,
+                                            84
+                                        ],
+                                        "dtype": "float32",
+                                        "name": "input_7346",
+                                        "ragged": false,
+                                        "sparse": false
+                                    },
+                                    "inbound_nodes": [],
+                                    "name": "input_7346"
+                                },
+                                {
+                                    "class_name": "Dense",
+                                    "config": {
+                                        "activation": "relu",
+                                        "activity_regularizer": null,
+                                        "bias_constraint": null,
+                                        "bias_initializer": {
+                                            "class_name": "Zeros",
+                                            "config": {}
+                                        },
+                                        "bias_regularizer": null,
+                                        "dtype": "float32",
+                                        "kernel_constraint": null,
+                                        "kernel_initializer": {
+                                            "class_name": "HeNormal",
+                                            "config": {
+                                                "seed": null
+                                            }
+                                        },
+                                        "kernel_regularizer": {
+                                            "class_name": "L2",
+                                            "config": {
+                                                "l2": 3.1091676078176533e-07
+                                            }
+                                        },
+                                        "name": "layer_3_Dense_0",
+                                        "trainable": true,
+                                        "units": 106,
+                                        "use_bias": true
+                                    },
+                                    "inbound_nodes": [
+                                        [
+                                            [
+                                                "input_7346",
+                                                0,
+                                                0,
+                                                {}
+                                            ]
+                                        ]
+                                    ],
+                                    "name": "layer_3_Dense_0"
+                                },
+                                {
+                                    "class_name": "Dense",
+                                    "config": {
+                                        "activation": "linear",
+                                        "activity_regularizer": null,
+                                        "bias_constraint": null,
+                                        "bias_initializer": {
+                                            "class_name": "Zeros",
+                                            "config": {}
+                                        },
+                                        "bias_regularizer": null,
+                                        "dtype": "float32",
+                                        "kernel_constraint": null,
+                                        "kernel_initializer": {
+                                            "class_name": "HeUniform",
+                                            "config": {
+                                                "seed": null
+                                            }
+                                        },
+                                        "kernel_regularizer": {
+                                            "class_name": "L2",
+                                            "config": {
+                                                "l2": 9.456789484829642e-08
+                                            }
+                                        },
+                                        "name": "Dense",
+                                        "trainable": true,
+                                        "units": 84,
+                                        "use_bias": true
+                                    },
+                                    "inbound_nodes": [
+                                        [
+                                            [
+                                                "layer_3_Dense_0",
+                                                0,
+                                                0,
+                                                {}
+                                            ]
+                                        ]
+                                    ],
+                                    "name": "Dense"
+                                }
+                            ],
+                            "name": "model_4_module_2393_2_10",
+                            "output_layers": [
+                                [
+                                    "Dense",
+                                    0,
+                                    0
+                                ]
+                            ]
+                        },
+                        "inbound_nodes": [
+                            [
+                                [
+                                    "dense_778",
+                                    0,
+                                    0,
+                                    {}
+                                ]
+                            ]
+                        ],
+                        "name": "model_4_module_2393_2_10"
+                    },
+                    {
+                        "class_name": "Functional",
+                        "config": {
+                            "input_layers": [
+                                [
+                                    "input_7344",
+                                    0,
+                                    0
+                                ]
+                            ],
+                            "layers": [
+                                {
+                                    "class_name": "InputLayer",
+                                    "config": {
+                                        "batch_input_shape": [
+                                            null,
+                                            84
+                                        ],
+                                        "dtype": "float32",
+                                        "name": "input_7344",
+                                        "ragged": false,
+                                        "sparse": false
+                                    },
+                                    "inbound_nodes": [],
+                                    "name": "input_7344"
+                                },
+                                {
+                                    "class_name": "Dropout",
+                                    "config": {
+                                        "dtype": "float32",
+                                        "name": "layer_3_Dropout_0",
+                                        "noise_shape": null,
+                                        "rate": 0.4168349576911518,
+                                        "seed": null,
+                                        "trainable": true
+                                    },
+                                    "inbound_nodes": [
+                                        [
+                                            [
+                                                "input_7344",
+                                                0,
+                                                0,
+                                                {}
+                                            ]
+                                        ]
+                                    ],
+                                    "name": "layer_3_Dropout_0"
+                                },
+                                {
+                                    "class_name": "Dense",
+                                    "config": {
+                                        "activation": "elu",
+                                        "activity_regularizer": null,
+                                        "bias_constraint": null,
+                                        "bias_initializer": {
+                                            "class_name": "Zeros",
+                                            "config": {}
+                                        },
+                                        "bias_regularizer": null,
+                                        "dtype": "float32",
+                                        "kernel_constraint": null,
+                                        "kernel_initializer": {
+                                            "class_name": "GlorotNormal",
+                                            "config": {
+                                                "seed": null
+                                            }
+                                        },
+                                        "kernel_regularizer": {
+                                            "class_name": "L1",
+                                            "config": {
+                                                "l1": 7.986169657669961e-05
+                                            }
+                                        },
+                                        "name": "layer_4_Dense_0",
+                                        "trainable": true,
+                                        "units": 88,
+                                        "use_bias": true
+                                    },
+                                    "inbound_nodes": [
+                                        [
+                                            [
+                                                "input_7344",
+                                                0,
+                                                0,
+                                                {}
+                                            ]
+                                        ]
+                                    ],
+                                    "name": "layer_4_Dense_0"
+                                },
+                                {
+                                    "class_name": "Concatenate",
+                                    "config": {
+                                        "axis": -1,
+                                        "dtype": "float32",
+                                        "name": "merge_layer_3_layer_4",
+                                        "trainable": true
+                                    },
+                                    "inbound_nodes": [
+                                        [
+                                            [
+                                                "layer_3_Dropout_0",
+                                                0,
+                                                0,
+                                                {}
+                                            ],
+                                            [
+                                                "layer_4_Dense_0",
+                                                0,
+                                                0,
+                                                {}
+                                            ]
+                                        ]
+                                    ],
+                                    "name": "merge_layer_3_layer_4"
+                                },
+                                {
+                                    "class_name": "Dense",
+                                    "config": {
+                                        "activation": "linear",
+                                        "activity_regularizer": null,
+                                        "bias_constraint": null,
+                                        "bias_initializer": {
+                                            "class_name": "Zeros",
+                                            "config": {}
+                                        },
+                                        "bias_regularizer": null,
+                                        "dtype": "float32",
+                                        "kernel_constraint": null,
+                                        "kernel_initializer": {
+                                            "class_name": "HeUniform",
+                                            "config": {
+                                                "seed": null
+                                            }
+                                        },
+                                        "kernel_regularizer": {
+                                            "class_name": "L2",
+                                            "config": {
+                                                "l2": 9.456789484829642e-08
+                                            }
+                                        },
+                                        "name": "Dense",
+                                        "trainable": true,
+                                        "units": 84,
+                                        "use_bias": true
+                                    },
+                                    "inbound_nodes": [
+                                        [
+                                            [
+                                                "merge_layer_3_layer_4",
+                                                0,
+                                                0,
+                                                {}
+                                            ]
+                                        ]
+                                    ],
+                                    "name": "Dense"
+                                }
+                            ],
+                            "name": "model_2_module_1699_170_9",
+                            "output_layers": [
+                                [
+                                    "Dense",
+                                    0,
+                                    0
+                                ]
+                            ]
+                        },
+                        "inbound_nodes": [
+                            [
+                                [
+                                    "model_4_module_2393_2_10",
+                                    1,
+                                    0,
+                                    {}
+                                ]
+                            ]
+                        ],
+                        "name": "model_2_module_1699_170_9"
+                    },
+                    {
+                        "class_name": "Functional",
+                        "config": {
+                            "input_layers": [
+                                [
+                                    "input_7345",
+                                    0,
+                                    0
+                                ]
+                            ],
+                            "layers": [
+                                {
+                                    "class_name": "InputLayer",
+                                    "config": {
+                                        "batch_input_shape": [
+                                            null,
+                                            84
+                                        ],
+                                        "dtype": "float32",
+                                        "name": "input_7345",
+                                        "ragged": false,
+                                        "sparse": false
+                                    },
+                                    "inbound_nodes": [],
+                                    "name": "input_7345"
+                                },
+                                {
+                                    "class_name": "Dense",
+                                    "config": {
+                                        "activation": "elu",
+                                        "activity_regularizer": null,
+                                        "bias_constraint": null,
+                                        "bias_initializer": {
+                                            "class_name": "Zeros",
+                                            "config": {}
+                                        },
+                                        "bias_regularizer": null,
+                                        "dtype": "float32",
+                                        "kernel_constraint": null,
+                                        "kernel_initializer": {
+                                            "class_name": "GlorotUniform",
+                                            "config": {
+                                                "seed": null
+                                            }
+                                        },
+                                        "kernel_regularizer": {
+                                            "class_name": "L1",
+                                            "config": {
+                                                "l1": 8.330232958542183e-05
+                                            }
+                                        },
+                                        "name": "layer_4_Dense_0",
+                                        "trainable": true,
+                                        "units": 168,
+                                        "use_bias": true
+                                    },
+                                    "inbound_nodes": [
+                                        [
+                                            [
+                                                "input_7345",
+                                                0,
+                                                0,
+                                                {}
+                                            ]
+                                        ]
+                                    ],
+                                    "name": "layer_4_Dense_0"
+                                },
+                                {
+                                    "class_name": "Dense",
+                                    "config": {
+                                        "activation": "relu",
+                                        "activity_regularizer": null,
+                                        "bias_constraint": null,
+                                        "bias_initializer": {
+                                            "class_name": "Zeros",
+                                            "config": {}
+                                        },
+                                        "bias_regularizer": null,
+                                        "dtype": "float32",
+                                        "kernel_constraint": null,
+                                        "kernel_initializer": {
+                                            "class_name": "GlorotNormal",
+                                            "config": {
+                                                "seed": null
+                                            }
+                                        },
+                                        "kernel_regularizer": {
+                                            "class_name": "L1",
+                                            "config": {
+                                                "l1": 9.678429705672897e-06
+                                            }
+                                        },
+                                        "name": "layer_3_Dense_0",
+                                        "trainable": true,
+                                        "units": 166,
+                                        "use_bias": true
+                                    },
+                                    "inbound_nodes": [
+                                        [
+                                            [
+                                                "layer_4_Dense_0",
+                                                0,
+                                                0,
+                                                {}
+                                            ]
+                                        ]
+                                    ],
+                                    "name": "layer_3_Dense_0"
+                                },
+                                {
+                                    "class_name": "Dense",
+                                    "config": {
+                                        "activation": "linear",
+                                        "activity_regularizer": null,
+                                        "bias_constraint": null,
+                                        "bias_initializer": {
+                                            "class_name": "Zeros",
+                                            "config": {}
+                                        },
+                                        "bias_regularizer": null,
+                                        "dtype": "float32",
+                                        "kernel_constraint": null,
+                                        "kernel_initializer": {
+                                            "class_name": "HeUniform",
+                                            "config": {
+                                                "seed": null
+                                            }
+                                        },
+                                        "kernel_regularizer": {
+                                            "class_name": "L2",
+                                            "config": {
+                                                "l2": 9.456789484829642e-08
+                                            }
+                                        },
+                                        "name": "Dense",
+                                        "trainable": true,
+                                        "units": 84,
+                                        "use_bias": true
+                                    },
+                                    "inbound_nodes": [
+                                        [
+                                            [
+                                                "layer_3_Dense_0",
+                                                0,
+                                                0,
+                                                {}
+                                            ]
+                                        ]
+                                    ],
+                                    "name": "Dense"
+                                }
+                            ],
+                            "name": "model_3_module_2407_31_5",
+                            "output_layers": [
+                                [
+                                    "Dense",
+                                    0,
+                                    0
+                                ]
+                            ]
+                        },
+                        "inbound_nodes": [
+                            [
+                                [
+                                    "model_4_module_2393_2_3",
+                                    1,
+                                    0,
+                                    {}
+                                ]
+                            ]
+                        ],
+                        "name": "model_3_module_2407_31_5"
+                    },
+                    {
+                        "class_name": "Add",
+                        "config": {
+                            "dtype": "float32",
+                            "name": "add_softmod_task_00_node_07",
+                            "trainable": true
+                        },
+                        "inbound_nodes": [
+                            [
+                                [
+                                    "model_4_module_2393_2_3",
+                                    1,
+                                    0,
+                                    {}
+                                ],
+                                [
+                                    "model_2_module_1699_170_9",
+                                    1,
+                                    0,
+                                    {}
+                                ]
+                            ]
+                        ],
+                        "name": "add_softmod_task_00_node_07"
+                    },
+                    {
+                        "class_name": "Add",
+                        "config": {
+                            "dtype": "float32",
+                            "name": "add_softmod_task_00_node_12",
+                            "trainable": true
+                        },
+                        "inbound_nodes": [
+                            [
+                                [
+                                    "model_3_module_2407_31_5",
+                                    1,
+                                    0,
+                                    {}
+                                ],
+                                [
+                                    "dense_778",
+                                    0,
+                                    0,
+                                    {}
+                                ]
+                            ]
+                        ],
+                        "name": "add_softmod_task_00_node_12"
+                    },
+                    {
+                        "class_name": "Functional",
+                        "config": {
+                            "input_layers": [
+                                [
+                                    "input_7344",
+                                    0,
+                                    0
+                                ]
+                            ],
+                            "layers": [
+                                {
+                                    "class_name": "InputLayer",
+                                    "config": {
+                                        "batch_input_shape": [
+                                            null,
+                                            84
+                                        ],
+                                        "dtype": "float32",
+                                        "name": "input_7344",
+                                        "ragged": false,
+                                        "sparse": false
+                                    },
+                                    "inbound_nodes": [],
+                                    "name": "input_7344"
+                                },
+                                {
+                                    "class_name": "Dropout",
+                                    "config": {
+                                        "dtype": "float32",
+                                        "name": "layer_3_Dropout_0",
+                                        "noise_shape": null,
+                                        "rate": 0.4168349576911518,
+                                        "seed": null,
+                                        "trainable": true
+                                    },
+                                    "inbound_nodes": [
+                                        [
+                                            [
+                                                "input_7344",
+                                                0,
+                                                0,
+                                                {}
+                                            ]
+                                        ]
+                                    ],
+                                    "name": "layer_3_Dropout_0"
+                                },
+                                {
+                                    "class_name": "Dense",
+                                    "config": {
+                                        "activation": "elu",
+                                        "activity_regularizer": null,
+                                        "bias_constraint": null,
+                                        "bias_initializer": {
+                                            "class_name": "Zeros",
+                                            "config": {}
+                                        },
+                                        "bias_regularizer": null,
+                                        "dtype": "float32",
+                                        "kernel_constraint": null,
+                                        "kernel_initializer": {
+                                            "class_name": "GlorotNormal",
+                                            "config": {
+                                                "seed": null
+                                            }
+                                        },
+                                        "kernel_regularizer": {
+                                            "class_name": "L1",
+                                            "config": {
+                                                "l1": 7.986169657669961e-05
+                                            }
+                                        },
+                                        "name": "layer_4_Dense_0",
+                                        "trainable": true,
+                                        "units": 88,
+                                        "use_bias": true
+                                    },
+                                    "inbound_nodes": [
+                                        [
+                                            [
+                                                "input_7344",
+                                                0,
+                                                0,
+                                                {}
+                                            ]
+                                        ]
+                                    ],
+                                    "name": "layer_4_Dense_0"
+                                },
+                                {
+                                    "class_name": "Concatenate",
+                                    "config": {
+                                        "axis": -1,
+                                        "dtype": "float32",
+                                        "name": "merge_layer_3_layer_4",
+                                        "trainable": true
+                                    },
+                                    "inbound_nodes": [
+                                        [
+                                            [
+                                                "layer_3_Dropout_0",
+                                                0,
+                                                0,
+                                                {}
+                                            ],
+                                            [
+                                                "layer_4_Dense_0",
+                                                0,
+                                                0,
+                                                {}
+                                            ]
+                                        ]
+                                    ],
+                                    "name": "merge_layer_3_layer_4"
+                                },
+                                {
+                                    "class_name": "Dense",
+                                    "config": {
+                                        "activation": "linear",
+                                        "activity_regularizer": null,
+                                        "bias_constraint": null,
+                                        "bias_initializer": {
+                                            "class_name": "Zeros",
+                                            "config": {}
+                                        },
+                                        "bias_regularizer": null,
+                                        "dtype": "float32",
+                                        "kernel_constraint": null,
+                                        "kernel_initializer": {
+                                            "class_name": "HeUniform",
+                                            "config": {
+                                                "seed": null
+                                            }
+                                        },
+                                        "kernel_regularizer": {
+                                            "class_name": "L2",
+                                            "config": {
+                                                "l2": 9.456789484829642e-08
+                                            }
+                                        },
+                                        "name": "Dense",
+                                        "trainable": true,
+                                        "units": 84,
+                                        "use_bias": true
+                                    },
+                                    "inbound_nodes": [
+                                        [
+                                            [
+                                                "merge_layer_3_layer_4",
+                                                0,
+                                                0,
+                                                {}
+                                            ]
+                                        ]
+                                    ],
+                                    "name": "Dense"
+                                }
+                            ],
+                            "name": "model_2_module_1699_170_7",
+                            "output_layers": [
+                                [
+                                    "Dense",
+                                    0,
+                                    0
+                                ]
+                            ]
+                        },
+                        "inbound_nodes": [
+                            [
+                                [
+                                    "add_softmod_task_00_node_07",
+                                    0,
+                                    0,
+                                    {}
+                                ]
+                            ]
+                        ],
+                        "name": "model_2_module_1699_170_7"
+                    },
+                    {
+                        "class_name": "Functional",
+                        "config": {
+                            "input_layers": [
+                                [
+                                    "input_7344",
+                                    0,
+                                    0
+                                ]
+                            ],
+                            "layers": [
+                                {
+                                    "class_name": "InputLayer",
+                                    "config": {
+                                        "batch_input_shape": [
+                                            null,
+                                            84
+                                        ],
+                                        "dtype": "float32",
+                                        "name": "input_7344",
+                                        "ragged": false,
+                                        "sparse": false
+                                    },
+                                    "inbound_nodes": [],
+                                    "name": "input_7344"
+                                },
+                                {
+                                    "class_name": "Dropout",
+                                    "config": {
+                                        "dtype": "float32",
+                                        "name": "layer_3_Dropout_0",
+                                        "noise_shape": null,
+                                        "rate": 0.4168349576911518,
+                                        "seed": null,
+                                        "trainable": true
+                                    },
+                                    "inbound_nodes": [
+                                        [
+                                            [
+                                                "input_7344",
+                                                0,
+                                                0,
+                                                {}
+                                            ]
+                                        ]
+                                    ],
+                                    "name": "layer_3_Dropout_0"
+                                },
+                                {
+                                    "class_name": "Dense",
+                                    "config": {
+                                        "activation": "elu",
+                                        "activity_regularizer": null,
+                                        "bias_constraint": null,
+                                        "bias_initializer": {
+                                            "class_name": "Zeros",
+                                            "config": {}
+                                        },
+                                        "bias_regularizer": null,
+                                        "dtype": "float32",
+                                        "kernel_constraint": null,
+                                        "kernel_initializer": {
+                                            "class_name": "GlorotNormal",
+                                            "config": {
+                                                "seed": null
+                                            }
+                                        },
+                                        "kernel_regularizer": {
+                                            "class_name": "L1",
+                                            "config": {
+                                                "l1": 7.986169657669961e-05
+                                            }
+                                        },
+                                        "name": "layer_4_Dense_0",
+                                        "trainable": true,
+                                        "units": 88,
+                                        "use_bias": true
+                                    },
+                                    "inbound_nodes": [
+                                        [
+                                            [
+                                                "input_7344",
+                                                0,
+                                                0,
+                                                {}
+                                            ]
+                                        ]
+                                    ],
+                                    "name": "layer_4_Dense_0"
+                                },
+                                {
+                                    "class_name": "Concatenate",
+                                    "config": {
+                                        "axis": -1,
+                                        "dtype": "float32",
+                                        "name": "merge_layer_3_layer_4",
+                                        "trainable": true
+                                    },
+                                    "inbound_nodes": [
+                                        [
+                                            [
+                                                "layer_3_Dropout_0",
+                                                0,
+                                                0,
+                                                {}
+                                            ],
+                                            [
+                                                "layer_4_Dense_0",
+                                                0,
+                                                0,
+                                                {}
+                                            ]
+                                        ]
+                                    ],
+                                    "name": "merge_layer_3_layer_4"
+                                },
+                                {
+                                    "class_name": "Dense",
+                                    "config": {
+                                        "activation": "linear",
+                                        "activity_regularizer": null,
+                                        "bias_constraint": null,
+                                        "bias_initializer": {
+                                            "class_name": "Zeros",
+                                            "config": {}
+                                        },
+                                        "bias_regularizer": null,
+                                        "dtype": "float32",
+                                        "kernel_constraint": null,
+                                        "kernel_initializer": {
+                                            "class_name": "HeUniform",
+                                            "config": {
+                                                "seed": null
+                                            }
+                                        },
+                                        "kernel_regularizer": {
+                                            "class_name": "L2",
+                                            "config": {
+                                                "l2": 9.456789484829642e-08
+                                            }
+                                        },
+                                        "name": "Dense",
+                                        "trainable": true,
+                                        "units": 84,
+                                        "use_bias": true
+                                    },
+                                    "inbound_nodes": [
+                                        [
+                                            [
+                                                "merge_layer_3_layer_4",
+                                                0,
+                                                0,
+                                                {}
+                                            ]
+                                        ]
+                                    ],
+                                    "name": "Dense"
+                                }
+                            ],
+                            "name": "model_2_module_1699_170_11",
+                            "output_layers": [
+                                [
+                                    "Dense",
+                                    0,
+                                    0
+                                ]
+                            ]
+                        },
+                        "inbound_nodes": [
+                            [
+                                [
+                                    "model_4_module_2393_2_3",
+                                    1,
+                                    0,
+                                    {}
+                                ]
+                            ]
+                        ],
+                        "name": "model_2_module_1699_170_11"
+                    },
+                    {
+                        "class_name": "Functional",
+                        "config": {
+                            "input_layers": [
+                                [
+                                    "input_7346",
+                                    0,
+                                    0
+                                ]
+                            ],
+                            "layers": [
+                                {
+                                    "class_name": "InputLayer",
+                                    "config": {
+                                        "batch_input_shape": [
+                                            null,
+                                            84
+                                        ],
+                                        "dtype": "float32",
+                                        "name": "input_7346",
+                                        "ragged": false,
+                                        "sparse": false
+                                    },
+                                    "inbound_nodes": [],
+                                    "name": "input_7346"
+                                },
+                                {
+                                    "class_name": "Dense",
+                                    "config": {
+                                        "activation": "relu",
+                                        "activity_regularizer": null,
+                                        "bias_constraint": null,
+                                        "bias_initializer": {
+                                            "class_name": "Zeros",
+                                            "config": {}
+                                        },
+                                        "bias_regularizer": null,
+                                        "dtype": "float32",
+                                        "kernel_constraint": null,
+                                        "kernel_initializer": {
+                                            "class_name": "HeNormal",
+                                            "config": {
+                                                "seed": null
+                                            }
+                                        },
+                                        "kernel_regularizer": {
+                                            "class_name": "L2",
+                                            "config": {
+                                                "l2": 3.1091676078176533e-07
+                                            }
+                                        },
+                                        "name": "layer_3_Dense_0",
+                                        "trainable": true,
+                                        "units": 106,
+                                        "use_bias": true
+                                    },
+                                    "inbound_nodes": [
+                                        [
+                                            [
+                                                "input_7346",
+                                                0,
+                                                0,
+                                                {}
+                                            ]
+                                        ]
+                                    ],
+                                    "name": "layer_3_Dense_0"
+                                },
+                                {
+                                    "class_name": "Dense",
+                                    "config": {
+                                        "activation": "linear",
+                                        "activity_regularizer": null,
+                                        "bias_constraint": null,
+                                        "bias_initializer": {
+                                            "class_name": "Zeros",
+                                            "config": {}
+                                        },
+                                        "bias_regularizer": null,
+                                        "dtype": "float32",
+                                        "kernel_constraint": null,
+                                        "kernel_initializer": {
+                                            "class_name": "HeUniform",
+                                            "config": {
+                                                "seed": null
+                                            }
+                                        },
+                                        "kernel_regularizer": {
+                                            "class_name": "L2",
+                                            "config": {
+                                                "l2": 9.456789484829642e-08
+                                            }
+                                        },
+                                        "name": "Dense",
+                                        "trainable": true,
+                                        "units": 84,
+                                        "use_bias": true
+                                    },
+                                    "inbound_nodes": [
+                                        [
+                                            [
+                                                "layer_3_Dense_0",
+                                                0,
+                                                0,
+                                                {}
+                                            ]
+                                        ]
+                                    ],
+                                    "name": "Dense"
+                                }
+                            ],
+                            "name": "model_4_module_2393_2_12",
+                            "output_layers": [
+                                [
+                                    "Dense",
+                                    0,
+                                    0
+                                ]
+                            ]
+                        },
+                        "inbound_nodes": [
+                            [
+                                [
+                                    "add_softmod_task_00_node_12",
+                                    0,
+                                    0,
+                                    {}
+                                ]
+                            ]
+                        ],
+                        "name": "model_4_module_2393_2_12"
+                    },
+                    {
+                        "class_name": "Functional",
+                        "config": {
+                            "input_layers": [
+                                [
+                                    "input_7345",
+                                    0,
+                                    0
+                                ]
+                            ],
+                            "layers": [
+                                {
+                                    "class_name": "InputLayer",
+                                    "config": {
+                                        "batch_input_shape": [
+                                            null,
+                                            84
+                                        ],
+                                        "dtype": "float32",
+                                        "name": "input_7345",
+                                        "ragged": false,
+                                        "sparse": false
+                                    },
+                                    "inbound_nodes": [],
+                                    "name": "input_7345"
+                                },
+                                {
+                                    "class_name": "Dense",
+                                    "config": {
+                                        "activation": "elu",
+                                        "activity_regularizer": null,
+                                        "bias_constraint": null,
+                                        "bias_initializer": {
+                                            "class_name": "Zeros",
+                                            "config": {}
+                                        },
+                                        "bias_regularizer": null,
+                                        "dtype": "float32",
+                                        "kernel_constraint": null,
+                                        "kernel_initializer": {
+                                            "class_name": "GlorotUniform",
+                                            "config": {
+                                                "seed": null
+                                            }
+                                        },
+                                        "kernel_regularizer": {
+                                            "class_name": "L1",
+                                            "config": {
+                                                "l1": 8.330232958542183e-05
+                                            }
+                                        },
+                                        "name": "layer_4_Dense_0",
+                                        "trainable": true,
+                                        "units": 168,
+                                        "use_bias": true
+                                    },
+                                    "inbound_nodes": [
+                                        [
+                                            [
+                                                "input_7345",
+                                                0,
+                                                0,
+                                                {}
+                                            ]
+                                        ]
+                                    ],
+                                    "name": "layer_4_Dense_0"
+                                },
+                                {
+                                    "class_name": "Dense",
+                                    "config": {
+                                        "activation": "relu",
+                                        "activity_regularizer": null,
+                                        "bias_constraint": null,
+                                        "bias_initializer": {
+                                            "class_name": "Zeros",
+                                            "config": {}
+                                        },
+                                        "bias_regularizer": null,
+                                        "dtype": "float32",
+                                        "kernel_constraint": null,
+                                        "kernel_initializer": {
+                                            "class_name": "GlorotNormal",
+                                            "config": {
+                                                "seed": null
+                                            }
+                                        },
+                                        "kernel_regularizer": {
+                                            "class_name": "L1",
+                                            "config": {
+                                                "l1": 9.678429705672897e-06
+                                            }
+                                        },
+                                        "name": "layer_3_Dense_0",
+                                        "trainable": true,
+                                        "units": 166,
+                                        "use_bias": true
+                                    },
+                                    "inbound_nodes": [
+                                        [
+                                            [
+                                                "layer_4_Dense_0",
+                                                0,
+                                                0,
+                                                {}
+                                            ]
+                                        ]
+                                    ],
+                                    "name": "layer_3_Dense_0"
+                                },
+                                {
+                                    "class_name": "Dense",
+                                    "config": {
+                                        "activation": "linear",
+                                        "activity_regularizer": null,
+                                        "bias_constraint": null,
+                                        "bias_initializer": {
+                                            "class_name": "Zeros",
+                                            "config": {}
+                                        },
+                                        "bias_regularizer": null,
+                                        "dtype": "float32",
+                                        "kernel_constraint": null,
+                                        "kernel_initializer": {
+                                            "class_name": "HeUniform",
+                                            "config": {
+                                                "seed": null
+                                            }
+                                        },
+                                        "kernel_regularizer": {
+                                            "class_name": "L2",
+                                            "config": {
+                                                "l2": 9.456789484829642e-08
+                                            }
+                                        },
+                                        "name": "Dense",
+                                        "trainable": true,
+                                        "units": 84,
+                                        "use_bias": true
+                                    },
+                                    "inbound_nodes": [
+                                        [
+                                            [
+                                                "layer_3_Dense_0",
+                                                0,
+                                                0,
+                                                {}
+                                            ]
+                                        ]
+                                    ],
+                                    "name": "Dense"
+                                }
+                            ],
+                            "name": "model_3_module_2407_31_13",
+                            "output_layers": [
+                                [
+                                    "Dense",
+                                    0,
+                                    0
+                                ]
+                            ]
+                        },
+                        "inbound_nodes": [
+                            [
+                                [
+                                    "model_4_module_2393_2_3",
+                                    1,
+                                    0,
+                                    {}
+                                ]
+                            ]
+                        ],
+                        "name": "model_3_module_2407_31_13"
+                    },
+                    {
+                        "class_name": "Functional",
+                        "config": {
+                            "input_layers": [
+                                [
+                                    "input_7344",
+                                    0,
+                                    0
+                                ]
+                            ],
+                            "layers": [
+                                {
+                                    "class_name": "InputLayer",
+                                    "config": {
+                                        "batch_input_shape": [
+                                            null,
+                                            84
+                                        ],
+                                        "dtype": "float32",
+                                        "name": "input_7344",
+                                        "ragged": false,
+                                        "sparse": false
+                                    },
+                                    "inbound_nodes": [],
+                                    "name": "input_7344"
+                                },
+                                {
+                                    "class_name": "Dropout",
+                                    "config": {
+                                        "dtype": "float32",
+                                        "name": "layer_3_Dropout_0",
+                                        "noise_shape": null,
+                                        "rate": 0.4168349576911518,
+                                        "seed": null,
+                                        "trainable": true
+                                    },
+                                    "inbound_nodes": [
+                                        [
+                                            [
+                                                "input_7344",
+                                                0,
+                                                0,
+                                                {}
+                                            ]
+                                        ]
+                                    ],
+                                    "name": "layer_3_Dropout_0"
+                                },
+                                {
+                                    "class_name": "Dense",
+                                    "config": {
+                                        "activation": "elu",
+                                        "activity_regularizer": null,
+                                        "bias_constraint": null,
+                                        "bias_initializer": {
+                                            "class_name": "Zeros",
+                                            "config": {}
+                                        },
+                                        "bias_regularizer": null,
+                                        "dtype": "float32",
+                                        "kernel_constraint": null,
+                                        "kernel_initializer": {
+                                            "class_name": "GlorotNormal",
+                                            "config": {
+                                                "seed": null
+                                            }
+                                        },
+                                        "kernel_regularizer": {
+                                            "class_name": "L1",
+                                            "config": {
+                                                "l1": 7.986169657669961e-05
+                                            }
+                                        },
+                                        "name": "layer_4_Dense_0",
+                                        "trainable": true,
+                                        "units": 88,
+                                        "use_bias": true
+                                    },
+                                    "inbound_nodes": [
+                                        [
+                                            [
+                                                "input_7344",
+                                                0,
+                                                0,
+                                                {}
+                                            ]
+                                        ]
+                                    ],
+                                    "name": "layer_4_Dense_0"
+                                },
+                                {
+                                    "class_name": "Concatenate",
+                                    "config": {
+                                        "axis": -1,
+                                        "dtype": "float32",
+                                        "name": "merge_layer_3_layer_4",
+                                        "trainable": true
+                                    },
+                                    "inbound_nodes": [
+                                        [
+                                            [
+                                                "layer_3_Dropout_0",
+                                                0,
+                                                0,
+                                                {}
+                                            ],
+                                            [
+                                                "layer_4_Dense_0",
+                                                0,
+                                                0,
+                                                {}
+                                            ]
+                                        ]
+                                    ],
+                                    "name": "merge_layer_3_layer_4"
+                                },
+                                {
+                                    "class_name": "Dense",
+                                    "config": {
+                                        "activation": "linear",
+                                        "activity_regularizer": null,
+                                        "bias_constraint": null,
+                                        "bias_initializer": {
+                                            "class_name": "Zeros",
+                                            "config": {}
+                                        },
+                                        "bias_regularizer": null,
+                                        "dtype": "float32",
+                                        "kernel_constraint": null,
+                                        "kernel_initializer": {
+                                            "class_name": "HeUniform",
+                                            "config": {
+                                                "seed": null
+                                            }
+                                        },
+                                        "kernel_regularizer": {
+                                            "class_name": "L2",
+                                            "config": {
+                                                "l2": 9.456789484829642e-08
+                                            }
+                                        },
+                                        "name": "Dense",
+                                        "trainable": true,
+                                        "units": 84,
+                                        "use_bias": true
+                                    },
+                                    "inbound_nodes": [
+                                        [
+                                            [
+                                                "merge_layer_3_layer_4",
+                                                0,
+                                                0,
+                                                {}
+                                            ]
+                                        ]
+                                    ],
+                                    "name": "Dense"
+                                }
+                            ],
+                            "name": "model_2_module_1699_170_14",
+                            "output_layers": [
+                                [
+                                    "Dense",
+                                    0,
+                                    0
+                                ]
+                            ]
+                        },
+                        "inbound_nodes": [
+                            [
+                                [
+                                    "model_3_module_2407_31_5",
+                                    1,
+                                    0,
+                                    {}
+                                ]
+                            ]
+                        ],
+                        "name": "model_2_module_1699_170_14"
+                    },
+                    {
+                        "class_name": "Add",
+                        "config": {
+                            "dtype": "float32",
+                            "name": "add_softmod_task_00_node_02",
+                            "trainable": true
+                        },
+                        "inbound_nodes": [
+                            [
+                                [
+                                    "model_2_module_1699_170_7",
+                                    1,
+                                    0,
+                                    {}
+                                ],
+                                [
+                                    "model_2_module_1699_170_8",
+                                    1,
+                                    0,
+                                    {}
+                                ],
+                                [
+                                    "model_3_module_2407_31_6",
+                                    1,
+                                    0,
+                                    {}
+                                ],
+                                [
+                                    "model_2_module_1699_170_11",
+                                    1,
+                                    0,
+                                    {}
+                                ],
+                                [
+                                    "model_4_module_2393_2_12",
+                                    1,
+                                    0,
+                                    {}
+                                ],
+                                [
+                                    "model_3_module_2407_31_13",
+                                    1,
+                                    0,
+                                    {}
+                                ],
+                                [
+                                    "model_2_module_1699_170_14",
+                                    1,
+                                    0,
+                                    {}
+                                ]
+                            ]
+                        ],
+                        "name": "add_softmod_task_00_node_02"
+                    },
+                    {
+                        "class_name": "Dense",
+                        "config": {
+                            "activation": "softmax",
+                            "activity_regularizer": null,
+                            "bias_constraint": null,
+                            "bias_initializer": {
+                                "class_name": "Zeros",
+                                "config": {}
+                            },
+                            "bias_regularizer": null,
+                            "dtype": "float32",
+                            "kernel_constraint": null,
+                            "kernel_initializer": {
+                                "class_name": "GlorotUniform",
+                                "config": {
+                                    "seed": null
+                                }
+                            },
+                            "kernel_regularizer": null,
+                            "name": "densedec_task_00_term_00",
+                            "trainable": true,
+                            "units": 2,
+                            "use_bias": true
+                        },
+                        "inbound_nodes": [
+                            [
+                                [
+                                    "add_softmod_task_00_node_02",
+                                    0,
+                                    0,
+                                    {}
+                                ]
+                            ]
+                        ],
+                        "name": "densedec_task_00_term_00"
+                    }
+                ],
+                "name": "model_778",
+                "output_layers": [
+                    [
+                        "densedec_task_00_term_00",
+                        0,
+                        0
+                    ]
+                ]
+            },
+            "keras_version": "2.4.0"
+        }
+    },
+    "metrics": {
+        "alt_objective": null,
+        "avg_gpu_batch_time": [],
+        "execution": {
+            "client_elapsed_time": 325.1445903778076,
+            "eval_error": null,
+            "queue_wait_time": 348.94465017318726,
+            "return_timestamp": 1624622894.0601962
+        },
+        "fitness": 0.8548469543457031,
+        "loss_history": {
+            "loss": [
+                0.9815448522567749,
+                0.7587028741836548,
+                0.5951884388923645,
+                0.4954017400741577,
+                0.4399779736995697,
+                0.4044816493988037,
+                0.381265252828598,
+                0.363320916891098,
+                0.3523619771003723,
+                0.34468337893486023,
+                0.3400956988334656,
+                0.3349786698818207,
+                0.33063825964927673,
+                0.32866737246513367,
+                0.3258051872253418,
+                0.32284900546073914,
+                0.32120904326438904,
+                0.3202865719795227,
+                0.31897667050361633,
+                0.31731632351875305,
+                0.31558817625045776,
+                0.31549057364463806,
+                0.31392917037010193,
+                0.3147691488265991,
+                0.3129073977470398
+            ],
+            "sparse_categorical_accuracy": [
+                0.8359224796295166,
+                0.8461597561836243,
+                0.8482840061187744,
+                0.8512527942657471,
+                0.850561797618866,
+                0.8505873680114746,
+                0.852302074432373,
+                0.8525324463844299,
+                0.8534281849861145,
+                0.8527883887290955,
+                0.8541192412376404,
+                0.853044331073761,
+                0.8544007539749146,
+                0.8544007539749146,
+                0.8547590374946594,
+                0.8553476929664612,
+                0.8558595180511475,
+                0.8549382090568542,
+                0.8543239831924438,
+                0.8564481735229492,
+                0.8560643196105957,
+                0.857036828994751,
+                0.8567553162574768,
+                0.8559107184410095,
+                0.8580093383789062
+            ],
+            "val_loss": [
+                0.8558601140975952,
+                0.6642058491706848,
+                0.5286306142807007,
+                0.46952953934669495,
+                0.4155803918838501,
+                0.3895130455493927,
+                0.36937448382377625,
+                0.3694263696670532,
+                0.3468141555786133,
+                0.3411269187927246,
+                0.3364754617214203,
+                0.33477434515953064,
+                0.3304329216480255,
+                0.3270571529865265,
+                0.32563459873199463,
+                0.32773491740226746,
+                0.32356905937194824,
+                0.3237680196762085,
+                0.32332441210746765,
+                0.3214987814426422,
+                0.32090091705322266,
+                0.3235169053077698,
+                0.32024163007736206,
+                0.32845035195350647,
+                0.31699883937835693
+            ],
+            "val_sparse_categorical_accuracy": [
+                0.8452246785163879,
+                0.8489097952842712,
+                0.8529020547866821,
+                0.8454294204711914,
+                0.8511618375778198,
+                0.8492169380187988,
+                0.8535162210464478,
+                0.8500358462333679,
+                0.8529020547866821,
+                0.8533114790916443,
+                0.8525949716567993,
+                0.8525949716567993,
+                0.8517760038375854,
+                0.8516736626625061,
+                0.8532091379165649,
+                0.8521854877471924,
+                0.8513665795326233,
+                0.8491145372390747,
+                0.8526973128318787,
+                0.8532091379165649,
+                0.8522878289222717,
+                0.8503429293632507,
+                0.8526973128318787,
+                0.8514689207077026,
+                0.8548469543457031
+            ]
+        },
+        "novelty": {
+            "behavior": null
+        },
+        "num_epochs_trained": 25,
+        "regression": {
+            "features": null
+        },
+        "task_fitness": [
+            0.8548469543457031
+        ],
+        "total_num_epochs_trained": 25,
+        "train_seed": 989739,
+        "training_time": 315.0231363773346,
+        "weights_l2norm": null
+    }
+}

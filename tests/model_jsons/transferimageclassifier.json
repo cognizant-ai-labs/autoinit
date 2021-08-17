@@ -1,0 +1,391 @@
+{
+    "id": "623",
+    "identity": {
+        "ancestor_ids": [
+            "606",
+            "604"
+        ],
+        "error": null,
+        "experiment_version": "garrett_transferimageclassifier_high_performance_config_202105100829",
+        "id": "623",
+        "unique_id": "623"
+    },
+    "interpretation": {
+        "description": {
+            "toolkit": "Keras"
+        },
+        "global_hyperparameters": {
+            "architecture_mode": "augment",
+            "flip": "horizontal",
+            "height_shift_range": 0.2,
+            "id": "623",
+            "learning_rate": 0.0012049306838816558,
+            "momentum": 0.9,
+            "pretrained_model": "densenet121",
+            "rotation_range": 40,
+            "shear_range": 0.2,
+            "transfer_mode": "finetune",
+            "weight_decay_to_lr_ratio": 0.0004363522785442332,
+            "width_shift_range": 0.2,
+            "zoom_range": 0.2
+        },
+        "model": {
+            "backend": "tensorflow",
+            "class_name": "Functional",
+            "config": {
+                "input_layers": [
+                    [
+                        "input_task_00_term_00",
+                        0,
+                        0
+                    ]
+                ],
+                "layers": [
+                    {
+                        "class_name": "InputLayer",
+                        "config": {
+                            "batch_input_shape": [
+                                null,
+                                1024
+                            ],
+                            "dtype": "float32",
+                            "name": "input_task_00_term_00",
+                            "ragged": false,
+                            "sparse": false
+                        },
+                        "inbound_nodes": [],
+                        "name": "input_task_00_term_00"
+                    },
+                    {
+                        "class_name": "Dense",
+                        "config": {
+                            "activation": "linear",
+                            "activity_regularizer": null,
+                            "bias_constraint": null,
+                            "bias_initializer": {
+                                "class_name": "Zeros",
+                                "config": {}
+                            },
+                            "bias_regularizer": null,
+                            "dtype": "float32",
+                            "kernel_constraint": null,
+                            "kernel_initializer": {
+                                "class_name": "GlorotUniform",
+                                "config": {
+                                    "seed": null
+                                }
+                            },
+                            "kernel_regularizer": null,
+                            "name": "dense_10",
+                            "trainable": true,
+                            "units": 137,
+                            "use_bias": true
+                        },
+                        "inbound_nodes": [
+                            [
+                                [
+                                    "input_task_00_term_00",
+                                    0,
+                                    0,
+                                    {}
+                                ]
+                            ]
+                        ],
+                        "name": "dense_10"
+                    },
+                    {
+                        "class_name": "Functional",
+                        "config": {
+                            "input_layers": [
+                                [
+                                    "input_9460",
+                                    0,
+                                    0
+                                ]
+                            ],
+                            "layers": [
+                                {
+                                    "class_name": "InputLayer",
+                                    "config": {
+                                        "batch_input_shape": [
+                                            null,
+                                            137
+                                        ],
+                                        "dtype": "float32",
+                                        "name": "input_9460",
+                                        "ragged": false,
+                                        "sparse": false
+                                    },
+                                    "inbound_nodes": [],
+                                    "name": "input_9460"
+                                },
+                                {
+                                    "class_name": "Dense",
+                                    "config": {
+                                        "activation": "linear",
+                                        "activity_regularizer": null,
+                                        "bias_constraint": null,
+                                        "bias_initializer": {
+                                            "class_name": "Zeros",
+                                            "config": {}
+                                        },
+                                        "bias_regularizer": null,
+                                        "dtype": "float32",
+                                        "kernel_constraint": null,
+                                        "kernel_initializer": {
+                                            "class_name": "GlorotNormal",
+                                            "config": {
+                                                "seed": null
+                                            }
+                                        },
+                                        "kernel_regularizer": {
+                                            "class_name": "L2",
+                                            "config": {
+                                                "l2": 0.0004261904105078429
+                                            }
+                                        },
+                                        "name": "Dense",
+                                        "trainable": true,
+                                        "units": 137,
+                                        "use_bias": true
+                                    },
+                                    "inbound_nodes": [
+                                        [
+                                            [
+                                                "input_9460",
+                                                0,
+                                                0,
+                                                {}
+                                            ]
+                                        ]
+                                    ],
+                                    "name": "Dense"
+                                }
+                            ],
+                            "name": "model_2_module_641_1_3",
+                            "output_layers": [
+                                [
+                                    "Dense",
+                                    0,
+                                    0
+                                ]
+                            ]
+                        },
+                        "inbound_nodes": [
+                            [
+                                [
+                                    "dense_10",
+                                    0,
+                                    0,
+                                    {}
+                                ]
+                            ]
+                        ],
+                        "name": "model_2_module_641_1_3"
+                    },
+                    {
+                        "class_name": "Dense",
+                        "config": {
+                            "activation": "softmax",
+                            "activity_regularizer": null,
+                            "bias_constraint": null,
+                            "bias_initializer": {
+                                "class_name": "Zeros",
+                                "config": {}
+                            },
+                            "bias_regularizer": null,
+                            "dtype": "float32",
+                            "kernel_constraint": null,
+                            "kernel_initializer": {
+                                "class_name": "GlorotUniform",
+                                "config": {
+                                    "seed": null
+                                }
+                            },
+                            "kernel_regularizer": null,
+                            "name": "densedec_task_00_term_00",
+                            "trainable": true,
+                            "units": 102,
+                            "use_bias": true
+                        },
+                        "inbound_nodes": [
+                            [
+                                [
+                                    "model_2_module_641_1_3",
+                                    1,
+                                    0,
+                                    {}
+                                ]
+                            ]
+                        ],
+                        "name": "densedec_task_00_term_00"
+                    }
+                ],
+                "name": "model_255",
+                "output_layers": [
+                    [
+                        "densedec_task_00_term_00",
+                        0,
+                        0
+                    ]
+                ]
+            },
+            "keras_version": "2.4.0"
+        }
+    },
+    "metrics": {
+        "alt_objective": null,
+        "avg_gpu_batch_time": [],
+        "execution": {
+            "client_elapsed_time": 2111.361162662506,
+            "eval_error": null,
+            "queue_wait_time": 7823.014531373978,
+            "return_timestamp": 1620787062.0020044
+        },
+        "fitness": 0.9419291615486145,
+        "loss_history": {
+            "loss": [
+                4.139935320073908,
+                2.1210002225378286,
+                1.192583453985071,
+                0.7575914117658562,
+                0.4794915991691733,
+                0.3619675441928532,
+                0.26595734318961267,
+                0.17722773604949002,
+                0.14979112042268747,
+                0.11911667270858298,
+                0.08363100287059079,
+                0.08221378576437476,
+                0.07578197571881644,
+                0.0743737140197366,
+                0.08067744242196734,
+                0.06127552995126945,
+                0.05606564577565834,
+                0.0503685083313893,
+                0.03793714694649335,
+                0.043089368472634094,
+                0.04086105751882311,
+                0.03618480625521878,
+                0.0374561573448683,
+                0.03211946374637336,
+                0.03336809431257926,
+                0.026651643777603474,
+                0.02832497904698054,
+                0.02719719275802727,
+                0.03084996741692068,
+                0.02849743321288641
+            ],
+            "sparse_categorical_accuracy": [
+                0.12747035920619965,
+                0.5494071245193481,
+                0.7776679992675781,
+                0.8735178112983704,
+                0.9298418760299683,
+                0.9614624381065369,
+                0.9664031863212585,
+                0.9911067485809326,
+                0.997035562992096,
+                0.9950593113899231,
+                0.9990118741989136,
+                0.9960474371910095,
+                0.998031497001648,
+                0.9980158805847168,
+                0.9940711259841919,
+                0.9990118741989136,
+                0.9990118741989136,
+                0.997035562992096,
+                1.0,
+                0.9990118741989136,
+                0.9980236887931824,
+                1.0,
+                0.9990118741989136,
+                1.0,
+                0.9980236887931824,
+                0.999015748500824,
+                1.0,
+                0.9990118741989136,
+                0.9990118741989136,
+                0.998031497001648
+            ],
+            "val_loss": [
+                2.477206326962456,
+                1.2511145490859672,
+                0.90454860935061,
+                0.6819869881114504,
+                0.5858359269753802,
+                0.509264471581367,
+                0.4243332355385866,
+                0.378064362321225,
+                0.3782509062897531,
+                0.34444753731432276,
+                0.3228294774889946,
+                0.3392194084067807,
+                0.32231166208250905,
+                0.3403398753730507,
+                0.3248500130102625,
+                0.3071160617973802,
+                0.30552954206015825,
+                0.2852969328418198,
+                0.2779610326594314,
+                0.2701928967602668,
+                0.3006378529542016,
+                0.28337523339895576,
+                0.27220786927729906,
+                0.2666913764606281,
+                0.2683669831823763,
+                0.2621673531170318,
+                0.2740102100120051,
+                0.2892137278938358,
+                0.27784658496370757,
+                0.26902878450185763
+            ],
+            "val_sparse_categorical_accuracy": [
+                0.38877952098846436,
+                0.6751968264579773,
+                0.8061023354530334,
+                0.8444882035255432,
+                0.8562992215156555,
+                0.8848425149917603,
+                0.8996062874794006,
+                0.9114173054695129,
+                0.915354311466217,
+                0.915354311466217,
+                0.9212598204612732,
+                0.9251968264579773,
+                0.9242125749588013,
+                0.9222440719604492,
+                0.913385808467865,
+                0.9242125749588013,
+                0.9311023354530334,
+                0.9311023354530334,
+                0.9350393414497375,
+                0.9350393414497375,
+                0.9242125749588013,
+                0.9311023354530334,
+                0.9350393414497375,
+                0.9389764070510864,
+                0.9350393414497375,
+                0.9389764070510864,
+                0.9379921555519104,
+                0.9340550899505615,
+                0.9311023354530334,
+                0.9419291615486145
+            ]
+        },
+        "novelty": {
+            "behavior": null
+        },
+        "num_epochs_trained": 30,
+        "regression": {
+            "features": null
+        },
+        "task_fitness": [
+            0.9419291615486145
+        ],
+        "total_num_epochs_trained": 30,
+        "train_seed": 127708,
+        "training_time": 2090.8710703849792,
+        "weights_l2norm": null
+    }
+}
