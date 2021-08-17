@@ -19,7 +19,7 @@ import numpy as np
 # See https://stackoverflow.com/questions/65271399/vs-code-pylance-pylint-cannot-resolve-import
 import tensorflow.keras as tfkeras
 
-from framework.enn.autoinit.initializer.initialize_weights import AutoInit
+from autoinit.initializer.initialize_weights import AutoInit
 
 
 class AutoInitVisualizer:

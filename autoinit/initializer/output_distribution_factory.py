@@ -18,38 +18,38 @@ from typing import Dict
 # See https://stackoverflow.com/questions/65271399/vs-code-pylance-pylint-cannot-resolve-import
 import tensorflow.keras as tfkeras
 
-from framework.enn.autoinit.components.weighted_sum \
+from autoinit.components.weighted_sum \
     import WeightedSum
 
-from framework.enn.autoinit.estimators.activation \
+from autoinit.estimators.activation \
     import ActivationOutputDistributionEstimator
-from framework.enn.autoinit.estimators.add \
+from autoinit.estimators.add \
     import AddOutputDistributionEstimator
-from framework.enn.autoinit.estimators.average \
+from autoinit.estimators.average \
     import AverageOutputDistributionEstimator
-from framework.enn.autoinit.estimators.batch_norm \
+from autoinit.estimators.batch_norm \
     import BatchNormalizationOutputDistributionEstimator
-from framework.enn.autoinit.estimators.concatenate \
+from autoinit.estimators.concatenate \
     import ConcatenateOutputDistributionEstimator
-from framework.enn.autoinit.estimators.dense \
+from autoinit.estimators.dense \
     import DenseOutputDistributionEstimator
-from framework.enn.autoinit.estimators.dropout \
+from autoinit.estimators.dropout \
     import DropoutOutputDistributionEstimator
-from framework.enn.autoinit.estimators.estimate_layer_output_distribution \
+from autoinit.estimators.estimate_layer_output_distribution \
     import LayerOutputDistributionEstimator
-from framework.enn.autoinit.estimators.multiply \
+from autoinit.estimators.multiply \
     import MultiplyOutputDistributionEstimator
-from framework.enn.autoinit.estimators.passthrough \
+from autoinit.estimators.passthrough \
     import PassThroughOutputDistributionEstimator
-from framework.enn.autoinit.estimators.pooling \
+from autoinit.estimators.pooling \
     import PoolingOutputDistributionEstimator
-from framework.enn.autoinit.estimators.recurrent \
+from autoinit.estimators.recurrent \
     import RecurrentOutputDistributionEstimator
-from framework.enn.autoinit.estimators.subtract \
+from autoinit.estimators.subtract \
     import SubtractOutputDistributionEstimator
-from framework.enn.autoinit.estimators.weighted_sum \
+from autoinit.estimators.weighted_sum \
     import WeightedSumOutputDistributionEstimator
-from framework.enn.autoinit.estimators.zero_padding \
+from autoinit.estimators.zero_padding \
     import ZeroPaddingOutputDistributionEstimator
 
 

@@ -14,9 +14,9 @@
 # See https://stackoverflow.com/questions/65271399/vs-code-pylance-pylint-cannot-resolve-import
 import tensorflow.keras as tfkeras
 
-from framework.enn.autoinit.components.weighted_sum \
+from autoinit.components.weighted_sum \
     import WeightedSum
-from framework.enn.util.replace_layer import ReplaceLayer
+from autoinit.util.replace_layer import ReplaceLayer
 
 
 class WrapAddition(ReplaceLayer):
