@@ -1,4 +1,4 @@
-# AutoInit: Analytic Mean- and Variance-Preserving Weight Initialization for Neural Networks
+# AutoInit: Analytic Signal-Preserving Weight Initialization for Neural Networks
 
 AutoInit analyzes your network's topology, layers, and activation functions and configures the network weights to ensure smooth signal propagation at initialization.  The weights are initialized according to the following recursive algorithm.
 
