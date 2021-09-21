@@ -1,5 +1,7 @@
 # AutoInit: Analytic Signal-Preserving Weight Initialization for Neural Networks
 
+The AutoInit paper is available here: https://arxiv.org/abs/2109.08958
+
 AutoInit analyzes your network's topology, layers, and activation functions and configures the network weights to ensure smooth signal propagation at initialization.  The weights are initialized according to the following recursive algorithm.
 
 * Given input with mean `input_data_mean` and variance `input_data_variance`
@@ -71,3 +73,17 @@ WARNING:root:No LayerOutputDistributionEstimator found for layer UpSampling2D. U
 ```
 
 In this case, the mean and variance are simply returned unchanged.  If performance is satisfactory, no action is required.  Otherwise, you should create a `LayerOutputDistributionEstimator` for your specific layer type and validate its performance using `visualize_init.py`.
+
+## Citation
+
+If you use AutoInit in your research, please cite it using the following BibTeX entry
+```
+@misc{bingham2021autoinit,
+      title={AutoInit: Analytic Signal-Preserving Weight Initialization for Neural Networks}, 
+      author={Garrett Bingham and Risto Miikkulainen},
+      year={2021},
+      eprint={2109.08958},
+      archivePrefix={arXiv},
+      primaryClass={cs.LG}
+}
+```
