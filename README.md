@@ -15,6 +15,7 @@ Install AutoInit with
 ```
 pip install git+https://github.com/cognizant-ai-labs/autoinit.git
 ```
+and ensure your TensorFlow version is at least 2.4.0.
 
 
 Import the `AutoInit` class in your script
