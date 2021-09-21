@@ -11,6 +11,11 @@ AutoInit analyzes your network's topology, layers, and activation functions and 
     * Return the outgoing mean and variance for consumption by downstream layers
 
 ## Usage
+Install AutoInit with
+```
+pip install git+https://github.com/cognizant-ai-labs/autoinit.git
+```
+
 
 Import the `AutoInit` class in your script
 ```python
