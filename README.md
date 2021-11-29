@@ -41,8 +41,8 @@ class AutoInit(weight_init_config: Dict=None,
 The parameters `input_data_mean` and `input_data_var` can be specified if your data does not have zero mean and unit variance.  The `weight_init_config` dictionary is used to customize other aspects of AutoInit's behavior.  The following fields are available:
 
 #### Distribution
-```json
-# One of ["truncated_normal", "untruncated_normal", "uniform", "orthogonal"]
+```python
+# One of ['truncated_normal', 'untruncated_normal', 'uniform', 'orthogonal']
 "distribution" : "truncated_normal",
 ```
 AutoInit has mainly been tested with `"distribution" : "truncated_normal"`.  Other distribution choices should be validated experimentally or by using `visualize_init.py` (below).
