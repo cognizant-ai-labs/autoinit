@@ -22,7 +22,7 @@ and ensure your TensorFlow version is at least 2.4.0.
 
 Import the `AutoInit` class in your script
 ```python
-from autoinit.initializer.initialize_weights import AutoInit
+from autoinit import AutoInit
 ```
 and use the class to wrap your model:
 ```python
@@ -42,7 +42,7 @@ The parameters `input_data_mean` and `input_data_var` can be specified if your d
 
 #### Distribution
 ```json
-# One of ['truncated_normal', 'untruncated_normal', 'uniform', 'orthogonal']
+# One of ["truncated_normal", "untruncated_normal", "uniform", "orthogonal"]
 "distribution" : "truncated_normal",
 ```
 AutoInit has mainly been tested with `"distribution" : "truncated_normal"`.  Other distribution choices should be validated experimentally or by using `visualize_init.py` (below).
@@ -62,7 +62,12 @@ Pooling and recurrent layers require Monte Carlo sampling to estimate the outgoi
 
 ## Visualization
 
-Use `autoinit/util/visualize_init.py` to visualize signal propagation across a default and AutoInit version of a given neural network.  The docstring to the `AutoInitVisualizer` class contains more information.
+To plot signal propagation across a default and AutoInit version of a given neural network, use:
+```python
+from autoinit import AutoInitVisualizer
+AutoInitVisualizer().visualize(training_model)
+```
+The docstring to the `AutoInitVisualizer` class in `autoinit/util/visualize_init.py` contains additional information.
 
 ## Unsupported Layers
 
@@ -72,7 +77,7 @@ In order to correctly calculate the outgoing mean and variance, a `LayerOutputDi
 WARNING:root:No LayerOutputDistributionEstimator found for layer UpSampling2D. Using the default PassThroughOutputDistributionEstimator instead.
 ```
 
-In this case, the mean and variance are simply returned unchanged.  If performance is satisfactory, no action is required.  Otherwise, you should create a `LayerOutputDistributionEstimator` for your specific layer type and validate its performance using `visualize_init.py`.
+In this case, the mean and variance are simply returned unchanged.  If performance is satisfactory, no action is required.  Otherwise, you should create a `LayerOutputDistributionEstimator` for your specific layer type and validate its performance using the `AutoInitVisualizer`.
 
 ## Citation
 
