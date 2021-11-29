@@ -68,7 +68,7 @@ class AutoInitVisualizer:
 
     def _load_models(self, model, custom_objects=None):
         """
-        This function creates a default initialized and universal initialized model.
+        This function creates a default initialized and AutoInit initialized model.
         The argument model can either be an already instantiated TensorFlow model, a
         model config dictionary, or a model JSON string.
         """
@@ -87,9 +87,11 @@ class AutoInitVisualizer:
             raise TypeError('The model argument must be a TensorFlow Model, config dictionary, '\
                            f'or JSON string.  Got type {type(model)}.')
 
-        # Create the universal model based on the default model
+        # Create the AutoInit model based on the default model
         self.autoinit_model, self.mean_var_estimates = \
-            AutoInit().initialize_model(self.default_model.get_config(), True)
+            AutoInit().initialize_model(self.default_model.get_config(),
+                                        return_estimates=True,
+                                        custom_objects=custom_objects)
 
         # Expose intermediate outputs of both models
         self.default_model = tfkeras.Model(inputs=self.default_model.inputs,
@@ -157,8 +159,8 @@ class AutoInitVisualizer:
         fig_width = len(xvals) / 4
 
         plt.figure(figsize=(fig_width, fig_height))
-        plt.plot(xvals, self.actual_means, label='Universal Init Mean (Actual)', color='C0')
-        plt.plot(xvals, self.pred_means, label='Universal Init Mean (Predicted)',
+        plt.plot(xvals, self.actual_means, label='AutoInit Mean (Actual)', color='C0')
+        plt.plot(xvals, self.pred_means, label='AutoInit Mean (Predicted)',
             color='C0', linestyle=':')
         plt.plot(xvals, self.default_means, label='Default Init Mean', color='C1')
         plt.xticks(ticks=xvals, labels=self.layer_names, rotation=90, fontsize=8)
@@ -171,8 +173,8 @@ class AutoInitVisualizer:
             plt.show()
 
         plt.figure(figsize=(fig_width, fig_height))
-        plt.plot(xvals, self.actual_vars, label='Universal Init Variance (Actual)', color='C0')
-        plt.plot(xvals, self.pred_vars, label='Universal Init Variance (Predicted)',
+        plt.plot(xvals, self.actual_vars, label='AutoInit Variance (Actual)', color='C0')
+        plt.plot(xvals, self.pred_vars, label='AutoInit Variance (Predicted)',
             color='C0', linestyle=':')
         plt.plot(xvals, self.default_vars, label='Default Init Variance', color='C1')
         plt.xticks(ticks=xvals, labels=self.layer_names, rotation=90, fontsize=8)
