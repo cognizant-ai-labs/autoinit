@@ -81,7 +81,7 @@ In this case, the mean and variance are simply returned unchanged.  If performan
 
 ## Citation
 
-If you use AutoInit in your research, please cite it using the following BibTeX entry
+If you use AutoInit in your research, please cite it using the following BibTeX entry, and consider sharing your use case with us by emailing [bingham@cs.utexas.edu](mailto:bingham@cs.utexas.edu).
 ```
 @misc{bingham2021autoinit,
       title={AutoInit: Analytic Signal-Preserving Weight Initialization for Neural Networks}, 
