@@ -1,6 +1,6 @@
 #!/bin/bash
 
-# Copyright (C) 2021 Cognizant Digital Business, Evolutionary AI.
+# Copyright (C) 2021-2022 Cognizant Digital Business, Evolutionary AI.
 # All Rights Reserved.
 # Issued under the Academic Public License.
 #

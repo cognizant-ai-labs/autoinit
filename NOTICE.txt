@@ -1,5 +1,5 @@
 AutoInit Software
-Copyright (C) 2021 Cognizant Digital Business, Evolutionary AI. All Rights Reserved.
+Copyright (C) 2021-2022 Cognizant Digital Business, Evolutionary AI. All Rights Reserved.
 
 This product contains software developed by the
 Cognizant Evolutionary AI organization, and contains patent
