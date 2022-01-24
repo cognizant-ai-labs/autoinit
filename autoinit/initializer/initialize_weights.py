@@ -46,24 +46,24 @@ class AutoInit:
 
     def __init__(self,
                  weight_init_config: Dict = None,
-                 custom_distribution_estimators: Dict = None,
                  input_data_mean: float = 0.0,
-                 input_data_var: float = 1.0):
+                 input_data_var: float = 1.0,
+                 custom_distribution_estimators: Dict = None):
         """
         The constructor initializes the variables.
         :param weight_init_config: Allows for customizing certain aspects of the weight
             initialization as detailed in the README.
+        :param input_data_mean: The mean of the input data.
+        :param input_data_var: The variance of the input data.
         :param custom_distribution_estimators: A dictionary mapping custom Layer classes to
             user-defined OutputDistributionEstimators.  This is useful for extending AutoInit
             to new types of layers.
-        :param input_data_mean: The mean of the input data.
-        :param input_data_var: The variance of the input data.
         """
         # If not specified, use an empty dict
         self.weight_init_config = weight_init_config or {}
-        self.custom_distribution_estimators = custom_distribution_estimators or {}
         self.input_data_mean = input_data_mean
         self.input_data_var = input_data_var
+        self.custom_distribution_estimators = custom_distribution_estimators or {}
         self.model = None
         self.mean_var_estimates = {}
         self.estimator_factory = OutputDistributionEstimatorFactory(
