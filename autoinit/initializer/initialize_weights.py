@@ -249,6 +249,11 @@ class AutoInit:
         if len(self.model.inputs) != 1 or len(self.model.outputs) != 1:
             logging.warning("Weight initialization for multi input/output models is experimental!")
 
+        # Sequential model configs don't have an 'output_layers' key,
+        # so they are converted to Functional models instead.
+        if isinstance(self.model, tfkeras.Sequential):
+            self.model = tfkeras.Model(self.model.inputs, self.model.outputs)
+
         # Since the initialization is deterministic and the model is a DAG, we can
         # recursively initialize from all output layers, and then the whole model
         # should be propertly initialized.
