@@ -2,15 +2,6 @@
 
 The AutoInit paper is available here: https://arxiv.org/abs/2109.08958
 
-AutoInit analyzes your network's topology, layers, and activation functions and configures the network weights to ensure smooth signal propagation at initialization.  The weights are initialized according to the following recursive algorithm.
-
-* Given input with mean `input_data_mean` and variance `input_data_variance`
-* For all layers in the model
-    * Get the mean and variance from all incoming layers
-    * Use the incoming mean and variance, along with the layer type, to calculate the outgoing mean and variance 
-    * If the layer has weights
-        * Initialize the weights so that outgoing `mean = 0` and `variance = 1` (in expectation)
-    * Return the outgoing mean and variance for consumption by downstream layers
 
 ## Usage
 Install AutoInit with
@@ -29,6 +20,17 @@ and use the class to wrap your model:
 training_model = AutoInit().initialize_model(training_model)
 ```
 Here, `training_model` can be an already instantiated TensorFlow `Model` instance, or a dictionary config or JSON string defining the model.
+
+## Algorithm
+AutoInit analyzes your network's topology, layers, and activation functions and configures the network weights to ensure smooth signal propagation at initialization.  The weights are initialized according to the following recursive algorithm.
+
+* Given input with mean `input_data_mean` and variance `input_data_variance`
+* For all layers in the model
+    * Get the mean and variance from all incoming layers
+    * Use the incoming mean and variance, along with the layer type, to calculate the outgoing mean and variance 
+    * If the layer has weights
+        * Initialize the weights so that outgoing `mean = 0` and `variance = 1` (in expectation)
+    * Return the outgoing mean and variance for consumption by downstream layers
 
 ## Options
 
