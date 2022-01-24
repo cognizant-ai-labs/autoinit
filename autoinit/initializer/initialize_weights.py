@@ -46,18 +46,32 @@ class AutoInit:
 
     def __init__(self,
                  weight_init_config: Dict = None,
+                 custom_objects: Dict = None,
+                 custom_distribution_estimators: Dict = None,
                  input_data_mean: float = 0.0,
                  input_data_var: float = 1.0):
         """
         The constructor initializes the variables.
+        :param weight_init_config: Allows for customizing certain aspects of the weight
+            initialization as detailed in the README.
+        :param custom_objects: A dictionary of custom objects such as Layers, Constraints,
+            and so on, needed for the Model to be JSON-serializable.
+        :param custom_distribution_estimators: A dictionary mapping custom Layer classes to
+            user-defined OutputDistributionEstimators.  This is useful for extending AutoInit
+            to new types of layers.
+        :param input_data_mean: The mean of the input data.
+        :param input_data_var: The variance of the input data.
         """
-        self.model = None
-        if weight_init_config is None:
-            weight_init_config = {}
-        self.estimator_factory = OutputDistributionEstimatorFactory(weight_init_config)
+        # If not specified, use an empty dict
+        self.weight_init_config = weight_init_config or {}
+        self.custom_objects = custom_objects or {}
+        self.custom_distribution_estimators = custom_distribution_estimators or {}
         self.input_data_mean = input_data_mean
         self.input_data_var = input_data_var
+        self.model = None
         self.mean_var_estimates = {}
+        self.estimator_factory = OutputDistributionEstimatorFactory(
+            self.weight_init_config, self.custom_distribution_estimators)
 
 
     def _get_layer_names(self, nested_list: List[Any]) -> List[str]:
@@ -213,27 +227,22 @@ class AutoInit:
 
     def initialize_model(self,
                          model: Union[tfkeras.Model, Dict, str],
-                         return_estimates: bool = False,
-                         custom_objects: Dict = None):
+                         return_estimates: bool = False):
         """
         This function is the entry point to this class.
         :param model: The TensorFlow Model to be initialized or a dictionary config or
             JSON string defining the model
         :param return_estimates: Whether to return a Dict of layer mean and variance estimates
-        :param custom_objects: A dictionary of custom objects such as Layers, Constraints,
-            and so on, needed for the Model to be JSON-serializable
         :return self.model: Model with weights initialized
         """
         self.mean_var_estimates = {}
-        if custom_objects is None:
-            custom_objects = {}
 
         if isinstance(model, tfkeras.Model):
             self.model = model
         elif isinstance(model, dict):
-            self.model = tfkeras.Model.from_config(model, custom_objects=custom_objects)
+            self.model = tfkeras.Model.from_config(model, custom_objects=self.custom_objects)
         elif isinstance(model, str):
-            self.model = tfkeras.models.model_from_json(model, custom_objects=custom_objects)
+            self.model = tfkeras.models.model_from_json(model, custom_objects=self.custom_objects)
         else:
             raise TypeError('The model argument must be a TensorFlow Model, config dictionary, '\
                            f'or JSON string.  Got type {type(model)}.')
@@ -249,9 +258,9 @@ class AutoInit:
             self._initialize_layer(output_layer_name, (self.model,))
 
         # The model must be reinstantiated for the weight initialization to take effect
-        custom_objects.update({'CenteredUnitNorm': CenteredUnitNorm})
+        self.custom_objects.update({'CenteredUnitNorm': CenteredUnitNorm})
         self.model = tfkeras.Model.from_config(self.model.get_config(),
-                                       custom_objects=custom_objects)
+                                       custom_objects=self.custom_objects)
 
         if return_estimates:
             return self.model, self.mean_var_estimates
