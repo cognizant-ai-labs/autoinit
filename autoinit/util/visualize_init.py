@@ -22,7 +22,7 @@ import tensorflow.keras as tfkeras
 from autoinit.initializer.initialize_weights import AutoInit
 
 
-class AutoInitVisualizer:
+class AutoInitVisualizer: # pylint: disable=too-many-instance-attributes
     """
     This class produces plots which visualize the mean and variance of signals as they propagate
     through the layers of a network.  It is useful for getting an intuition for how the weight
@@ -37,7 +37,9 @@ class AutoInitVisualizer:
     not be.  Do not rely on these plots for an understanding of your network's architecture.
     Instead, use a tool designed for this purpose such as SeeNN.
     """
-    def __init__(self):
+    def __init__(self, custom_distribution_estimators=None):
+        self.custom_distribution_estimators = custom_distribution_estimators or {}
+
         self.default_model = None
         self.autoinit_model = None
         self.mean_var_estimates = None
@@ -89,9 +91,10 @@ class AutoInitVisualizer:
 
         # Create the AutoInit model based on the default model
         self.autoinit_model, self.mean_var_estimates = \
-            AutoInit().initialize_model(self.default_model.get_config(),
-                                        return_estimates=True,
-                                        custom_objects=custom_objects)
+            AutoInit(custom_distribution_estimators=self.custom_distribution_estimators
+                ).initialize_model(self.default_model.get_config(),
+                                   return_estimates=True,
+                                   custom_objects=custom_objects)
 
         # Expose intermediate outputs of both models
         self.default_model = tfkeras.Model(inputs=self.default_model.inputs,
