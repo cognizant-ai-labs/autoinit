@@ -1,5 +1,5 @@
 
-# Copyright (C) 2021 Cognizant Digital Business, Evolutionary AI.
+# Copyright (C) 2021-2022 Cognizant Digital Business, Evolutionary AI.
 # All Rights Reserved.
 # Issued under the Academic Public License.
 #
@@ -12,7 +12,7 @@
 from setuptools import setup, find_packages
 
 setup(name='autoinit',
-    version='0.0.2',
+    version='0.0.3',
     description='AutoInit: Analytic Signal-Preserving Weight Initialization for Neural Networks',
     author='@garrettbingham',
     author_email='garrett.bingham@cognizant.com',

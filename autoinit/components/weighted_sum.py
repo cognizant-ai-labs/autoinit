@@ -1,5 +1,5 @@
 
-# Copyright (C) 2021 Cognizant Digital Business, Evolutionary AI.
+# Copyright (C) 2021-2022 Cognizant Digital Business, Evolutionary AI.
 # All Rights Reserved.
 # Issued under the Academic Public License.
 #
@@ -45,9 +45,8 @@ class WeightedSum(tfkeras.layers.Layer):
                             initializer='ones',
                             trainable=False)
 
-    # This call signature is used for TensorFlow 2.5.0
-    # def call(self, inputs, *args, **kwargs):
-    def call(self, inputs, **kwargs):
+    # This call signature is used beginning with TensorFlow 2.5.0.
+    def call(self, inputs, *args, **kwargs):
         """
         This function overrides the base function and computes the weighted sum.
         :param inputs:

@@ -1,5 +1,5 @@
 
-# Copyright (C) 2021 Cognizant Digital Business, Evolutionary AI.
+# Copyright (C) 2021-2022 Cognizant Digital Business, Evolutionary AI.
 # All Rights Reserved.
 # Issued under the Academic Public License.
 #
@@ -59,11 +59,12 @@ class OutputDistributionEstimatorFactory:
     appropriate class to compute the output distribution estimates.
     """
 
-    def __init__(self, estimator_config: Dict):
+    def __init__(self, estimator_config: Dict, custom_distribution_estimators: Dict = None):
         """
         The constructor consists of the supported layer types.
         """
-        self.supported_layers = {
+        custom_distribution_estimators = custom_distribution_estimators or {}
+        self.builtin_layers = {
             tfkeras.layers.Activation             : ActivationOutputDistributionEstimator,
             tfkeras.layers.Add                    : AddOutputDistributionEstimator,
             tfkeras.layers.Average                : AverageOutputDistributionEstimator,
@@ -114,6 +115,9 @@ class OutputDistributionEstimatorFactory:
             tfkeras.layers.ZeroPadding3D          : ZeroPaddingOutputDistributionEstimator,
             WeightedSum                           : WeightedSumOutputDistributionEstimator,
         }
+        # Supported layers include the builtin layers and the user-provided ones.
+        # {**dict1, **dict2} merges two dictionaries together
+        self.supported_layers = {**self.builtin_layers, **custom_distribution_estimators}
         self.default_estimator = PassThroughOutputDistributionEstimator
 
         self.estimator_config = estimator_config

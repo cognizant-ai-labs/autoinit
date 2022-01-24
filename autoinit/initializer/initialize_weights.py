@@ -1,5 +1,5 @@
 
-# Copyright (C) 2021 Cognizant Digital Business, Evolutionary AI.
+# Copyright (C) 2021-2022 Cognizant Digital Business, Evolutionary AI.
 # All Rights Reserved.
 # Issued under the Academic Public License.
 #
@@ -47,17 +47,27 @@ class AutoInit:
     def __init__(self,
                  weight_init_config: Dict = None,
                  input_data_mean: float = 0.0,
-                 input_data_var: float = 1.0):
+                 input_data_var: float = 1.0,
+                 custom_distribution_estimators: Dict = None):
         """
         The constructor initializes the variables.
+        :param weight_init_config: Allows for customizing certain aspects of the weight
+            initialization as detailed in the README.
+        :param input_data_mean: The mean of the input data.
+        :param input_data_var: The variance of the input data.
+        :param custom_distribution_estimators: A dictionary mapping custom Layer classes to
+            user-defined OutputDistributionEstimators.  This is useful for extending AutoInit
+            to new types of layers.
         """
-        self.model = None
-        if weight_init_config is None:
-            weight_init_config = {}
-        self.estimator_factory = OutputDistributionEstimatorFactory(weight_init_config)
+        # If not specified, use an empty dict
+        self.weight_init_config = weight_init_config or {}
         self.input_data_mean = input_data_mean
         self.input_data_var = input_data_var
+        self.custom_distribution_estimators = custom_distribution_estimators or {}
+        self.model = None
         self.mean_var_estimates = {}
+        self.estimator_factory = OutputDistributionEstimatorFactory(
+            self.weight_init_config, self.custom_distribution_estimators)
 
 
     def _get_layer_names(self, nested_list: List[Any]) -> List[str]:
@@ -221,12 +231,10 @@ class AutoInit:
             JSON string defining the model
         :param return_estimates: Whether to return a Dict of layer mean and variance estimates
         :param custom_objects: A dictionary of custom objects such as Layers, Constraints,
-            and so on, needed for the Model to be JSON-serializable
+            and so on, needed for the Model to be JSON-serializable.
         :return self.model: Model with weights initialized
         """
         self.mean_var_estimates = {}
-        if custom_objects is None:
-            custom_objects = {}
 
         if isinstance(model, tfkeras.Model):
             self.model = model
