@@ -45,9 +45,7 @@ class WeightedSum(tfkeras.layers.Layer):
                             initializer='ones',
                             trainable=False)
 
-    # This call signature is used for TensorFlow 2.5.0
-    # def call(self, inputs, *args, **kwargs):
-    def call(self, inputs, **kwargs):
+    def call(self, inputs, *args, **kwargs):
         """
         This function overrides the base function and computes the weighted sum.
         :param inputs:

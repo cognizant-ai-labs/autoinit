@@ -239,9 +239,9 @@ class AutoInit:
         if isinstance(model, tfkeras.Model):
             self.model = model
         elif isinstance(model, dict):
-            self.model = tfkeras.Model.from_config(model, custom_objects=self.custom_objects)
+            self.model = tfkeras.Model.from_config(model, custom_objects=custom_objects)
         elif isinstance(model, str):
-            self.model = tfkeras.models.model_from_json(model, custom_objects=self.custom_objects)
+            self.model = tfkeras.models.model_from_json(model, custom_objects=custom_objects)
         else:
             raise TypeError('The model argument must be a TensorFlow Model, config dictionary, '\
                            f'or JSON string.  Got type {type(model)}.')
@@ -257,9 +257,9 @@ class AutoInit:
             self._initialize_layer(output_layer_name, (self.model,))
 
         # The model must be reinstantiated for the weight initialization to take effect
-        self.custom_objects.update({'CenteredUnitNorm': CenteredUnitNorm})
+        custom_objects.update({'CenteredUnitNorm': CenteredUnitNorm})
         self.model = tfkeras.Model.from_config(self.model.get_config(),
-                                       custom_objects=self.custom_objects)
+                                       custom_objects=custom_objects)
 
         if return_estimates:
             return self.model, self.mean_var_estimates
