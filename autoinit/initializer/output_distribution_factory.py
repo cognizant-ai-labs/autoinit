@@ -116,6 +116,7 @@ class OutputDistributionEstimatorFactory:
             WeightedSum                           : WeightedSumOutputDistributionEstimator,
         }
         # Supported layers include the builtin layers and the user-provided ones.
+        # {**dict1, **dict2} merges two dictionaries together
         self.supported_layers = {**self.builtin_layers, **custom_distribution_estimators}
         self.default_estimator = PassThroughOutputDistributionEstimator
 
