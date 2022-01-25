@@ -37,9 +37,9 @@ AutoInit analyzes your network's topology, layers, and activation functions and 
 The `AutoInit` class has the following optional arguments:
 ```python
 class AutoInit(weight_init_config: Dict=None,
-               custom_distribution_estimators: Dict=None,
                input_data_mean: float=0.0,
-               input_data_var: float=1.0)
+               input_data_var: float=1.0,
+               custom_distribution_estimators: Dict=None)
 ```
 The parameters `input_data_mean` and `input_data_var` can be specified if your data does not have zero mean and unit variance.  The `custom_distribution_estimators` is useful for extending AutoInit to novel layer types, and is discussed in the "Unsupported Layers" section below.  Finally, the `weight_init_config` dictionary is used to customize other aspects of AutoInit's behavior.  The following fields are available:
 
