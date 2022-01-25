@@ -235,6 +235,7 @@ class AutoInit:
         :return self.model: Model with weights initialized
         """
         self.mean_var_estimates = {}
+        custom_objects = custom_objects or {}
 
         if isinstance(model, tfkeras.Model):
             self.model = model
