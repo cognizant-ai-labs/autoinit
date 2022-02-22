@@ -1,0 +1,31 @@
+name: github-repo-stats
+# See https://github.com/jgehrcke/github-repo-stats
+
+# Controls when the workflow will run
+on:
+  schedule:
+    # Run this once per day.
+    # The specific hour is interpreted in UTC time zone.
+    # Do this towards the end of the UTC day.
+    - cron: "0 23 * * *"
+
+  # Allows you to run this workflow manually from the Actions tab
+  workflow_dispatch:
+  
+jobs:
+  j1:
+    name: github-repo-stats
+    runs-on: ubuntu-latest
+    steps:
+      - name: GHRS
+        uses: jgehrcke/github-repo-stats@HEAD
+        with:
+          ghpagesprefix: https://jgehrcke.github.io/ghrs-test
+          # Define the target repository, the repo to fetch
+          # stats for and to generate the report for.
+          repository: cognizant-ai-labs/autoinit
+          # Required token privileges: Can read the target
+          # repo, and can push to the repository this
+          # workflow file lives in (to store data and
+          # the report files).
+          ghtoken: ${{ secrets.ghrs_github_api_token }}
