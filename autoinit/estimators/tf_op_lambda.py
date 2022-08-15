@@ -45,6 +45,10 @@ class TFOpLambdaOutputDistributionEstimator(LayerOutputDistributionEstimator):
         :return var_out: Variance of the output distribution
         """
 
+        logging.info('AutoInit will try to infer the behavior of layer ' \
+            f'{self.layer.name} from its name.  If possible, replace API ' \
+            'calls like tf.math.multiply with Layer objects like tf.keras.layers.Multiply.')
+
         layer_name = self.layer.name.lower()
         
         # These layers don't alter the input distribution.
