@@ -10,6 +10,7 @@
 #
 # END COPYRIGHT
 
+import logging
 import math
 
 from typing import List
@@ -38,6 +39,19 @@ ACTIVATION_FNS = {
     'swish': tfkeras.activations.swish,
     'tanh': tfkeras.activations.tanh,
 }
+
+DENSE = tfkeras.layers.Dense
+CONV_1D = (tfkeras.layers.Conv1D, tfkeras.layers.DepthwiseConv1D)
+CONV_2D = (tfkeras.layers.Conv2D, tfkeras.layers.DepthwiseConv2D)
+CONV_3D = tfkeras.layers.Conv3D
+
+DENSE_OR_CONV = (tfkeras.layers.Dense,
+                 tfkeras.layers.Conv1D,
+                 tfkeras.layers.Conv2D,
+                 tfkeras.layers.Conv3D)
+
+DEPTHWISE_CONV = (tfkeras.layers.DepthwiseConv1D,
+                  tfkeras.layers.DepthwiseConv2D)
 
 
 class DenseOutputDistributionEstimator(LayerOutputDistributionEstimator):
@@ -85,29 +99,49 @@ class DenseOutputDistributionEstimator(LayerOutputDistributionEstimator):
         :return mean_out: Mean of the output distribution
         :return var_out: Variance of the output distribution
         """
-
+        
         second_moment = vars_in[0] + math.pow(means_in[0], 2)
-        scale = 1.0 / second_moment
+        scale = self.signal_variance / second_moment
         gain = math.sqrt(scale)
-        distribution = self.estimator_config.get("distribution",
-                                                 "truncated_normal")
+        distribution = self.estimator_config.get("distribution", "truncated_normal")
+        if isinstance(self.layer, DEPTHWISE_CONV):
+            # For depthwise convolutional layers, each channel is convolved with a different
+            # kernel, so we need to multiply the scale/gain by the number of channels.
+            scale *= self.layer.input.shape[-1]
+            gain *= self.layer.input.shape[-1]
         if distribution == 'orthogonal':
-            self.layer.kernel_initializer = tfkeras.initializers.Orthogonal(gain=gain)
+            initializer = tfkeras.initializers.Orthogonal(gain=gain)
         else:
-            self.layer.kernel_initializer = tfkeras.initializers.VarianceScaling(scale=scale,
-                                                            distribution=distribution)
+            initializer = tfkeras.initializers.VarianceScaling(scale=scale,
+                                                               distribution=distribution)
+
+        if isinstance(self.layer, DENSE_OR_CONV):
+            self.layer.kernel_initializer = initializer
+        elif isinstance(self.layer, DEPTHWISE_CONV):
+            self.layer.depthwise_initializer = initializer
+        else:
+            logging.warning('Unsupported layer type: %s', type(self.layer))
+
+
         if self.estimator_config.get("constrain_weights", False):
-            if isinstance(self.layer, tfkeras.layers.Dense):
+            if isinstance(self.layer, DENSE):
                 axis = 0
-            elif isinstance(self.layer, tfkeras.layers.Conv1D):
+            elif isinstance(self.layer, CONV_1D):
                 axis = [0, 1]
-            elif isinstance(self.layer, tfkeras.layers.Conv2D):
+            elif isinstance(self.layer, CONV_2D):
                 axis = [0, 1, 2]
-            elif isinstance(self.layer, tfkeras.layers.Conv3D):
+            elif isinstance(self.layer, CONV_3D):
                 axis = [0, 1, 2, 3]
-            self.layer.kernel_constraint = CenteredUnitNorm(axis=axis, gain=gain)
+            constraint = CenteredUnitNorm(axis=axis, gain=gain)
+            if isinstance(self.layer, DENSE_OR_CONV):
+                self.layer.kernel_constraint = constraint
+            elif isinstance(self.layer, DEPTHWISE_CONV):
+                self.layer.depthwise_constraint = constraint
+            else:
+                logging.warning('Unsupported layer type: %s', type(self.layer))
+
         mean_out = 0.0
-        var_out = 1.0
+        var_out = self.signal_variance
 
         activation_name = self.layer.activation.__name__
         activation_fn = ACTIVATION_FNS[activation_name]
@@ -115,8 +149,15 @@ class DenseOutputDistributionEstimator(LayerOutputDistributionEstimator):
             # We can't integrate over softmax.  At initialization, we expect
             # balanced logits with mean 1 / NUM_CLASSES and variance 1 / NUM_CLASSES².
             num_classes = prod(self.layer.output.shape[1:])
-            mean_out = 1.0 / num_classes
-            var_out = 1.0 / math.pow(num_classes, 2)
+            # mean_out = 1.0 / num_classes
+            # var_out = 1.0 / math.pow(num_classes, 2)
+            # var_out = 1.0 # HACK TODO REMOVE
+            # try monte carlo
+            import numpy as np
+            samples = np.random.normal(loc=means_in[0], scale=np.sqrt(vars_in[0]), size=(int(1e5), num_classes))
+            out = np.exp(samples) / np.sum(np.exp(samples), axis=1, keepdims=True)
+            mean_out = np.mean(out)
+            var_out = np.var(out)
         else:
             mean_out, var_out = self._mapped_distribution(activation_fn, mean_out, var_out)
 
