@@ -77,9 +77,22 @@ alpha initialization for weight init purposes.', alpha_initializer_name)
         elif activation_name == 'softmax':
             # We can't integrate over softmax.  At initialization, we expect
             # balanced logits with mean 1 / NUM_CLASSES and variance 1 / NUM_CLASSES².
-            num_classes = prod(self.layer.output.shape[1:])
+            if hasattr(self.layer, 'axis'):
+                num_classes = prod(self.layer.input_shape[self.layer.axis])
+                # num_classes = prod(self.layer.output.shape[1:])
+            else:
+                num_classes = prod(self.layer.output.shape[1:])
             mean_out = 1.0 / num_classes
             var_out = 1.0 / math.pow(num_classes, 2)
+            # mean_out = 0.0
+            # var_out = 1.0 # HACK TODO REMOVE
+            # try monte carlo
+            import numpy as np
+            samples = np.random.normal(loc=means_in[0], scale=np.sqrt(vars_in[0]), size=(int(1e5), num_classes))
+            out = np.exp(samples) / np.sum(np.exp(samples), axis=1, keepdims=True)
+            mean_out = np.mean(out)
+            var_out = np.var(out)
+
             return mean_out, var_out
         else:
             logging.warning('Activation function %s is not supported.  \
