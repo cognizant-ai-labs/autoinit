@@ -43,12 +43,11 @@ class WeightedSumOutputDistributionEstimator(LayerOutputDistributionEstimator):
         """
 
         num_inputs = len(vars_in)
-        weights = []
+        coefficients = []
         for variance_in in vars_in:
-            weights.append(1.0 / math.sqrt(variance_in * num_inputs))
-        mean_out = sum([weight * mean for weight, mean in zip(weights, means_in)])
-        weights = np.asarray(weights).reshape(-1, 1)
-        self.layer.set_weights(weights)
-        var_out = 1.0
+            coefficients.append(math.sqrt(self.signal_variance / (variance_in * num_inputs)))
+        mean_out = sum([weight * mean for weight, mean in zip(coefficients, means_in)])
+        self.layer.coefficients = coefficients
+        var_out = self.signal_variance
 
         return mean_out, var_out
