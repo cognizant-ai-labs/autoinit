@@ -11,7 +11,6 @@
 # END COPYRIGHT
 import math
 from typing import List
-import numpy as np
 
 from autoinit.estimators.estimate_layer_output_distribution \
     import LayerOutputDistributionEstimator

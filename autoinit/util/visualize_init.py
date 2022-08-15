@@ -17,7 +17,7 @@ import numpy as np
 
 # TF uses a complicated LazyLoader that pylint cannot properly comprehend.
 # See https://stackoverflow.com/questions/65271399/vs-code-pylance-pylint-cannot-resolve-import
-import tensorflow.keras as tfkeras
+import tensorflow.keras as tfkeras # pylint: disable=import-error
 
 from autoinit.initializer.initialize_weights import AutoInit
 
@@ -144,7 +144,8 @@ class AutoInitVisualizer: # pylint: disable=too-many-instance-attributes
                                                           autoinit_outputs,
                                                           non_submodel_layers):
             if isinstance(default_output, list):
-                assert isinstance(autoinit_output, list) and len(default_output) == len(autoinit_output)
+                assert isinstance(autoinit_output, list) and \
+                    len(default_output) == len(autoinit_output)
                 for default_output_, autoinit_output_ in zip(default_output, autoinit_output):
                     default_outputs_flattened.append(default_output_)
                     autoinit_outputs_flattened.append(autoinit_output_)

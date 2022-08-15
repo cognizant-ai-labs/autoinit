@@ -14,13 +14,13 @@ import logging
 
 from typing import Dict
 
+import tensorflow_addons as tfa
 # TF uses a complicated LazyLoader that pylint cannot properly comprehend.
 # See https://stackoverflow.com/questions/65271399/vs-code-pylance-pylint-cannot-resolve-import
-import tensorflow_addons as tfa
-import tensorflow.keras as tfkeras
+import tensorflow.keras as tfkeras # pylint: disable=import-error
 
 from keras.layers.core.tf_op_layer import TFOpLambda as TFOpLambda_Keras
-from tensorflow.python.keras.layers.core import TFOpLambda as TFOpLambda_TF
+from tensorflow.python.keras.layers.core import TFOpLambda as TFOpLambda_TF # pylint: disable=no-name-in-module
 
 from autoinit.components.weighted_sum \
     import WeightedSum

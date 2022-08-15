@@ -14,7 +14,7 @@ from typing import Dict
 
 # TF uses a complicated LazyLoader that pylint cannot properly comprehend.
 # See https://stackoverflow.com/questions/65271399/vs-code-pylance-pylint-cannot-resolve-import
-import tensorflow.keras as tfkeras
+import tensorflow.keras as tfkeras # pylint: disable=import-error
 
 
 class WeightedSum(tfkeras.layers.Layer):
@@ -33,21 +33,15 @@ class WeightedSum(tfkeras.layers.Layer):
         self.coefficients = coefficients
         self.trainable = False
 
-    def build(self, input_shape):
-        """
-        This function overrides the base function to build the layer.
-        :param input_shape: Tuple defining the shape of the input
-        """
-        pass
-
     # This call signature is used beginning with TensorFlow 2.5.0.
-    def call(self, inputs, *args, **kwargs):
+    def call(self, inputs):
         """
         This function overrides the base function and computes the weighted sum.
         :param inputs:
         :return output: Weighted sum result
         """
-        output = tfkeras.layers.add([coeff * inpt for (coeff, inpt) in zip(self.coefficients, inputs)])
+        output = tfkeras.layers.add([
+            coeff * inpt for (coeff, inpt) in zip(self.coefficients, inputs)])
         return output
 
     def get_config(self) -> Dict:

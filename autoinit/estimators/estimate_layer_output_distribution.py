@@ -22,7 +22,7 @@ from scipy.stats import norm
 
 # TF uses a complicated LazyLoader that pylint cannot properly comprehend.
 # See https://stackoverflow.com/questions/65271399/vs-code-pylance-pylint-cannot-resolve-import
-import tensorflow.keras as tfkeras
+import tensorflow.keras as tfkeras # pylint: disable=import-error
 
 
 class LayerOutputDistributionEstimator:
