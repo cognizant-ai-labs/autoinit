@@ -22,7 +22,7 @@ from scipy.stats import norm
 
 # TF uses a complicated LazyLoader that pylint cannot properly comprehend.
 # See https://stackoverflow.com/questions/65271399/vs-code-pylance-pylint-cannot-resolve-import
-import tensorflow.keras as tfkeras
+import tensorflow.keras as tfkeras # pylint: disable=import-error
 
 
 class LayerOutputDistributionEstimator:
@@ -31,15 +31,21 @@ class LayerOutputDistributionEstimator:
     must implement to estimate the output distribution.
     """
 
-    def __init__(self, layer: tfkeras.layers.Layer, estimator_config: Dict):
+    def __init__(self,
+                 layer: tfkeras.layers.Layer,
+                 estimator_config: Dict,
+                 signal_variance: float = 1.0):
         """
         This constructor initializes the params.
         :param layer: TensorFlow/Keras Layer
         :param estimator_config: Dictionary containing the required config for
         layer.
+        :param signal_variance: Signal variance to maintain. This parameter is useful if a value
+            other than the default variance = 1.0 is desired.
         """
         self.layer = layer
         self.estimator_config = estimator_config
+        self.signal_variance = signal_variance
 
     def estimate(self, means_in: List, vars_in: List):
         """

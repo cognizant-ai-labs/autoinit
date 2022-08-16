@@ -17,7 +17,7 @@ import numpy as np
 
 # TF uses a complicated LazyLoader that pylint cannot properly comprehend.
 # See https://stackoverflow.com/questions/65271399/vs-code-pylance-pylint-cannot-resolve-import
-import tensorflow.keras as tfkeras
+import tensorflow.keras as tfkeras # pylint: disable=import-error
 
 from autoinit.initializer.initialize_weights import AutoInit
 
@@ -68,7 +68,7 @@ class AutoInitVisualizer: # pylint: disable=too-many-instance-attributes
         return outputs
 
 
-    def _load_models(self, model, custom_objects=None):
+    def _load_models(self, model, custom_objects=None, signal_variance=1.0):
         """
         This function creates a default initialized and AutoInit initialized model.
         The argument model can either be an already instantiated TensorFlow model, a
@@ -91,7 +91,9 @@ class AutoInitVisualizer: # pylint: disable=too-many-instance-attributes
 
         # Create the AutoInit model based on the default model
         self.autoinit_model, self.mean_var_estimates = \
-            AutoInit(custom_distribution_estimators=self.custom_distribution_estimators
+            AutoInit(
+                custom_distribution_estimators=self.custom_distribution_estimators,
+                signal_variance=signal_variance
                 ).initialize_model(self.default_model.get_config(),
                                    return_estimates=True,
                                    custom_objects=custom_objects)
@@ -133,26 +135,45 @@ class AutoInitVisualizer: # pylint: disable=too-many-instance-attributes
         non_submodel_layers = [layer for layer in self.autoinit_model.layers \
                             if not isinstance(layer, tfkeras.Model)]
 
+        # Some operations like tf.split create multiple distinct outputs.
+        # We need to flatten all outputs into a single list.
+        default_outputs_flattened = []
+        autoinit_outputs_flattened = []
+        non_submodel_layers_repeated = []
+        for default_output, autoinit_output, layer in zip(default_outputs,
+                                                          autoinit_outputs,
+                                                          non_submodel_layers):
+            if isinstance(default_output, list):
+                assert isinstance(autoinit_output, list) and \
+                    len(default_output) == len(autoinit_output)
+                for default_output_, autoinit_output_ in zip(default_output, autoinit_output):
+                    default_outputs_flattened.append(default_output_)
+                    autoinit_outputs_flattened.append(autoinit_output_)
+                    non_submodel_layers_repeated.append(layer)
+            else:
+                default_outputs_flattened.append(default_output)
+                autoinit_outputs_flattened.append(autoinit_output)
+                non_submodel_layers_repeated.append(layer)
 
         # Collect mean and variance estimates and calculations
-        for default_output, autoinit_output, layer in zip(default_outputs,
-                                                    autoinit_outputs,
-                                                    non_submodel_layers):
-            if hasattr(layer, 'activation'):
-                self.layer_names.append(f'{layer.name} + {layer.activation.__name__}')
-            else:
-                self.layer_names.append(layer.name)
+        for default_output, autoinit_output, layer in zip(default_outputs_flattened,
+                                                          autoinit_outputs_flattened,
+                                                          non_submodel_layers_repeated):
+            if layer.name in self.mean_var_estimates:
+                if hasattr(layer, 'activation'):
+                    self.layer_names.append(f'{layer.name} + {layer.activation.__name__}')
+                else:
+                    self.layer_names.append(layer.name)
+                self.default_means.append(np.mean(default_output))
+                self.default_vars.append(np.var(default_output))
+                self.actual_means.append(np.mean(autoinit_output))
+                self.actual_vars.append(np.var(autoinit_output))
+                pred_mean, pred_var = self.mean_var_estimates[layer.name]
+                self.pred_means.append(pred_mean)
+                self.pred_vars.append(pred_var)
 
-            self.default_means.append(np.mean(default_output))
-            self.default_vars.append(np.var(default_output))
-            self.actual_means.append(np.mean(autoinit_output))
-            self.actual_vars.append(np.var(autoinit_output))
-            pred_mean, pred_var = self.mean_var_estimates[layer.name]
-            self.pred_means.append(pred_mean)
-            self.pred_vars.append(pred_var)
 
-
-    def _create_plots(self, plot_path):
+    def _create_plots(self, plot_path, ylim=None):
         """
         Produces plots that show the predicted, actual, and default mean and variance
         of signals as they pass through the network layers.
@@ -166,7 +187,7 @@ class AutoInitVisualizer: # pylint: disable=too-many-instance-attributes
         plt.plot(xvals, self.pred_means, label='AutoInit Mean (Predicted)',
             color='C0', linestyle=':')
         plt.plot(xvals, self.default_means, label='Default Init Mean', color='C1')
-        plt.xticks(ticks=xvals, labels=self.layer_names, rotation=90, fontsize=8)
+        plt.xticks(ticks=xvals, labels=self.layer_names, rotation=90, fontsize=16)
         plt.legend()
         plt.grid(True)
         plt.tight_layout()
@@ -180,7 +201,8 @@ class AutoInitVisualizer: # pylint: disable=too-many-instance-attributes
         plt.plot(xvals, self.pred_vars, label='AutoInit Variance (Predicted)',
             color='C0', linestyle=':')
         plt.plot(xvals, self.default_vars, label='Default Init Variance', color='C1')
-        plt.xticks(ticks=xvals, labels=self.layer_names, rotation=90, fontsize=8)
+        plt.xticks(ticks=xvals, labels=self.layer_names, rotation=90, fontsize=16)
+        plt.ylim(ylim)
         plt.legend()
         plt.grid(True)
         plt.tight_layout()
@@ -190,16 +212,24 @@ class AutoInitVisualizer: # pylint: disable=too-many-instance-attributes
             plt.show()
 
 
-    def visualize(self, model, custom_objects=None, plot_path=None, num_samples=100):
+    def visualize(self,
+                  model,
+                  custom_objects=None,
+                  plot_path=None,
+                  num_samples=100,
+                  ylim=None,
+                  signal_variance=1.0):
         """
         This function is the entry point to this class.
         :param model: TensorFlow Model or a dictionary config or JSON string defining the model
-        :param num_samples: Number of random inputs to pass through the network
-        :param plot_path: Path where plots should be saved.  If not specified, plots are
-            displayed with plt.show()
         :param custom_objects: A dictionary of custom objects such as Layers, Constraints,
             and so on, needed for the Model to be JSON-serializable
+        :param plot_path: Path where plots should be saved.  If not specified, plots are
+            displayed with plt.show()
+        :param num_samples: Number of random inputs to pass through the network
+        :param ylim: Y-axis limits for the variance plot
+        :param signal_variance: Signal variance AutoInit will maintain
         """
-        self._load_models(model, custom_objects)
+        self._load_models(model, custom_objects, signal_variance)
         self._pass_noise_through_models(num_samples)
-        self._create_plots(plot_path)
+        self._create_plots(plot_path, ylim)

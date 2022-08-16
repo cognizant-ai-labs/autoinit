@@ -10,15 +10,16 @@
 #
 # END COPYRIGHT
 
+import logging
 import math
 
 from typing import List
 
-from numpy import prod
+import numpy as np
 
 # TF uses a complicated LazyLoader that pylint cannot properly comprehend.
 # See https://stackoverflow.com/questions/65271399/vs-code-pylance-pylint-cannot-resolve-import
-import tensorflow.keras as tfkeras
+import tensorflow.keras as tfkeras # pylint: disable=import-error
 
 from autoinit.estimators.estimate_layer_output_distribution \
     import LayerOutputDistributionEstimator
@@ -39,12 +40,44 @@ ACTIVATION_FNS = {
     'tanh': tfkeras.activations.tanh,
 }
 
+DENSE = tfkeras.layers.Dense
+CONV_1D = (tfkeras.layers.Conv1D, tfkeras.layers.DepthwiseConv1D)
+CONV_2D = (tfkeras.layers.Conv2D, tfkeras.layers.DepthwiseConv2D)
+CONV_3D = tfkeras.layers.Conv3D
+
+DENSE_OR_REGULAR_CONV = (tfkeras.layers.Dense,
+                         tfkeras.layers.Conv1D,
+                         tfkeras.layers.Conv2D,
+                         tfkeras.layers.Conv3D)
+
+DEPTHWISE_CONV = (tfkeras.layers.DepthwiseConv1D,
+                  tfkeras.layers.DepthwiseConv2D)
+
+DEFAULT_MONTE_CARLO_SAMPLES = 1e5
+
 
 class DenseOutputDistributionEstimator(LayerOutputDistributionEstimator):
     """
     This class is responsible for initializing the weights and estimating
     the output distribution of Dense and Conv2D layers.
     """
+
+    def _enable_centered_unit_norm(self, gain):
+        if isinstance(self.layer, DENSE):
+            axis = 0
+        elif isinstance(self.layer, CONV_1D):
+            axis = [0, 1]
+        elif isinstance(self.layer, CONV_2D):
+            axis = [0, 1, 2]
+        elif isinstance(self.layer, CONV_3D):
+            axis = [0, 1, 2, 3]
+        constraint = CenteredUnitNorm(axis=axis, gain=gain)
+        if isinstance(self.layer, DENSE_OR_REGULAR_CONV):
+            self.layer.kernel_constraint = constraint
+        elif isinstance(self.layer, DEPTHWISE_CONV):
+            self.layer.depthwise_constraint = constraint
+        else:
+            logging.warning('Unsupported layer type: %s', type(self.layer))
 
     def estimate(self, means_in: List, vars_in: List):
         """
@@ -87,36 +120,47 @@ class DenseOutputDistributionEstimator(LayerOutputDistributionEstimator):
         """
 
         second_moment = vars_in[0] + math.pow(means_in[0], 2)
-        scale = 1.0 / second_moment
+        scale = self.signal_variance / second_moment
         gain = math.sqrt(scale)
-        distribution = self.estimator_config.get("distribution",
-                                                 "truncated_normal")
+        distribution = self.estimator_config.get("distribution", "truncated_normal")
+        if isinstance(self.layer, DEPTHWISE_CONV):
+            # For depthwise convolutional layers, each kernel takes a single channel as
+            # input (instead of all channels), so we need to multiply the scale/gain by
+            # the number of channels to recover the intended output variance.
+            scale *= self.layer.input.shape[-1]
+            gain *= self.layer.input.shape[-1]
         if distribution == 'orthogonal':
-            self.layer.kernel_initializer = tfkeras.initializers.Orthogonal(gain=gain)
+            initializer = tfkeras.initializers.Orthogonal(gain=gain)
         else:
-            self.layer.kernel_initializer = tfkeras.initializers.VarianceScaling(scale=scale,
-                                                            distribution=distribution)
+            initializer = tfkeras.initializers.VarianceScaling(scale=scale,
+                                                               distribution=distribution)
+
+        if isinstance(self.layer, DENSE_OR_REGULAR_CONV):
+            self.layer.kernel_initializer = initializer
+        elif isinstance(self.layer, DEPTHWISE_CONV):
+            self.layer.depthwise_initializer = initializer
+        else:
+            logging.warning('Unsupported layer type: %s', type(self.layer))
+
         if self.estimator_config.get("constrain_weights", False):
-            if isinstance(self.layer, tfkeras.layers.Dense):
-                axis = 0
-            elif isinstance(self.layer, tfkeras.layers.Conv1D):
-                axis = [0, 1]
-            elif isinstance(self.layer, tfkeras.layers.Conv2D):
-                axis = [0, 1, 2]
-            elif isinstance(self.layer, tfkeras.layers.Conv3D):
-                axis = [0, 1, 2, 3]
-            self.layer.kernel_constraint = CenteredUnitNorm(axis=axis, gain=gain)
+            self._enable_centered_unit_norm(gain=gain)
+
         mean_out = 0.0
-        var_out = 1.0
+        var_out = self.signal_variance
 
         activation_name = self.layer.activation.__name__
         activation_fn = ACTIVATION_FNS[activation_name]
         if activation_fn is tfkeras.activations.softmax:
-            # We can't integrate over softmax.  At initialization, we expect
-            # balanced logits with mean 1 / NUM_CLASSES and variance 1 / NUM_CLASSES².
-            num_classes = prod(self.layer.output.shape[1:])
-            mean_out = 1.0 / num_classes
-            var_out = 1.0 / math.pow(num_classes, 2)
+            # We can't integrate over softmax, so we use Monte Carlo sampling.
+            num_classes = np.prod(self.layer.output.shape[1:])
+            num_samples = self.estimator_config.get("monte_carlo_samples",
+                                                    DEFAULT_MONTE_CARLO_SAMPLES)
+            samples = np.random.normal(loc=means_in[0],
+                                       scale=np.sqrt(vars_in[0]),
+                                       size=(int(num_samples), num_classes))
+            out = np.exp(samples) / np.sum(np.exp(samples), axis=1, keepdims=True)
+            mean_out = np.mean(out)
+            var_out = np.var(out)
         else:
             mean_out, var_out = self._mapped_distribution(activation_fn, mean_out, var_out)
 

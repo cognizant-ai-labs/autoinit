@@ -11,15 +11,14 @@
 # END COPYRIGHT
 
 import logging
-import math
 
 from typing import List
 
-from numpy import prod
+import numpy as np
 
 # TF uses a complicated LazyLoader that pylint cannot properly comprehend.
 # See https://stackoverflow.com/questions/65271399/vs-code-pylance-pylint-cannot-resolve-import
-import tensorflow.keras as tfkeras
+import tensorflow.keras as tfkeras # pylint: disable=import-error
 
 from autoinit.estimators.estimate_layer_output_distribution \
     import LayerOutputDistributionEstimator
@@ -36,6 +35,8 @@ FIXED_ACTIVATION_FNS = {
     'swish': tfkeras.activations.swish,
     'tanh': tfkeras.activations.tanh,
 }
+
+DEFAULT_MONTE_CARLO_SAMPLES = 1e5
 
 
 class ActivationOutputDistributionEstimator(LayerOutputDistributionEstimator):
@@ -75,11 +76,20 @@ alpha initialization for weight init purposes.', alpha_initializer_name)
             theta = self.layer.theta
             activation_fn = lambda x : x if x > theta else 0.0
         elif activation_name == 'softmax':
-            # We can't integrate over softmax.  At initialization, we expect
-            # balanced logits with mean 1 / NUM_CLASSES and variance 1 / NUM_CLASSES².
-            num_classes = prod(self.layer.output.shape[1:])
-            mean_out = 1.0 / num_classes
-            var_out = 1.0 / math.pow(num_classes, 2)
+            # We can't integrate over softmax, so we use Monte Carlo sampling.
+            if hasattr(self.layer, 'axis'):
+                num_classes = np.prod(self.layer.input_shape[self.layer.axis])
+            else:
+                num_classes = np.prod(self.layer.output.shape[1:])
+            num_samples = self.estimator_config.get("monte_carlo_samples",
+                                                    DEFAULT_MONTE_CARLO_SAMPLES)
+            samples = np.random.normal(loc=means_in[0],
+                                       scale=np.sqrt(vars_in[0]),
+                                       size=(int(num_samples), num_classes))
+            out = np.exp(samples) / np.sum(np.exp(samples), axis=1, keepdims=True)
+            mean_out = np.mean(out)
+            var_out = np.var(out)
+
             return mean_out, var_out
         else:
             logging.warning('Activation function %s is not supported.  \
