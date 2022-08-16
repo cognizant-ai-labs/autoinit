@@ -35,6 +35,23 @@ class TFOpLambdaOutputDistributionEstimator(LayerOutputDistributionEstimator):
     workaround.  If possible, API calls should be replaced with proper Layer objects.
     """
 
+    def __init__(self, **kwargs):
+        super().__init__(**kwargs)
+        # Map layer names to estimators.
+        self.tf_op_lambda_estimators = {
+            'tf.compat.v1.transpose': self._pass_through,
+            'tf.concat' : self._concat,
+            'tf.image.resize' : self._pass_through,
+            'tf.math.multiply' : self._multiply,
+            'tf.math.reduce_mean' : self._reduce_mean,
+            'tf.math.reduce_sum' : self._reduce_sum,
+            'tf.matmul' : self._matmul,
+            'tf.nn.relu' : self._relu,
+            'tf.reshape': self._pass_through,
+            'tf.split' : self._pass_through,
+            'tf.transpose': self._pass_through,
+        }
+
     def _pass_through(self, means_in, vars_in):
         # These layers don't alter the input distribution.
         return means_in[0], vars_in[0]
@@ -117,22 +134,6 @@ class TFOpLambdaOutputDistributionEstimator(LayerOutputDistributionEstimator):
         # See activation.py
         return self._mapped_distribution(tfkeras.activations.relu, means_in[0], vars_in[0])
 
-    def _get_tf_op_lambda_estimators(self):
-        # Map layer names to estimators.
-        return {
-            'tf.compat.v1.transpose': self._pass_through,
-            'tf.concat' : self._concat,
-            'tf.image.resize' : self._pass_through,
-            'tf.math.multiply' : self._multiply,
-            'tf.math.reduce_mean' : self._reduce_mean,
-            'tf.math.reduce_sum' : self._reduce_sum,
-            'tf.matmul' : self._matmul,
-            'tf.nn.relu' : self._relu,
-            'tf.reshape': self._pass_through,
-            'tf.split' : self._pass_through,
-            'tf.transpose': self._pass_through,
-        }
-
     def estimate(self, means_in: List, vars_in: List):
         """
         :param means_in: List containing the means of the input distributions of
@@ -150,10 +151,10 @@ class TFOpLambdaOutputDistributionEstimator(LayerOutputDistributionEstimator):
             self.layer.name)
 
         # Map the layer name to the correct estimator.
-        supported_layer_names = self._get_tf_op_lambda_estimators().keys()
+        supported_layer_names = self.tf_op_lambda_estimators.keys()
         for layer_name in supported_layer_names:
             if layer_name in self.layer.name.lower():
-                return self._get_tf_op_lambda_estimators()[layer_name](means_in, vars_in)
+                return self.tf_op_lambda_estimators[layer_name](means_in, vars_in)
 
         # If we get here, we couldn't infer the behavior of the layer.
         logging.warning('Layer %s of type %s is not supported.  ' \
