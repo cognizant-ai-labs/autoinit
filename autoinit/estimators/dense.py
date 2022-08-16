@@ -45,10 +45,10 @@ CONV_1D = (tfkeras.layers.Conv1D, tfkeras.layers.DepthwiseConv1D)
 CONV_2D = (tfkeras.layers.Conv2D, tfkeras.layers.DepthwiseConv2D)
 CONV_3D = tfkeras.layers.Conv3D
 
-DENSE_OR_CONV = (tfkeras.layers.Dense,
-                 tfkeras.layers.Conv1D,
-                 tfkeras.layers.Conv2D,
-                 tfkeras.layers.Conv3D)
+DENSE_OR_REGULAR_CONV = (tfkeras.layers.Dense,
+                         tfkeras.layers.Conv1D,
+                         tfkeras.layers.Conv2D,
+                         tfkeras.layers.Conv3D)
 
 DEPTHWISE_CONV = (tfkeras.layers.DepthwiseConv1D,
                   tfkeras.layers.DepthwiseConv2D)
@@ -72,7 +72,7 @@ class DenseOutputDistributionEstimator(LayerOutputDistributionEstimator):
         elif isinstance(self.layer, CONV_3D):
             axis = [0, 1, 2, 3]
         constraint = CenteredUnitNorm(axis=axis, gain=gain)
-        if isinstance(self.layer, DENSE_OR_CONV):
+        if isinstance(self.layer, DENSE_OR_REGULAR_CONV):
             self.layer.kernel_constraint = constraint
         elif isinstance(self.layer, DEPTHWISE_CONV):
             self.layer.depthwise_constraint = constraint
@@ -124,8 +124,9 @@ class DenseOutputDistributionEstimator(LayerOutputDistributionEstimator):
         gain = math.sqrt(scale)
         distribution = self.estimator_config.get("distribution", "truncated_normal")
         if isinstance(self.layer, DEPTHWISE_CONV):
-            # For depthwise convolutional layers, each channel is convolved with a different
-            # kernel, so we need to multiply the scale/gain by the number of channels.
+            # For depthwise convolutional layers, each kernel takes a single channel as
+            # input (instead of all channels), so we need to multiply the scale/gain by
+            # the number of channels to recover the intended output variance.
             scale *= self.layer.input.shape[-1]
             gain *= self.layer.input.shape[-1]
         if distribution == 'orthogonal':
@@ -134,7 +135,7 @@ class DenseOutputDistributionEstimator(LayerOutputDistributionEstimator):
             initializer = tfkeras.initializers.VarianceScaling(scale=scale,
                                                                distribution=distribution)
 
-        if isinstance(self.layer, DENSE_OR_CONV):
+        if isinstance(self.layer, DENSE_OR_REGULAR_CONV):
             self.layer.kernel_initializer = initializer
         elif isinstance(self.layer, DEPTHWISE_CONV):
             self.layer.depthwise_initializer = initializer
