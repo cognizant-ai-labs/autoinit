@@ -12,7 +12,7 @@
 from setuptools import setup, find_packages
 
 setup(name='autoinit',
-    version='1.1.0',
+    version='1.1.1',
     description='AutoInit: Analytic Signal-Preserving Weight Initialization for Neural Networks',
     author='@garrettbingham',
     author_email='garrett.bingham@cognizant.com',
