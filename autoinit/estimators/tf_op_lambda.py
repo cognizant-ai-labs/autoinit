@@ -35,8 +35,8 @@ class TFOpLambdaOutputDistributionEstimator(LayerOutputDistributionEstimator):
     workaround.  If possible, API calls should be replaced with proper Layer objects.
     """
 
-    def __init__(self, **kwargs):
-        super().__init__(**kwargs)
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
         # Map layer names to estimators.
         self.tf_op_lambda_estimators = {
             'tf.compat.v1.transpose': self._pass_through,
